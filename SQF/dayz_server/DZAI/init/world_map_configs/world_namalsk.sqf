@@ -1,11 +1,17 @@
 /*
-	Namalsk static trigger configuration 
+	Namalsk static/dynamic trigger configuration 
 	
 	Last updated: 11:11 PM 7/5/2013
 	
 */
 
 #include "spawn_markers\markers_namalsk.sqf"	//Load manual spawn point definitions file.
+
+if (DZAI_dynAISpawns) then {
+	"DZAI_centerMarker" setMarkerPos [5880.1313, 8889.1045];
+	"DZAI_centerMarker" setMarkerSize [3000, 3000];
+	if (isNil "DZAI_dynTriggersMax") then {DZAI_dynTriggersMax = 6;};
+};
 
 if (DZAI_verifyTables) then {
 	waitUntil {sleep 0.1; !isNil "DZAI_classnamesVerified"};	//Wait for DZAI to finish verifying classname arrays.
@@ -346,4 +352,4 @@ if (DZAI_staticAI) then {
 //AI hostility to Bloodsuckers by decreasing their leader's rating (untested). Required because Bloodsuckers will aggro on AI.
 sefik addRating -50000;
 
-diag_log "Namalsk static trigger configuration loaded.";
+diag_log "Namalsk static/dynamic trigger configuration loaded.";

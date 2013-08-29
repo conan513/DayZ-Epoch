@@ -1,11 +1,17 @@
 /*
-	Oring static trigger configuration 
+	Oring static/dynamic trigger configuration 
 	
 	Last updated: 11:57 PM 6/6/2013
 	
 */
 
 #include "spawn_markers\markers_oring.sqf"	//Load manual spawn point definitions file.
+
+if (DZAI_dynAISpawns) then {
+	"DZAI_centerMarker" setMarkerPos [5191.1069, 5409.1938];
+	"DZAI_centerMarker" setMarkerSize [4750, 4750];
+	if (isNil "DZAI_dynTriggersMax") then {DZAI_dynTriggersMax = 15;};
+};
 
 if (DZAI_verifyTables) then {
 	waitUntil {sleep 0.1; !isNil "DZAI_classnamesVerified"};	//Wait for DZAI to finish verifying classname arrays.
@@ -335,4 +341,4 @@ if (DZAI_staticAI) then {
 
 //----------------------------End of custom spawn definitions----------------------------
 
-diag_log "Oring static trigger configuration loaded.";
+diag_log "Oring static/dynamic trigger configuration loaded.";

@@ -1,11 +1,17 @@
 /*
-	Panthera static trigger configuration 
+	Panthera static/dynamic trigger configuration 
 	
 	Last updated: 11:57 PM 6/6/2013
 	
 */
 
 #include "spawn_markers\markers_panthera2.sqf"	//Load manual spawn point definitions file.
+
+if (DZAI_dynAISpawns) then {
+	"DZAI_centerMarker" setMarkerPos [5343.6953, 4366.2534];
+	"DZAI_centerMarker" setMarkerSize [3500, 3500];
+	if (isNil "DZAI_dynTriggersMax") then {DZAI_dynTriggersMax = 9;};
+};
 
 if (DZAI_verifyTables) then {
 	waitUntil {sleep 0.1; !isNil "DZAI_classnamesVerified"};	//Wait for DZAI to finish verifying classname arrays.
@@ -455,4 +461,4 @@ if (DZAI_staticAI) then {
 
 //----------------------------End of custom spawn definitions----------------------------
 
-diag_log "Panthera static trigger configuration loaded.";
+diag_log "Panthera static/dynamic trigger configuration loaded.";

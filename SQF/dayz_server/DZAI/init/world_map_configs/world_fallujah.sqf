@@ -1,11 +1,17 @@
 /*
-	Fallujah static trigger configuration 
+	Fallujah static/dynamic trigger configuration 
 	
 	Last updated: 11:08 PM 7/5/2013
 	
 */
 
 #include "spawn_markers\markers_fallujah.sqf"	//Load manual spawn point definitions file.
+
+if (DZAI_dynAISpawns) then {
+	"DZAI_centerMarker" setMarkerPos [5139.8008, 4092.6797];
+	"DZAI_centerMarker" setMarkerSize [4000, 4000];
+	if (isNil "DZAI_dynTriggersMax") then {DZAI_dynTriggersMax = 11;};
+};
 
 if (DZAI_verifyTables) then {
 	waitUntil {sleep 0.1; !isNil "DZAI_classnamesVerified"};	//Wait for DZAI to finish verifying classname arrays.
@@ -349,4 +355,4 @@ if (DZAI_staticAI) then {
 
 //----------------------------End of custom spawn definitions----------------------------
 
-diag_log "Fallujah static trigger configuration loaded.";
+diag_log "Fallujah static/dynamic trigger configuration loaded.";

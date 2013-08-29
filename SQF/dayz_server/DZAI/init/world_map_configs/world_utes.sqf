@@ -1,11 +1,17 @@
 /*
-	Utes static trigger configuration 
+	Utes static/dynamic trigger configuration 
 	
 	Last updated: 11:44 AM 6/7/2013
 	
 */
 
 #include "spawn_markers\markers_utes.sqf"	//Load manual spawn point definitions file.
+
+if (DZAI_dynAISpawns) then {
+	"DZAI_centerMarker" setMarkerPos [3519.8037, 3703.0649];
+	"DZAI_centerMarker" setMarkerSize [1000, 1000];
+	if (isNil "DZAI_dynTriggersMax") then {DZAI_dynTriggersMax = 3;};
+};
 
 if (DZAI_verifyTables) then {
 	waitUntil {sleep 0.1; !isNil "DZAI_classnamesVerified"};	//Wait for DZAI to finish verifying classname arrays.
@@ -120,4 +126,4 @@ if (DZAI_staticAI) then {
 
 //----------------------------End of custom spawn definitions----------------------------
 
-diag_log "Utes static trigger configuration loaded.";
+diag_log "Utes static/dynamic trigger configuration loaded.";

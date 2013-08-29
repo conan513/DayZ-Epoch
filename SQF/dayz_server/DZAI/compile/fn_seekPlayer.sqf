@@ -29,7 +29,7 @@ _waypoint setWaypointStatements ["true","group this setCurrentWaypoint [group th
 _unitGroup setCurrentWaypoint _waypoint;
 
 if (_targetPlayer hasWeapon "ItemRadio") then {
-	[nil,_targetPlayer,"loc",rTITLETEXT,"[RADIO] You are being pursued by a group of bandits.","PLAIN DOWN",0] call RE;
+	[nil,_targetPlayer,"loc",rTITLETEXT,"[RADIO] A nearby bandit group is preparing an ambush.","PLAIN DOWN",0] call RE;
 };
 
 sleep 30;
@@ -44,7 +44,7 @@ while {(alive _targetPlayer) && !(isNull _targetPlayer) && (_targetPlayer isKind
 		(units _unitGroup) doFire _targetPlayer;
 		//Warn player of AI bandit presence if they have a radio.
 		if (_targetPlayer hasWeapon "ItemRadio") then {
-			[nil,_targetPlayer,"loc",rTITLETEXT,"[RADIO] You are being pursued by a group of bandits.","PLAIN DOWN",0] call RE;
+			[nil,_targetPlayer,"loc",rTITLETEXT,"[RADIO] You are being followed by a bandit group.","PLAIN DOWN",0] call RE;
 		};
 	};
 	sleep 30;
@@ -61,7 +61,7 @@ _patrolCenter = if (!(isNull _targetPlayer)) then {getPosATL _targetPlayer} else
 
 sleep 5;
 if ((_targetPlayer hasWeapon "ItemRadio") && !(_unitGroup getVariable ["inPursuit",false])) then {
-	[nil,_targetPlayer,"loc",rTITLETEXT,"[RADIO] The bandits have given up their pursuit.","PLAIN DOWN",0] call RE;
+	[nil,_targetPlayer,"loc",rTITLETEXT,"[RADIO] You have successfully evaded the pursuing bandits.","PLAIN DOWN",0] call RE;
 };
 	
 true

@@ -1,11 +1,17 @@
 /*
-	Celle static trigger configuration 
+	Celle static/dynamic trigger configuration 
 	
 	Last updated: 11:57 PM 6/6/2013
 	
 */
 
 #include "spawn_markers\markers_mbg_celle2.sqf"	//Load manual spawn point definitions file.
+
+if (DZAI_dynAISpawns) then {
+	"DZAI_centerMarker" setMarkerPos [6163.52, 6220.3984];
+	"DZAI_centerMarker" setMarkerSize [6000, 6000];
+	if (isNil "DZAI_dynTriggersMax") then {DZAI_dynTriggersMax = 15;};
+};
 
 if (DZAI_verifyTables) then {
 	waitUntil {sleep 0.1; !isNil "DZAI_classnamesVerified"};	//Wait for DZAI to finish verifying classname arrays.
@@ -439,4 +445,4 @@ if (DZAI_staticAI) then {
 
 //----------------------------End of custom spawn definitions----------------------------
 
-diag_log "Celle static trigger configuration loaded.";
+diag_log "Celle static/dynamic trigger configuration loaded.";

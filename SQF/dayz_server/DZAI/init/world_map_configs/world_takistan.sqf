@@ -1,5 +1,5 @@
 /*
-	Takistan static trigger configuration 
+	Takistan static/dynamic trigger configuration 
 	
 	Last updated: 11:58 PM 6/6/2013
 	
@@ -7,6 +7,12 @@
 
 #include "spawn_markers\markers_takistan.sqf"	//Load manual spawn point definitions file.
 
+if (DZAI_dynAISpawns) then {
+	"DZAI_centerMarker" setMarkerPos [6368.2764, 6624.2744];
+	"DZAI_centerMarker" setMarkerSize [6000, 6000];
+	if (isNil "DZAI_dynTriggersMax") then {DZAI_dynTriggersMax = 16;};
+};
+		
 if (DZAI_verifyTables) then {
 	waitUntil {sleep 0.1; !isNil "DZAI_classnamesVerified"};	//Wait for DZAI to finish verifying classname arrays.
 } else {
@@ -544,4 +550,4 @@ if (DZAI_staticAI) then {
 
 //----------------------------End of custom spawn definitions----------------------------
 
-diag_log "Takistan static trigger configuration loaded.";
+diag_log "Takistan static/dynamic trigger configuration loaded.";

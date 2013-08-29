@@ -1,11 +1,17 @@
 /*
-	Chernarus static trigger configuration 
+	Chernarus static/dynamic trigger configuration 
 	
 	Last updated: 12:06 AM 8/20/2013
 	
 */
 
 #include "spawn_markers\markers_chernarus.sqf"	//Load manual spawn point definitions file.
+
+if (DZAI_dynAISpawns) then {
+	"DZAI_centerMarker" setMarkerPos [7021.9126, 8964.8379];
+	"DZAI_centerMarker" setMarkerSize [5500, 5500];
+	if (isNil "DZAI_dynTriggersMax") then {DZAI_dynTriggersMax = 15;};
+};
 
 if (DZAI_verifyTables) then {
 	waitUntil {sleep 0.1; !isNil "DZAI_classnamesVerified"};	//Wait for DZAI to finish verifying classname arrays.

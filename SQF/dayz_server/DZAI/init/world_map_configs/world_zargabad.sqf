@@ -1,11 +1,18 @@
 /*
-	Zargabad static trigger configuration 
+	Zargabad static/dynamic trigger configuration 
 	
 	Last updated: 11:44 AM 6/7/2013
 	
 */
 
 #include "spawn_markers\markers_zargabad.sqf"	//Load manual spawn point definitions file.
+
+if (DZAI_dynAISpawns) then {
+	"DZAI_centerMarker" setMarkerPos [3917.6201, 3800.0376];
+	"DZAI_centerMarker" setMarkerSize [2000, 2000];
+	DZAI_dynTriggersMax = 5;
+	if (isNil "DZAI_dynTriggersMax") then {DZAI_dynTriggersMax = 5;};
+};
 
 if (DZAI_verifyTables) then {
 	waitUntil {sleep 0.1; !isNil "DZAI_classnamesVerified"};	//Wait for DZAI to finish verifying classname arrays.
@@ -186,4 +193,4 @@ if (DZAI_staticAI) then {
 //----------------------------End of custom spawn definitions----------------------------
 
 //End of custom triggers
-diag_log "Zargabad static trigger configuration loaded.";
+diag_log "Zargabad static/dynamic trigger configuration loaded.";

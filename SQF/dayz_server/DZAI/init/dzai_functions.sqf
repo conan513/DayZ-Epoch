@@ -372,15 +372,6 @@ DZAI_static_spawn = {
 };
 */
 
-//Creates a cover of temporary smoke at target location.
-/*DZAI_smokeCover = {
-	private ["_shell","_shellSpawned"];
-	
-	_shell = ["SmokeShell","SmokeShellGreen","SmokeShellRed"] call BIS_fnc_selectRandom2;
-	_shellSpawned = createVehicle [_shell, _this, [], 0, "NONE"];
-};
-*/
-
 DZAI_plusMinus = {
 	private ["_baseValue","_variance"];
 	_baseValue = _this select 0;

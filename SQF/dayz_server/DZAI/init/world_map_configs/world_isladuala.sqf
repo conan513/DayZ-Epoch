@@ -1,11 +1,17 @@
 /*
-	Isladuala static trigger configuration 
+	Isladuala static/dynamic trigger configuration 
 	
 	Last updated: 11:08 PM 7/5/2013
 	
 */
 
 #include "spawn_markers\markers_isladuala.sqf"	//Load manual spawn point definitions file.
+
+if (DZAI_dynAISpawns) then {
+	"DZAI_centerMarker" setMarkerPos [4945.3438, 4919.6616];
+	"DZAI_centerMarker" setMarkerSize [4000, 4000];
+	if (isNil "DZAI_dynTriggersMax") then {DZAI_dynTriggersMax = 8;};
+};
 
 if (DZAI_verifyTables) then {
 	waitUntil {sleep 0.1; !isNil "DZAI_classnamesVerified"};	//Wait for DZAI to finish verifying classname arrays.
@@ -646,4 +652,4 @@ if (DZAI_staticAI) then {
 
 //----------------------------End of custom spawn definitions----------------------------
 
-diag_log "Isladuala static trigger configuration loaded.";
+diag_log "Isladuala static/dynamic trigger configuration loaded.";

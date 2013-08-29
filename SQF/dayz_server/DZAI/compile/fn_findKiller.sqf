@@ -25,7 +25,7 @@ _unitGroup reveal [(vehicle _killer),4];
 _trigger = (group _victim) getVariable "trigger";
 
 //Calculate detection range.
-_detectRange = (350 + (random 100) - (random 100)); //Min: 250, Max: 450
+_detectRange = 250 + (random 200); //Min: 250, Max: 450
 	
 if (((_victim distance _killer) < _detectRange) && (_killer isKindOf "Man")) then {
 	private["_endTime"];
@@ -46,7 +46,7 @@ if (((_victim distance _killer) < _detectRange) && (_killer isKindOf "Man")) the
 		(units _unitGroup) doMove _killerPos;
 		if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: AI group %3 in pursuit state. Time: %1/%2.",time,_endTime,_unitGroup];};
 		if (_killer hasWeapon "ItemRadio") then {
-			[nil,_killer,"loc",rTITLETEXT,"[RADIO] You are being pursued by a group of bandits.","PLAIN DOWN",0] call RE;
+			[nil,_killer,"loc",rTITLETEXT,"[RADIO] A nearby bandit group is aware of your presence.","PLAIN DOWN",0] call RE;
 		};
 		sleep 15;
 	};
