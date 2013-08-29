@@ -8,7 +8,7 @@
 	Last updated: 4:44 PM 8/2/2013
 	
 */
-private ["_trigger","_grpArray","_isCleaning","_grpCount","_totalGroupSize"];
+private ["_trigger","_grpArray","_isCleaning","_grpCount"];
 if (!isServer) exitWith {};							//Execute script only on server.
 
 _trigger = _this select 0;							//Get the trigger object
@@ -45,7 +45,6 @@ if (triggerActivated _trigger) exitWith {			//Exit script if trigger has been re
 	_trigger setVariable ["isCleaning",false,false];	//Allow next despawn request.
 };			
 
-_totalGroupSize = 0;
 {
 	if (DZAI_debugMarkers > 0) then {
 		{
@@ -56,17 +55,12 @@ _totalGroupSize = 0;
 		} forEach (waypoints _x);
 		sleep 0.1;
 	};
-	//Delete live units
-	{deleteVehicle _x} forEach (units _x);
-	_totalGroupSize = _totalGroupSize + (_x getVariable ["groupSize",0]);
+	DZAI_numAIUnits = DZAI_numAIUnits - (_x getVariable ["groupSize",0]); //Update active AI count
+	{deleteVehicle _x} forEach (units _x); //Delete live units
 	if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: Group %1 has group size %2.",_x,(_x getVariable ["groupSize",0])];};
 	sleep 0.5;
 	deleteGroup _x;									//Delete the group after its units are deleted.
 } forEach _grpArray;
-
-//Update active AI count
-DZAI_numAIUnits = DZAI_numAIUnits - _totalGroupSize;
-if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: _totalGroupSize: %1",_totalGroupSize];};
 
 //Cleanup variables attached to trigger
 _trigger setVariable ["GroupArray",[],false];
@@ -74,7 +68,7 @@ _trigger setVariable ["isCleaning",nil,false];
 _trigger setVariable ["patrolDist",nil,false];
 _trigger setVariable ["gradeChances",nil,false];
 DZAI_actTrigs = (DZAI_actTrigs - 1);
-if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Despawned %1 AI at %2. Resetting trigger's group array.",_totalGroupSize,(triggerText _trigger)];};
+if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Despawned AI units at %1. Resetting trigger's group array.",(triggerText _trigger)];};
 if (DZAI_debugMarkers > 0) then {
 	private["_tMarker"];
 	_tMarker = str (_trigger);

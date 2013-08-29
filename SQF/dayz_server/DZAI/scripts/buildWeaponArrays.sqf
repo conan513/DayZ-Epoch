@@ -27,6 +27,10 @@ for "_i" from 0 to ((count _unwantedWeapons) - 1) do {
 //Compatibility with Namalsk's selectable loot table feature.
 if (isNil "dayzNam_buildingLoot") then {
 	_cfgBuildingLoot = "cfgBuildingLoot";
+	if ((toLower worldName) == "trinity") then {
+		//Fix for Trinity Island's Barracks loot table.
+		_bldgClasses set [2,["Barracks"]];
+	};
 } else {
 	_cfgBuildingLoot = dayzNam_buildingLoot;
 	(_bldgClasses select 3) set [((_bldgClasses select 3) find "HeliCrash"),"HeliCrashNamalsk"];

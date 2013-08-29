@@ -335,23 +335,29 @@ DZAI_relocDynTrigger = {
 	_newPos
 };
 
-/*
 //Creates static spawn trigger (in development)
-//Syntax: 	[
+/*Syntax: 	[
 				_spawnMarker, 		//Circular marker defining patrol radius.
 				[_minAI,_addAI],	//Minimum and maximum bonus amount of AI units per group.
 				_positionArray,		//(Optional, default []): Array of markers defining possible spawn points. If omitted or left empty, nearby buildings within 250m radius will be used as spawn points.
 				_equipType,			//(Optional, default 1): Number between 0-3. Defines AI weapon selection and skill parameters.
 				_numGroups			//(Optional, default 1): Number of AI groups to spawn using the above parameters.			
 			] call DZAI_static_spawn;
-			
+*/			
 DZAI_static_spawn = {
 	private ["_spawnMarker","_minAI","_addAI","_positionArray","_equipType","_numGroups","_patrolRadius","_trigStatements","_trigger"];
 	
-	if ((count _this) < 2) exitWith {diag_log format ["DZAI Error: DZAI_static_spawn expected at least 2 arguments, found %1.",(count _this)]; false};
+	if ((count _this) < 1) exitWith {diag_log format ["DZAI Error: DZAI_static_spawn expected at least 1 argument, found %1.",(count _this)]; false};
 	_spawnMarker = _this select 0;
-	_minAI = (_this select 1) select 0;
-	_addAI = (_this select 1) select 1;
+	_spawnMarker setMarkerAlpha 0;
+	
+	if ((count _this) > 1) then {
+		_minAI = (_this select 1) select 0;
+		_addAI = (_this select 1) select 1;
+	} else {
+		_minAI = 1;
+		_addAI = 1;
+	};
 	_positionArray = if ((count _this) > 2) then {_this select 2} else {[]};
 	_equipType = if ((count _this) > 3) then {_this select 3} else {1};
 	_numGroups = if ((count _this) > 4) then {_this select 4} else {1};
@@ -366,11 +372,8 @@ DZAI_static_spawn = {
 	_trigger setTriggerText _spawnMarker;
 	_trigger setTriggerStatements ["{isPlayer _x} count thisList > 0;",_trigStatements,"_nul = [thisTrigger] spawn fnc_despawnBandits;"];
 	
-	if ((markerAlpha _spawnMarker) > 0) then {_spawnMarker setMarkerAlpha 0};
-	
 	true
 };
-*/
 
 DZAI_plusMinus = {
 	private ["_baseValue","_variance"];

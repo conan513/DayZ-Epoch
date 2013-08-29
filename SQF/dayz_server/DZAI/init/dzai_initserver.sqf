@@ -159,6 +159,11 @@ switch (_worldname) do {
 		call compile preprocessFileLineNumbers "\z\addons\dayz_server\DZAI\init\world_classname_configs\sara_classnames.sqf";
 		[] execVM "\z\addons\dayz_server\DZAI\init\world_map_configs\world_sara.sqf";
     };
+	case "trinity":
+	{
+		call compile preprocessFileLineNumbers "\z\addons\dayz_server\DZAI\init\world_classname_configs\trinity_classnames.sqf";
+		[] execVM "\z\addons\dayz_server\DZAI\init\world_map_configs\world_trinity.sqf";
+    };
 	case default {
 		"DZAI_centerMarker" setMarkerSize [7000, 7000];
 		DZAI_dynTriggersMax = 15;

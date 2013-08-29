@@ -14,12 +14,6 @@ _victim = _this select 0;
 _unitGroup = _this select 1;
 
 _trigger = _unitGroup getVariable "trigger";
-
-//Add unit to group's list of dead units.
-_deadUnits = _unitGroup getVariable ["deadUnits",[]];
-_deadUnits set [(count _deadUnits),_victim];
-_unitGroup setVariable ["deadUnits",_deadUnits];
-
 _unitsAlive = {alive _x} count (units _unitGroup);
 
 //If all units in the group have died, create dummy AI unit to preserve group, then begin force despawn process.

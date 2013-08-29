@@ -9,12 +9,12 @@
 	Last updated: 3:05 PM 6/24/2013
 */
 
-private ["_victim","_sleepTime","_unitGroup","_trigger","_dummy","_unitsAlive","_deadUnits"];
+private ["_victim","_sleepTime","_unitGroup","_trigger","_dummy","_unitsAlive"];
+
 _victim = _this select 0;
 _unitGroup = _this select 1;
 
 _trigger = _unitGroup getVariable "trigger";
-
 _unitsAlive = {alive _x} count (units _unitGroup);
 //diag_log format ["%1 units alive in group.",_unitsAlive];
 

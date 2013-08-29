@@ -10,7 +10,7 @@
 */
 #include "\z\addons\dayz_server\DZAI\init\dyn_trigger_configs\dyn_trigger_defs.hpp"
 
-private ["_trigger","_grpArray","_isCleaning","_grpCount","_waitTime","_newPos","_forceDespawn","_attempts","_totalGroupSize"];
+private ["_trigger","_grpArray","_isCleaning","_grpCount","_waitTime","_newPos","_forceDespawn","_attempts"];
 if (!isServer) exitWith {};										//Execute script only on server.
 
 _trigger = _this select 0;										//Get the trigger object
@@ -53,7 +53,6 @@ if ((triggerActivated _trigger) && (!_forceDespawn)) exitWith {
 	};
 };			
 
-_totalGroupSize = 0;
 {
 	if (DZAI_debugMarkers > 0) then {
 		{
@@ -64,16 +63,12 @@ _totalGroupSize = 0;
 		} forEach (waypoints _x);
 		sleep 0.1;
 	};
+	DZAI_numAIUnits = DZAI_numAIUnits - (_x getVariable ["groupSize",0]);	//Update active AI count
 	{deleteVehicle _x} forEach (units _x);							//Delete live units
-	_totalGroupSize = _totalGroupSize + (_x getVariable ["groupSize",0]);
 	sleep 0.5;
-	deleteGroup _x;										//Delete the group after its units are deleted.
+	deleteGroup _x;													//Delete the group after its units are deleted.
 	sleep 0.1;
 } forEach _grpArray;
-
-//Update active AI count
-DZAI_numAIUnits = DZAI_numAIUnits - _totalGroupSize;
-if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: _totalGroupSize: %1",_totalGroupSize];};
 
 //Restore original trigger statements
 _trigger setTriggerStatements [DYNTRIG_STATEMENTS_INACTIVE];
@@ -98,6 +93,6 @@ _trigger setVariable ["gradeChances",nil,false];
 _trigger setVariable ["forceDespawn",nil,false];
 
 DZAI_actDynTrigs = (DZAI_actDynTrigs - 1);
-if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Despawned %1 AI in dynamic trigger area. Trigger relocated to %2.",_totalGroupSize,_newPos];};
+if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Despawned AI in dynamic trigger area. Trigger relocated to %1.",_newPos];};
 
 true
