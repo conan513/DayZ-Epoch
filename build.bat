@@ -1,9 +1,12 @@
 @echo off
 COLOR 0B
 
+if exist Build (RD /S /Q Build & mkdir Build) else mkdir Build
+
 cd SQF
 echo Build PBO files...
 echo.
+
 ..\Tools\cpbo.exe -y -p dayz_anim
 ..\Tools\cpbo.exe -y -p dayz_code
 ..\Tools\cpbo.exe -y -p dayz_epoch
@@ -13,46 +16,55 @@ echo.
 ..\Tools\cpbo.exe -y -p epoch_buildings
 
 echo.
-echo Generate bikey's...
+echo Move PBO files...
 echo.
 
-..\Tools\DSCreateKey.exe dayz_anim.pbo
-..\Tools\DSCreateKey.exe dayz_code.pbo
-..\Tools\DSCreateKey.exe dayz_epoch.pbo
-..\Tools\DSCreateKey.exe dayz_epoch_b.pbo
-REM ..\Tools\DSCreateKey.exe dayz_server.pbo
-..\Tools\DSCreateKey.exe dayz_sfx.pbo
-..\Tools\DSCreateKey.exe epoch_buildings.pbo
+mkdir ..\Build\@DayZ_Epoch\addons\
+mkdir ..\Build\server\
+move dayz_anim.pbo ..\Build\@DayZ_Epoch\addons\
+move dayz_code.pbo ..\Build\@DayZ_Epoch\addons\
+move dayz_epoch.pbo ..\Build\@DayZ_Epoch\addons\
+move dayz_epoch_b.pbo ..\Build\@DayZ_Epoch\addons\
+move dayz_server.pbo ..\Build\server\
+move dayz_sfx.pbo ..\Build\@DayZ_Epoch\addons\
+move epoch_buildings.pbo ..\Build\@DayZ_Epoch\addons\
+
+echo.
+echo Generate bikey...
+echo.
+
+if exist ..\Build\Keys (RD /S /Q ..\Build\Keys & mkdir ..\Build\Keys) else mkdir ..\Build\Keys
+cd ..\Build\Keys
+..\..\Tools\DSCreateKey.exe dayz_spp2
+copy "..\..\Server Files\Keys\dayz_spp.bikey" .\
 
 echo.
 echo Generate bisign's...
 echo.
 
-..\Tools\DSSignFile.exe dayz_anim.pbo.biprivatekey dayz_anim.pbo
-..\Tools\DSSignFile.exe dayz_code.pbo.biprivatekey dayz_code.pbo
-..\Tools\DSSignFile.exe dayz_epoch.pbo.biprivatekey dayz_epoch.pbo
-..\Tools\DSSignFile.exe dayz_epoch_b.pbo.biprivatekey dayz_epoch_b.pbo
-REM ..\Tools\DSSignFile.exe dayz_server.pbo.biprivatekey dayz_server.pbo
-..\Tools\DSSignFile.exe dayz_sfx.pbo.biprivatekey dayz_sfx.pbo
-..\Tools\DSSignFile.exe epoch_buildings.pbo.biprivatekey epoch_buildings.pbo
+..\..\Tools\DSSignFile.exe dayz_spp2.biprivatekey ..\@DayZ_Epoch\addons\dayz_anim.pbo
+..\..\Tools\DSSignFile.exe dayz_spp2.biprivatekey ..\@DayZ_Epoch\addons\dayz_code.pbo
+..\..\Tools\DSSignFile.exe dayz_spp2.biprivatekey ..\@DayZ_Epoch\addons\dayz_epoch.pbo
+..\..\Tools\DSSignFile.exe dayz_spp2.biprivatekey ..\@DayZ_Epoch\addons\dayz_epoch_b.pbo
+..\..\Tools\DSSignFile.exe dayz_spp2.biprivatekey ..\@DayZ_Epoch\addons\dayz_sfx.pbo
+..\..\Tools\DSSignFile.exe dayz_spp2.biprivatekey ..\@DayZ_Epoch\addons\epoch_buildings.pbo
 
 echo.
 echo Move and clean files...
 echo.
 
-move dayz_server.pbo ..\Build\server\
-del *.bikey
-echo.
-move *.pbo ..\Build\@DayZ_Epoch\addons\
-echo.
-move *.bisign ..\Build\@DayZ_Epoch\addons\
+
 echo.
 del *.biprivatekey
 
-cd .. & cd Server Files\MPMissions\
+echo.
+echo Build missions...
+echo.
+
+cd ..\.. & cd Server Files\MPMissions\
 ..\..\Tools\cpbo.exe -y -p DayZ_Epoch_11.Chernarus
 echo.
-if exist ..\..\Build\MPMissions (RD /S /Q ..\..\Build\MPMissions & mkdir ..\..\Build\MPMissions) else mkdir ..\..\Build\MPMissions\
+mkdir ..\..\Build\MPMissions\
 move DayZ_Epoch_11.Chernarus.pbo ..\..\Build\MPMissions\
 
 pause
