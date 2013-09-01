@@ -36,7 +36,6 @@ echo.
 if exist ..\Build\Keys (RD /S /Q ..\Build\Keys & mkdir ..\Build\Keys) else mkdir ..\Build\Keys
 cd ..\Build\Keys
 ..\..\Tools\DSCreateKey.exe dayz_spp2
-copy "..\..\Server Files\Keys\dayz_spp.bikey" .\
 
 echo.
 echo Generate bisign's...
