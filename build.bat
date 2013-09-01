@@ -101,7 +101,5 @@ copy Tools\redist\*.* Build\Tools\redist
 
 tools\3rdparty\rar.exe x "Server Files\Database.rar" Build\Tools
 
-copy Tools
-
 pause
 exit
