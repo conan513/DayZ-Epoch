@@ -30,3 +30,7 @@ if (isNil "DZAI_Use_Default_Settings") exitWith {};
 //Add your preferred settings below this line.
 
 DZAI_modName = "epoch";
+DZAI_objPatch = true;
+DZAI_weaponNoise = 1.00;
+DZAI_aiHeliPatrols = true;
+DZAI_maxHeliPatrols = 10;
