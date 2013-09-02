@@ -104,20 +104,4 @@ if (!isDedicated) then {
 	_playerMonitor = 	[] execVM "\z\addons\dayz_code\system\player_monitor.sqf";	
 	_void = [] execVM "R3F_Realism\R3F_Realism_Init.sqf";
 };
-
-// Logo watermark: adding a logo in the bottom left corner of the screen with the server name in it
-if (!isNil "dayZ_serverName") then {
-	[] spawn {
-		waitUntil {(!isNull Player) and (alive Player) and (player == player)};
-		waituntil {!(isNull (findDisplay 46))};
-		5 cutRsc ["wm_disp","PLAIN"];
-		((uiNamespace getVariable "wm_disp") displayCtrl 1) ctrlSetText dayZ_serverName;
-	};
-};
-
-// DayZ of Glory Mod By Sporkulus //////////////////////////////////
-Use_spork = true; //turn this false to disable sporks whole mod.
-AdminList = ["6864384", "116341702"]; //add admin uids here
-[Use_spork,AdminList] execvm "@DayZofDuty\dod\debug.sqf";
-
 #include "\z\addons\dayz_code\system\REsec.sqf"
