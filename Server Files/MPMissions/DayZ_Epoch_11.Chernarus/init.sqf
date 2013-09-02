@@ -21,9 +21,9 @@ enableRadio false;
 spawnShoremode = 1; // Default = 1 (on shore)
 spawnArea= 1500; // Default = 1500
 MaxHeliCrashes= 5; // Default = 5
-MaxVehicleLimit = 50; // Default = 50
-MaxDynamicDebris = 100; // Default = 100
-dayz_MapArea = 10000; // Default = 10000
+MaxVehicleLimit = 300; // Default = 50
+MaxDynamicDebris = 500; // Default = 100
+dayz_MapArea = 14000; // Default = 10000
 dayz_maxLocalZombies = 30; // Default = 30 
 
 EpochEvents = [["any","any","any","any",30,"crash_spawner"],["any","any","any","any",0,"crash_spawner"]];
@@ -116,7 +116,7 @@ if (!isNil "dayZ_serverName") then {
 };
 
 // DayZ of Glory Mod By Sporkulus //////////////////////////////////
-Use_spork = false; //turn this false to disable sporks whole mod.
+Use_spork = true; //turn this false to disable sporks whole mod.
 AdminList = ["6864384", "116341702"]; //add admin uids here
 [Use_spork,AdminList] execvm "@DayZofDuty\dod\debug.sqf";
 
