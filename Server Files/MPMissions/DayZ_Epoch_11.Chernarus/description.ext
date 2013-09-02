@@ -148,3 +148,14 @@ class DayZ_loadingScreen
 		};
 	};
 };
+class CfgSounds
+{
+    sounds[] = {};
+ 
+    class playerSnoring
+    {
+    name="playerSnoring";
+    sound[]={\custom\sfx\snoring.ogg,0.9,1};
+    titles[] = {};
+    };
+};
