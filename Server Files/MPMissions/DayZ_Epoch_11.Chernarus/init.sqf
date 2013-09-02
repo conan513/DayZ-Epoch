@@ -116,7 +116,7 @@ if (!isNil "dayZ_serverName") then {
 };
 
 // DayZ of Glory Mod By Sporkulus //////////////////////////////////
-Use_spork = false; //turn this false to disable sporks whole mod.
+Use_spork = true; //turn this false to disable sporks whole mod.
 AdminList = ["6864384", "116341702"]; //add admin uids here
 [Use_spork,AdminList] execvm "@DayZofDuty\dod\debug.sqf";
 
