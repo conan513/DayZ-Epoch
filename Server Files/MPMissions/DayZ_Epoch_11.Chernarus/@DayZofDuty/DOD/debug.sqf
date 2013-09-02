@@ -1135,8 +1135,6 @@ if (IsDebug) then
 			<t size='1' color='#ff8800'>Exp: </t><t size='1' color='#ff0000'>%3\%1</t><br/>
 			<t size='1' color='#ff8800'>Money: </t><t size='1' color='#ff0000'>$%7</t><br/>
 			<t size='1' color='#ff8800'>Money in Bank: </t><t size='1' color='#ff0000'>$%10</t><br/>
-			<t size='1' color='#ff8800'></t><br/>
-			<t size='1' color='#ff8800'>Exp This Session: </t><t size='1' color='#ff0000'>%4</t>",
 			(_Nextlvlz),
 			(_levelz),
 			(_moneyz),

@@ -33,5 +33,5 @@ DZAI_modName = "epoch";
 DZAI_objPatch = true;
 DZAI_weaponNoise = 1.00;
 DZAI_aiHeliPatrols = true;
-DZAI_maxHeliPatrols = 10;
+DZAI_maxHeliPatrols = 5;
 DZAI_heliTypes = ["UH1H_DZ","Mi17_DZ"];
