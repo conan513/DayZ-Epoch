@@ -1126,7 +1126,10 @@ profileNamespace setVariable ["money",mymoneyz]; saveProfileNamespace;
 if (IsDebug) then
 {
 			hintSilent parseText format ["
-			<t size='1.3' color='#FFFFFF'>Player Stats</t><br/>
+			<t size='1.3' color='#FFFFFF'>DayZ of Glory</t><br/>
+			<t size='1' color='#ff8800'></t><br/>
+			<t size='1' color='#ff8800'>Website: </t><t size='1' color='#ff0000'>%11</t><br/>
+			<t size='1' color='#ff8800'>TS: </t><t size='1' color='#ff0000'>%12</t><br/>
 			<t size='1' color='#ff8800'></t><br/>
 			<t size='1' color='#ff8800'>Health: </t><t size='1' color='#ff0000'>%6</t><br/>
 			<t size='1' color='#ff8800'>Level: </t><t size='1' color='#ff0000'>%2</t><br/>
@@ -1136,6 +1139,7 @@ if (IsDebug) then
 			<t size='1' color='#ff8800'>Money: </t><t size='1' color='#ff0000'>$%7</t><br/>
 			<t size='1' color='#ff8800'>Money in Bank: </t><t size='1' color='#ff0000'>$%10</t><br/>
 			<t size='1' color='#ff8800'></t><br/>
+			<t size='1' color='#ff8800'>Time to Restart: </t><t size='1' color='#ff0000'>%5</t><br/>
 			<t size='1' color='#ff8800'>Exp This Session: </t><t size='1' color='#ff0000'>%4</t>",
 			(_Nextlvlz),
 			(_levelz),
