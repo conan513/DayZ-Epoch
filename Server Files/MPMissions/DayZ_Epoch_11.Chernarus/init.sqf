@@ -104,4 +104,8 @@ if (!isDedicated) then {
 	_playerMonitor = 	[] execVM "\z\addons\dayz_code\system\player_monitor.sqf";	
 	_void = [] execVM "R3F_Realism\R3F_Realism_Init.sqf";
 };
+
+// CPC Nametags
+[] execVM "cpcnametags.sqf";
+
 #include "\z\addons\dayz_code\system\REsec.sqf"
