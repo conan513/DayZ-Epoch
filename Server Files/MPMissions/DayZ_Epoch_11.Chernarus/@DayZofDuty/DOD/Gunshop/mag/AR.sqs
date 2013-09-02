@@ -1,0 +1,29 @@
+
+
+(_this select 0) removeaction mExit
+(_this select 0) removeaction HGm000
+(_this select 0) removeaction SGm000
+(_this select 0) removeaction SMGm000
+(_this select 0) removeaction ARm000
+(_this select 0) removeaction MGm000
+(_this select 0) removeaction HRm000
+(_this select 0) removeaction RLm000
+
+
+ARmExit = (_this select 0) addaction ["EXIT","@DayZofDuty\dod\gunshop\mag\AR\exit.sqs"]
+ARm001 = (_this select 0) addaction ["Buy Lee Enfield ammo (10$)","@DayZofDuty\dod\gunshop\mag\AR\lee.sqs"]
+ARm002 = (_this select 0) addaction ["Buy AK47 ammo (15$)","@DayZofDuty\dod\gunshop\mag\AR\ak47.sqs"]
+ARm003 = (_this select 0) addaction ["Buy AK74-AK107 ammo (15$)","@DayZofDuty\dod\gunshop\mag\AR\ak74.sqs"]
+ARm004 = (_this select 0) addaction ["Buy FN-FAL ammo (15$)","@DayZofDuty\dod\gunshop\mag\AR\fnFal.sqs"]
+ARm005 = (_this select 0) addaction ["Buy M14 ammo (15$)","@DayZofDuty\dod\gunshop\mag\AR\m14.sqs"]
+ARm006 = (_this select 0) addaction ["Buy 556 NATO ammo (15$)","@DayZofDuty\dod\gunshop\mag\AR\m16a2.sqs"]
+ARm007 = (_this select 0) addaction ["Buy 556 NATO SD ammo (15$)","@DayZofDuty\dod\gunshop\mag\AR\m16a2sd.sqs"]
+//ARm008 = (_this select 0) addaction ["Buy MK17 ammo (15$)","@DayZofDuty\dod\gunshop\mag\AR\mk17.sqs"]
+//ARm009 = (_this select 0) addaction ["Buy MK17 SD ammo (15$)","@DayZofDuty\dod\gunshop\mag\AR\mk17sd.sqs"]
+
+
+exit
+
+
+
+

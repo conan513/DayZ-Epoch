@@ -1,0 +1,22 @@
+? myMoneyZ >= 250 : goto "next"
+~1
+goto "poor"
+
+#next
+player addWeapon "binocular"
+
+myMoneyZ = myMoneyZ - 250
+~1
+hint format ["You have only %1 $ now", myMoneyZ]
+
+
+exit
+
+
+
+
+#poor
+Hint "Not enough money, comeback later"
+
+
+exit

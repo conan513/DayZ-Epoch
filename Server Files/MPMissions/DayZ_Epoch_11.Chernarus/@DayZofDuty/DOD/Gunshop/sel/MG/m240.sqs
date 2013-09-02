@@ -1,0 +1,22 @@
+? player hasWeapon "M240" : goto "next"
+~1
+goto "close"
+
+#next
+player removeWeapon "M240"
+
+myMoneyZ = myMoneyZ + 1000
+~1
+hint format ["You have only %1 $ now", myMoneyZ]
+
+
+exit
+
+
+
+
+#close
+Hint "You don't have that weapon, comeback when you have it"
+
+
+exit

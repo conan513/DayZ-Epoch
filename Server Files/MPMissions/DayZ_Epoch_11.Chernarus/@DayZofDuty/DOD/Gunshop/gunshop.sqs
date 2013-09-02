@@ -1,0 +1,12 @@
+
+
+
+gun = (_this select 0) addaction ["Buy a weapon","@DayZofDuty\dod\gunshop\gun.sqs"]
+mag = (_this select 0) addaction ["Buy some ammo","@DayZofDuty\dod\gunshop\mag.sqs"]
+sel = (_this select 0) addaction ["Sell some stuff","@DayZofDuty\dod\gunshop\sel.sqs"]
+
+exit
+
+
+
+

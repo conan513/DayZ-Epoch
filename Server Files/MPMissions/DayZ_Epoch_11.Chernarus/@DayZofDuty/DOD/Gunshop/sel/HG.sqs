@@ -1,0 +1,29 @@
+
+
+(_this select 0) removeaction sExit
+(_this select 0) removeaction HGs000
+(_this select 0) removeaction SGs000
+(_this select 0) removeaction SMGs000
+(_this select 0) removeaction ARs000
+(_this select 0) removeaction MGs000
+(_this select 0) removeaction HRs000
+(_this select 0) removeaction RLs000
+(_this select 0) removeaction OTs000
+
+
+HGsExit = (_this select 0) addaction ["EXIT","@DayZofDuty\dod\gunshop\sel\HG\exit.sqs"]
+HGs001 = (_this select 0) addaction ["Sell Makarov (100$)","@DayZofDuty\dod\gunshop\sel\HG\makarov.sqs"]
+HGs002 = (_this select 0) addaction ["Sell Makarov SD (150$)","@DayZofDuty\dod\gunshop\sel\HG\makarovsd.sqs"]
+HGs003 = (_this select 0) addaction ["Sell Colt 1911 (167$)","@DayZofDuty\dod\gunshop\sel\HG\1911.sqs"]
+HGs004 = (_this select 0) addaction ["Sell Glock 17 (183$)","@DayZofDuty\dod\gunshop\sel\HG\glock17.sqs"]
+HGs005 = (_this select 0) addaction ["Sell Beretta M9 (213$)","@DayZofDuty\dod\gunshop\sel\HG\m9.sqs"]
+HGs006 = (_this select 0) addaction ["Sell Beretta M9 SD (263$)","@DayZofDuty\dod\gunshop\sel\HG\m9sd.sqs"]
+HGs007 = (_this select 0) addaction ["Sell Revolver 45 ACP (267$)","@DayZofDuty\dod\gunshop\sel\HG\revolver.sqs"]
+HGs008 = (_this select 0) addaction ["Sell Revolver 45 ACP Gold (300$)","@DayZofDuty\dod\gunshop\sel\HG\revolverG.sqs"]
+
+
+exit
+
+
+
+

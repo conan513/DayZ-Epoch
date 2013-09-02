@@ -1,0 +1,23 @@
+? myMoneyZ >= 1650 : goto "next"
+~1
+goto "poor"
+
+#next
+player addMagazine "64Rnd_9x19_SD_Bizon"
+player addWeapon "bizon_silenced"
+
+myMoneyZ = myMoneyZ - 1650
+~1
+hint format ["You have only %1 $ now", myMoneyZ]
+
+
+exit
+
+
+
+
+#poor
+Hint "Not enough money, comeback later"
+
+
+exit

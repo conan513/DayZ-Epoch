@@ -1,0 +1,483 @@
+
+
+;Time to remove all these action
+
+;Primary action
+(_this select 0) removeaction gun
+(_this select 0) removeaction mag
+(_this select 0) removeaction oth
+(_this select 0) removeaction sel
+
+;Weapon action
+;Handgun action
+(_this select 0) removeaction gExit
+(_this select 0) removeaction HGgExit
+(_this select 0) removeaction HGw000
+(_this select 0) removeaction HGw001
+(_this select 0) removeaction HGw002
+(_this select 0) removeaction HGw003
+(_this select 0) removeaction HGw004
+(_this select 0) removeaction HGw005
+(_this select 0) removeaction HGw006
+(_this select 0) removeaction HGw007
+(_this select 0) removeaction HGw008
+
+;Shotgun action
+(_this select 0) removeaction SGgExit
+(_this select 0) removeaction SGw000
+(_this select 0) removeaction SGw001
+(_this select 0) removeaction SGw002
+
+;Submachine gun action
+(_this select 0) removeaction SMGgExit
+(_this select 0) removeaction SMGw000
+(_this select 0) removeaction SMGW001
+(_this select 0) removeaction SMGW002
+(_this select 0) removeaction SMGW003
+(_this select 0) removeaction SMGW004
+(_this select 0) removeaction SMGW005
+(_this select 0) removeaction SMGW006
+(_this select 0) removeaction SMGW007
+(_this select 0) removeaction SMGW008
+(_this select 0) removeaction SMGW009
+(_this select 0) removeaction SMGW010
+
+;Assault rifle action
+(_this select 0) removeaction ARgExit
+(_this select 0) removeaction ARw000
+(_this select 0) removeaction ARW001
+(_this select 0) removeaction ARW002
+(_this select 0) removeaction ARW003
+(_this select 0) removeaction ARW004
+(_this select 0) removeaction ARW005
+(_this select 0) removeaction ARW006
+(_this select 0) removeaction ARW007
+(_this select 0) removeaction ARW008
+(_this select 0) removeaction ARW009
+(_this select 0) removeaction ARW010
+(_this select 0) removeaction ARW011
+(_this select 0) removeaction ARW012
+(_this select 0) removeaction ARW013
+(_this select 0) removeaction ARW014
+(_this select 0) removeaction ARW015
+(_this select 0) removeaction ARW016
+(_this select 0) removeaction ARW017
+(_this select 0) removeaction ARW018
+(_this select 0) removeaction ARW019
+(_this select 0) removeaction ARW020
+(_this select 0) removeaction ARW021
+(_this select 0) removeaction ARW022
+(_this select 0) removeaction ARW023
+(_this select 0) removeaction ARW024
+(_this select 0) removeaction ARW025
+(_this select 0) removeaction ARW026
+(_this select 0) removeaction ARW027
+(_this select 0) removeaction ARW028
+(_this select 0) removeaction ARW029
+(_this select 0) removeaction ARW030
+(_this select 0) removeaction ARW031
+(_this select 0) removeaction ARW032
+(_this select 0) removeaction ARW033
+(_this select 0) removeaction ARW034
+(_this select 0) removeaction ARW035
+(_this select 0) removeaction ARW036
+(_this select 0) removeaction ARW037
+(_this select 0) removeaction ARW038
+(_this select 0) removeaction ARW039
+(_this select 0) removeaction ARW040
+(_this select 0) removeaction ARW041
+(_this select 0) removeaction ARW042
+(_this select 0) removeaction ARW043
+(_this select 0) removeaction ARW044
+(_this select 0) removeaction ARW045
+(_this select 0) removeaction ARW046
+(_this select 0) removeaction ARW047
+(_this select 0) removeaction ARW048
+(_this select 0) removeaction ARW049
+(_this select 0) removeaction ARW050
+(_this select 0) removeaction ARW051
+(_this select 0) removeaction ARW052
+(_this select 0) removeaction ARW053
+(_this select 0) removeaction ARW054
+(_this select 0) removeaction ARW055
+(_this select 0) removeaction ARW056
+(_this select 0) removeaction ARW057
+(_this select 0) removeaction ARW058
+(_this select 0) removeaction ARW059
+
+;Machine gun action
+(_this select 0) removeaction MGgExit
+(_this select 0) removeaction MGw000
+(_this select 0) removeaction MGW001
+(_this select 0) removeaction MGW002
+(_this select 0) removeaction MGW003
+(_this select 0) removeaction MGW004
+(_this select 0) removeaction MGW005
+(_this select 0) removeaction MGW006
+(_this select 0) removeaction MGW007
+(_this select 0) removeaction MGW008
+(_this select 0) removeaction MGW009
+(_this select 0) removeaction MGW010
+(_this select 0) removeaction MGW011
+(_this select 0) removeaction MGW012
+(_this select 0) removeaction MGW013
+(_this select 0) removeaction MGW014
+(_this select 0) removeaction MGW015
+
+;Sniper rifle action
+(_this select 0) removeaction HRgExit
+(_this select 0) removeaction HRw000
+(_this select 0) removeaction HRW001
+(_this select 0) removeaction HRW002
+(_this select 0) removeaction HRW003
+(_this select 0) removeaction HRW004
+(_this select 0) removeaction HRW005
+(_this select 0) removeaction HRW006
+(_this select 0) removeaction HRW007
+(_this select 0) removeaction HRW008
+(_this select 0) removeaction HRW009
+(_this select 0) removeaction HRW010
+(_this select 0) removeaction HRW011
+(_this select 0) removeaction HRW012
+(_this select 0) removeaction HRW013
+(_this select 0) removeaction HRW014
+(_this select 0) removeaction HRW015
+(_this select 0) removeaction HRW016
+(_this select 0) removeaction HRW017
+(_this select 0) removeaction HRW018
+(_this select 0) removeaction HRW019
+(_this select 0) removeaction HRW020
+
+;Rocket launcher action
+(_this select 0) removeaction RLgExit
+(_this select 0) removeaction RLw000
+(_this select 0) removeaction RLW001
+(_this select 0) removeaction RLW002
+(_this select 0) removeaction RLW003
+(_this select 0) removeaction RLW004
+(_this select 0) removeaction RLW005
+(_this select 0) removeaction RLW006
+(_this select 0) removeaction RLW007
+(_this select 0) removeaction RLW008
+(_this select 0) removeaction RLW009
+(_this select 0) removeaction RLW010
+(_this select 0) removeaction RLW011
+(_this select 0) removeaction RLW012
+(_this select 0) removeaction RLW013
+(_this select 0) removeaction RLW014
+
+
+;Ammo action
+;Handgun ammo action
+(_this select 0) removeaction mExit
+(_this select 0) removeaction HGm000
+(_this select 0) removeaction HGm001
+(_this select 0) removeaction HGm002
+(_this select 0) removeaction HGm003
+(_this select 0) removeaction HGm004
+(_this select 0) removeaction HGm005
+(_this select 0) removeaction HGm006
+(_this select 0) removeaction HGm007
+
+;Shotgun ammo action
+(_this select 0) removeaction SGmExit
+(_this select 0) removeaction SGm000
+(_this select 0) removeaction SGm001
+(_this select 0) removeaction SGm002
+
+;Submachine gun ammo action
+(_this select 0) removeaction SMGmExit
+(_this select 0) removeaction SMGm000
+(_this select 0) removeaction SMGm001
+(_this select 0) removeaction SMGm002
+(_this select 0) removeaction SMGm003
+(_this select 0) removeaction SMGm004
+(_this select 0) removeaction SMGm005
+(_this select 0) removeaction SMGm006
+(_this select 0) removeaction SMGm007
+(_this select 0) removeaction SMGm008
+(_this select 0) removeaction SMGm009
+(_this select 0) removeaction SMGm010
+
+;Assault rifle ammo action
+(_this select 0) removeaction ARmExit
+(_this select 0) removeaction ARm000
+(_this select 0) removeaction ARm001
+(_this select 0) removeaction ARm002
+(_this select 0) removeaction ARm003
+(_this select 0) removeaction ARm004
+(_this select 0) removeaction ARm005
+(_this select 0) removeaction ARm006
+(_this select 0) removeaction ARm007
+(_this select 0) removeaction ARm008
+(_this select 0) removeaction ARm009
+
+;Machine gun ammo action
+(_this select 0) removeaction MGmExit
+(_this select 0) removeaction MGm000
+(_this select 0) removeaction MGm001
+(_this select 0) removeaction MGm002
+(_this select 0) removeaction MGm003
+(_this select 0) removeaction MGm004
+(_this select 0) removeaction MGm005
+
+;Sniper rifle ammo action
+(_this select 0) removeaction HRmExit
+(_this select 0) removeaction HRm000
+(_this select 0) removeaction HRm001
+(_this select 0) removeaction HRm002
+(_this select 0) removeaction HRm003
+(_this select 0) removeaction HRm004
+(_this select 0) removeaction HRm005
+(_this select 0) removeaction HRm006
+(_this select 0) removeaction HRm007
+(_this select 0) removeaction HRm008
+(_this select 0) removeaction HRm009
+
+;Rocket launcher ammo action
+(_this select 0) removeaction RLmExit
+(_this select 0) removeaction RLm000
+(_this select 0) removeaction RLm001
+(_this select 0) removeaction RLm002
+(_this select 0) removeaction RLm003
+(_this select 0) removeaction RLm004
+(_this select 0) removeaction RLm005
+(_this select 0) removeaction RLm006
+(_this select 0) removeaction RLm007
+(_this select 0) removeaction RLm008
+(_this select 0) removeaction RLm009
+(_this select 0) removeaction RLm010
+(_this select 0) removeaction RLm011
+(_this select 0) removeaction RLm012
+(_this select 0) removeaction RLm013
+(_this select 0) removeaction RLm014
+
+;Explosive and others action
+(_this select 0) removeaction oExit
+(_this select 0) removeaction OTw001
+(_this select 0) removeaction OTw002
+(_this select 0) removeaction OTw003
+(_this select 0) removeaction OTw004
+(_this select 0) removeaction OTw005
+(_this select 0) removeaction OTw006
+(_this select 0) removeaction OTw007
+(_this select 0) removeaction OTw008
+(_this select 0) removeaction OTw009
+(_this select 0) removeaction OTw010
+(_this select 0) removeaction OTw011
+(_this select 0) removeaction OTw012
+(_this select 0) removeaction OTw013
+(_this select 0) removeaction OTw014
+(_this select 0) removeaction OTw015
+(_this select 0) removeaction OTw016
+(_this select 0) removeaction OTw017
+(_this select 0) removeaction OTw018
+(_this select 0) removeaction OTw019
+(_this select 0) removeaction OTw020
+(_this select 0) removeaction OTw021
+(_this select 0) removeaction OTw022
+
+
+;selling stuff action
+(_this select 0) removeaction sExit
+(_this select 0) removeaction HGs000
+(_this select 0) removeaction SGs000
+(_this select 0) removeaction SMGs000
+(_this select 0) removeaction ARs000
+(_this select 0) removeaction MGs000
+(_this select 0) removeaction HRs000
+(_this select 0) removeaction RLs000
+(_this select 0) removeaction OTs000
+
+;handgun
+(_this select 0) removeaction HGsExit
+(_this select 0) removeaction HGs001
+(_this select 0) removeaction HGs002
+(_this select 0) removeaction HGs003
+(_this select 0) removeaction HGs004
+(_this select 0) removeaction HGs005
+(_this select 0) removeaction HGs006
+(_this select 0) removeaction HGs007
+(_this select 0) removeaction HGs008
+
+;shotgun
+(_this select 0) removeaction SGsExit
+(_this select 0) removeaction SGs001
+(_this select 0) removeaction SGs002
+
+;submachine gun
+(_this select 0) removeaction SMGsExit
+(_this select 0) removeaction SMGs001
+(_this select 0) removeaction SMGs002
+(_this select 0) removeaction SMGs003
+(_this select 0) removeaction SMGs004
+(_this select 0) removeaction SMGs005
+(_this select 0) removeaction SMGs006
+(_this select 0) removeaction SMGs007
+(_this select 0) removeaction SMGs008
+(_this select 0) removeaction SMGs009
+(_this select 0) removeaction SMGs010
+
+;assault rifle
+(_this select 0) removeaction ARsExit
+(_this select 0) removeaction ARs001
+(_this select 0) removeaction ARs002
+(_this select 0) removeaction ARs003
+(_this select 0) removeaction ARs004
+(_this select 0) removeaction ARs005
+(_this select 0) removeaction ARs006
+(_this select 0) removeaction ARs007
+(_this select 0) removeaction ARs008
+(_this select 0) removeaction ARs009
+(_this select 0) removeaction ARs010
+(_this select 0) removeaction ARs011
+(_this select 0) removeaction ARs012
+(_this select 0) removeaction ARs013
+(_this select 0) removeaction ARs014
+(_this select 0) removeaction ARs015
+(_this select 0) removeaction ARs016
+(_this select 0) removeaction ARs017
+(_this select 0) removeaction ARs018
+(_this select 0) removeaction ARs019
+(_this select 0) removeaction ARs020
+(_this select 0) removeaction ARs021
+(_this select 0) removeaction ARs022
+(_this select 0) removeaction ARs023
+(_this select 0) removeaction ARs024
+(_this select 0) removeaction ARs025
+(_this select 0) removeaction ARs026
+(_this select 0) removeaction ARs027
+(_this select 0) removeaction ARs028
+(_this select 0) removeaction ARs029
+(_this select 0) removeaction ARs030
+(_this select 0) removeaction ARs031
+(_this select 0) removeaction ARs032
+(_this select 0) removeaction ARs033
+(_this select 0) removeaction ARs034
+(_this select 0) removeaction ARs035
+(_this select 0) removeaction ARs036
+(_this select 0) removeaction ARs037
+(_this select 0) removeaction ARs038
+(_this select 0) removeaction ARs039
+(_this select 0) removeaction ARs040
+(_this select 0) removeaction ARs041
+(_this select 0) removeaction ARs042
+(_this select 0) removeaction ARs043
+(_this select 0) removeaction ARs044
+(_this select 0) removeaction ARs045
+(_this select 0) removeaction ARs046
+(_this select 0) removeaction ARs047
+(_this select 0) removeaction ARs048
+(_this select 0) removeaction ARs049
+(_this select 0) removeaction ARs050
+(_this select 0) removeaction ARs051
+(_this select 0) removeaction ARs052
+(_this select 0) removeaction ARs053
+(_this select 0) removeaction ARs054
+(_this select 0) removeaction ARs055
+(_this select 0) removeaction ARs056
+(_this select 0) removeaction ARs057
+(_this select 0) removeaction ARs058
+(_this select 0) removeaction ARs059
+
+;machine gun
+(_this select 0) removeaction MGsExit
+(_this select 0) removeaction MGs001
+(_this select 0) removeaction MGs002
+(_this select 0) removeaction MGs003
+(_this select 0) removeaction MGs004
+(_this select 0) removeaction MGs005
+(_this select 0) removeaction MGs006
+(_this select 0) removeaction MGs007
+(_this select 0) removeaction MGs008
+(_this select 0) removeaction MGs009
+(_this select 0) removeaction MGs010
+(_this select 0) removeaction MGs011
+(_this select 0) removeaction MGs012
+(_this select 0) removeaction MGs013
+(_this select 0) removeaction MGs014
+(_this select 0) removeaction MGs015
+
+;sniper rifle
+(_this select 0) removeaction HRsExit
+(_this select 0) removeaction HRs001
+(_this select 0) removeaction HRs002
+(_this select 0) removeaction HRs003
+(_this select 0) removeaction HRs004
+(_this select 0) removeaction HRs005
+(_this select 0) removeaction HRs006
+(_this select 0) removeaction HRs007
+(_this select 0) removeaction HRs008
+(_this select 0) removeaction HRs009
+(_this select 0) removeaction HRs010
+(_this select 0) removeaction HRs011
+(_this select 0) removeaction HRs012
+(_this select 0) removeaction HRs013
+(_this select 0) removeaction HRs014
+(_this select 0) removeaction HRs015
+(_this select 0) removeaction HRs016
+(_this select 0) removeaction HRs017
+(_this select 0) removeaction HRs018
+(_this select 0) removeaction HRs019
+(_this select 0) removeaction HRs020
+
+;rocket launcher
+(_this select 0) removeaction RLsExit
+(_this select 0) removeaction RLs001
+(_this select 0) removeaction RLs002
+(_this select 0) removeaction RLs003
+(_this select 0) removeaction RLs004
+(_this select 0) removeaction RLs005
+(_this select 0) removeaction RLs006
+(_this select 0) removeaction RLs007
+(_this select 0) removeaction RLs008
+(_this select 0) removeaction RLs009
+(_this select 0) removeaction RLs010
+(_this select 0) removeaction RLs011
+(_this select 0) removeaction RLs012
+
+;explosive and other
+(_this select 0) removeaction sExit
+(_this select 0) removeaction OTs001
+(_this select 0) removeaction OTs002
+(_this select 0) removeaction OTs003
+(_this select 0) removeaction OTs004
+(_this select 0) removeaction OTs005
+(_this select 0) removeaction OTs006
+(_this select 0) removeaction OTs007
+(_this select 0) removeaction OTs008
+(_this select 0) removeaction OTs009
+(_this select 0) removeaction OTs010
+(_this select 0) removeaction OTs011
+(_this select 0) removeaction OTs012
+(_this select 0) removeaction OTs013
+(_this select 0) removeaction OTs014
+(_this select 0) removeaction OTs015
+(_this select 0) removeaction OTs016
+(_this select 0) removeaction OTs017
+(_this select 0) removeaction OTs018
+(_this select 0) removeaction OTs019
+(_this select 0) removeaction OTs020
+(_this select 0) removeaction OTs021
+(_this select 0) removeaction OTs022
+(_this select 0) removeaction OTs023
+(_this select 0) removeaction OTs024
+(_this select 0) removeaction OTs025
+(_this select 0) removeaction OTs026
+(_this select 0) removeaction OTs027
+(_this select 0) removeaction OTs028
+(_this select 0) removeaction OTs029
+(_this select 0) removeaction OTs030
+(_this select 0) removeaction OTs031
+(_this select 0) removeaction OTs032
+(_this select 0) removeaction OTs033
+(_this select 0) removeaction OTs034
+(_this select 0) removeaction OTs035
+(_this select 0) removeaction OTs036
+
+
+exit
+
+
+
+

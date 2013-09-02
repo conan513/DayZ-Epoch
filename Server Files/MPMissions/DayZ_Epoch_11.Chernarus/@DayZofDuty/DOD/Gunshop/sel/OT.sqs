@@ -1,0 +1,57 @@
+
+
+(_this select 0) removeaction sExit
+(_this select 0) removeaction HGs000
+(_this select 0) removeaction SGs000
+(_this select 0) removeaction SMGs000
+(_this select 0) removeaction ARs000
+(_this select 0) removeaction MGs000
+(_this select 0) removeaction HRs000
+(_this select 0) removeaction RLs000
+(_this select 0) removeaction OTs000
+
+
+sExit = (_this select 0) addaction ["EXIT","@DayZofDuty\dod\gunshop\sel\ot\exit.sqs"]
+OTs001 = (_this select 0) addaction ["Sell Smoke Grenade Green (17$)","@DayZofDuty\dod\gunshop\sel\ot\sgg.sqs"]
+OTs002 = (_this select 0) addaction ["Sell Smoke Grenade Red (17$)","@DayZofDuty\dod\gunshop\sel\ot\sgr.sqs"]
+OTs003 = (_this select 0) addaction ["Sell Smoke Grenade White (17$)","@DayZofDuty\dod\gunshop\sel\ot\sgw.sqs"]
+OTs004 = (_this select 0) addaction ["Sell GP25 40mm Flare Green (25$)","@DayZofDuty\dod\gunshop\sel\ot\gp25fg.sqs"]
+OTs005 = (_this select 0) addaction ["Sell GP25 40mm Flare Red (25$)","@DayZofDuty\dod\gunshop\sel\ot\gp25fr.sqs"]
+OTs006 = (_this select 0) addaction ["Sell GP25 40mm Flare White (25$)","@DayZofDuty\dod\gunshop\sel\ot\gp25fw.sqs"]
+OTs007 = (_this select 0) addaction ["Sell GP25 40mm Flare Yellow (25$)","@DayZofDuty\dod\gunshop\sel\ot\gp25fy.sqs"]
+OTs008 = (_this select 0) addaction ["Sell M203 40mm Flare Green (25$)","@DayZofDuty\dod\gunshop\sel\ot\m203fg.sqs"]
+OTs009 = (_this select 0) addaction ["Sell M203 40mm Flare Red (25$)","@DayZofDuty\dod\gunshop\sel\ot\m203fr.sqs"]
+OTs010 = (_this select 0) addaction ["Sell M203 40mm Flare White (25$)","@DayZofDuty\dod\gunshop\sel\ot\m203fw.sqs"]
+OTs011 = (_this select 0) addaction ["Sell M203 40mm Flare Yellow (25$)","@DayZofDuty\dod\gunshop\sel\ot\m203fy.sqs"]
+OTs012 = (_this select 0) addaction ["Sell RGO Frag Grenade (33$)","@DayZofDuty\dod\gunshop\sel\ot\rgo.sqs"]
+OTs013 = (_this select 0) addaction ["Sell M67 Frag Grenade (33$)","@DayZofDuty\dod\gunshop\sel\ot\m67.sqs"]
+OTs014 = (_this select 0) addaction ["Sell GP25 40mm HE Grenade (50$)","@DayZofDuty\dod\gunshop\sel\ot\gp25.sqs"]
+OTs015 = (_this select 0) addaction ["Sell M203 40mm HE Grenade (50$)","@DayZofDuty\dod\gunshop\sel\ot\m203.sqs"]
+OTs016 = (_this select 0) addaction ["Sell Binocular (83$)","@DayZofDuty\dod\gunshop\sel\ot\binoc.sqs"]
+OTs017 = (_this select 0) addaction ["Sell Binocular Vector (167$)","@DayZofDuty\dod\gunshop\sel\ot\binocV.sqs"]
+OTs018 = (_this select 0) addaction ["Sell M32 40mm HE Grenade (200$)","@DayZofDuty\dod\gunshop\sel\ot\m32.sqs"]
+OTs019 = (_this select 0) addaction ["Sell Mine (250$)","@DayZofDuty\dod\gunshop\sel\ot\mine.sqs"]
+OTs020 = (_this select 0) addaction ["Sell Satchel Charges (500$)","@DayZofDuty\dod\gunshop\sel\ot\pipe.sqs"]
+OTs021 = (_this select 0) addaction ["Sell NV Goggles (667$)","@DayZofDuty\dod\gunshop\sel\ot\nvg.sqs"]
+OTs022 = (_this select 0) addaction ["Sell Laser Designator (1667$)","@DayZofDuty\dod\gunshop\sel\ot\laser.sqs"]
+OTs023 = (_this select 0) addaction ["Sell PG7V Rocket (167$)","@DayZofDuty\dod\gunshop\sel\ot\pg7v.sqs"]
+OTs024 = (_this select 0) addaction ["Sell PG7VL Rocket (183$)","@DayZofDuty\dod\gunshop\sel\ot\pg7vl.sqs"]
+OTs025 = (_this select 0) addaction ["Sell PG7VR Rocket (200$)","@DayZofDuty\dod\gunshop\sel\ot\pg7vr.sqs"]
+OTs026 = (_this select 0) addaction ["Sell OG7 Rocket (217$)","@DayZofDuty\dod\gunshop\sel\ot\og7.sqs"]
+OTs027 = (_this select 0) addaction ["Sell SMAW HEAA Rocket (250$)","@DayZofDuty\dod\gunshop\sel\ot\smawaa.sqs"]
+OTs028 = (_this select 0) addaction ["Sell SMAW HEDP Rocket (267$)","@DayZofDuty\dod\gunshop\sel\ot\smawdp.sqs"]
+OTs029 = (_this select 0) addaction ["Sell MAAWS HEAT Rocket (333$)","@DayZofDuty\dod\gunshop\sel\ot\maawsat.sqs"]
+OTs030 = (_this select 0) addaction ["Sell MAAWS HEDP Rocket (333$)","@DayZofDuty\dod\gunshop\sel\ot\maawsdp.sqs"]
+OTs031 = (_this select 0) addaction ["Sell Metis Rocket (333$)","@DayZofDuty\dod\gunshop\sel\ot\metis.sqs"]
+OTs032 = (_this select 0) addaction ["Sell M47 Rocket (333$)","@DayZofDuty\dod\gunshop\sel\ot\m47.sqs"]
+OTs033 = (_this select 0) addaction ["Sell Javelin Rocket (333$)","@DayZofDuty\dod\gunshop\sel\ot\javelin.sqs"]
+OTs034 = (_this select 0) addaction ["Sell Strela Rocket (500$)","@DayZofDuty\dod\gunshop\sel\ot\strela.sqs"]
+OTs035 = (_this select 0) addaction ["Sell Igla Rocket (667$)","@DayZofDuty\dod\gunshop\sel\ot\igla.sqs"]
+OTs036 = (_this select 0) addaction ["Sell Stinger Rocket (833$)","@DayZofDuty\dod\gunshop\sel\ot\stinger.sqs"]
+
+
+exit
+
+
+
+

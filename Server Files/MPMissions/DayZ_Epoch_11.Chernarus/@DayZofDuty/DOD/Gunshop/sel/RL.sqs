@@ -1,0 +1,33 @@
+
+
+(_this select 0) removeaction sExit
+(_this select 0) removeaction HGs000
+(_this select 0) removeaction SGs000
+(_this select 0) removeaction SMGs000
+(_this select 0) removeaction ARs000
+(_this select 0) removeaction MGs000
+(_this select 0) removeaction HRs000
+(_this select 0) removeaction RLs000
+(_this select 0) removeaction OTs000
+
+
+RLsExit = (_this select 0) addaction ["EXIT","@DayZofDuty\dod\gunshop\sel\RL\exit.sqs"]
+RLs001 = (_this select 0) addaction ["Sell M79 (167$)","@DayZofDuty\dod\gunshop\sel\RL\m79.sqs"]
+RLs002 = (_this select 0) addaction ["Sell MK13 (250$)","@DayZofDuty\dod\gunshop\sel\RL\mk13.sqs"]
+RLs003 = (_this select 0) addaction ["Sell M32 (500$)","@DayZofDuty\dod\gunshop\sel\RL\m32.sqs"]
+RLs004 = (_this select 0) addaction ["Sell RPG7V (1667$)","@DayZofDuty\dod\gunshop\sel\RL\rpg7v.sqs"]
+RLs005 = (_this select 0) addaction ["Sell SMAW (2500$)","@DayZofDuty\dod\gunshop\sel\RL\smaw.sqs"]
+RLs006 = (_this select 0) addaction ["Sell MAAWS (3000$)","@DayZofDuty\dod\gunshop\sel\RL\maaws.sqs"]
+RLs007 = (_this select 0) addaction ["Sell Metis (3000$)","@DayZofDuty\dod\gunshop\sel\RL\metis.sqs"]
+RLs008 = (_this select 0) addaction ["Sell M47 (3333$)","@DayZofDuty\dod\gunshop\sel\RL\m47.sqs"]
+RLs009 = (_this select 0) addaction ["Sell Javelin (3333$)","@DayZofDuty\dod\gunshop\sel\RL\javelin.sqs"]
+RLs010 = (_this select 0) addaction ["Sell Strela (3333$)","@DayZofDuty\dod\gunshop\sel\RL\strela.sqs"]
+RLs011 = (_this select 0) addaction ["Sell Igla (4167$)","@DayZofDuty\dod\gunshop\sel\RL\igla.sqs"]
+RLs012 = (_this select 0) addaction ["Sell Stinger (5000$)","@DayZofDuty\dod\gunshop\sel\RL\stinger.sqs"]
+
+
+exit
+
+
+
+

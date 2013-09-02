@@ -1,0 +1,22 @@
+? player hasWeapon "SCAR_H_LNG_Sniper_SD" : goto "next"
+~1
+goto "close"
+
+#next
+player removeWeapon "SCAR_H_LNG_Sniper_SD"
+
+myMoneyZ = myMoneyZ + 1000
+~1
+hint format ["You have %1 $ now", myMoneyZ]
+
+
+exit
+
+
+
+
+#close
+Hint "You don't have that weapon, comeback when you have it"
+
+
+exit

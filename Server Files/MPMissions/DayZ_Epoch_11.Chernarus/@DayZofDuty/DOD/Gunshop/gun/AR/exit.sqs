@@ -1,0 +1,24 @@
+for "_i" from 0 to 100 do {(_this select 0) removeAction _i};
+ _dayzActions = s_player_repairActions + r_player_actions + [null] + [NORRN_dropAction, s_player_studybody, s_clothes, s_player_selfBloodbag, s_player_knockout, s_player_grabflare, s_player_removeflare, s_player_dropflare, s_player_deleteBuild, s_player_forceSave, s_player_fillfuel, s_player_butcher, s_player_cook, s_player_fireout, s_player_packtent,_text_action,BTC_liftActionId,STR_R3F_ARTY_action_ouvrir_dlg_SM,STR_R3F_LOG_action_remorquer_deplace,STR_R3F_LOG_action_selectionner_objet_remorque,STR_R3F_LOG_action_detacher,STR_R3F_LOG_action_charger_deplace,STR_R3F_LOG_action_selectionner_objet_charge,STR_R3F_LOG_action_heliporter,STR_R3F_LOG_action_heliporter_fait,STR_R3F_LOG_action_heliporter_deja_transporte,STR_R3F_LOG_action_heliporter_deplace_par_joueur,STR_R3F_LOG_action_heliporter_joueur_dans_objet,STR_R3F_LOG_action_heliporter_objet_remorque,STR_R3F_LOG_action_heliport_larguer,STR_R3F_LOG_action_heliport_larguer_fait,STR_R3F_LOG_action_deplacer_objet,STR_R3F_LOG_action_relacher_objet,STR_R3F_LOG_ne_pas_monter_dans_vehicule,STR_R3F_LOG_courir_trop_vite,STR_R3F_LOG_action_selectionner_objet_charge,STR_R3F_LOG_action_selectionner_objet_charge_fait,STR_R3F_LOG_action_charger_selection,STR_R3F_LOG_action_charger_selection_en_cours,STR_R3F_LOG_action_charger_selection_fait,STR_R3F_LOG_action_charger_selection_trop_loin,STR_R3F_LOG_action_charger_selection_pas_assez_de_place,STR_R3F_LOG_action_charger_selection_objet_transporte,STR_R3F_LOG_action_charger_deplace,STR_R3F_LOG_action_charger_deplace_en_cours,STR_R3F_LOG_action_charger_deplace_fait,STR_R3F_LOG_action_charger_deplace_pas_assez_de_place,STR_R3F_LOG_action_selectionner_objet_remorque,STR_R3F_LOG_action_selectionner_objet_remorque_fait,STR_R3F_LOG_action_remorquer_selection,STR_R3F_LOG_action_remorquer_selection_trop_loin,STR_R3F_LOG_action_remorquer_selection_objet_transporte,STR_R3F_LOG_action_remorquer_deplace,STR_R3F_LOG_action_detacher,STR_R3F_LOG_action_detacher_fait,STR_R3F_LOG_action_detacher_impossible_pour_ce_vehicule,STR_R3F_LOG_action_contenu_vehicule,STR_R3F_LOG_action_decharger_en_cours,STR_R3F_LOG_action_decharger_fait,STR_R3F_LOG_action_decharger_deja_fait,STR_R3F_LOG_transport_en_cours,STR_R3F_LOG_mutex_action_en_cours,STR_R3F_LOG_dlg_CV_titre,STR_R3F_LOG_dlg_CV_capacite_vehicule,STR_R3F_LOG_dlg_CV_btn_decharger,STR_R3F_LOG_dlg_CV_btn_fermer,STR_R3F_LOG_nom_pc_art,_vehicle_refuel_id,BTC_SganciaActionId,BTC_SganciaOtherActionId,BTC_SganciaSmokeActionId,s_player_butcher_human,s_player_butcher_zombie,donate1,donate2,donate3,Rewardopen];
+for "_r" from 0 to 100 do {if !(_r in _dayzActions) then {(_this select 0) removeAction _r};};
+for[{_num = 0},{_num <= 100},{_num = _num + 1}] do
+{
+	(_this select 0) removeAction _num; 
+};
+
+if (currentlevel >= 25) then
+{
+Myaction7 = _name addaction[("<t color=""#ff0000"">" + ("Teleport to...") +"</t>"),"DOD\teleport.sqf",_myLevel,0,false,true,"", ""];
+};
+Myaction6 = _name addaction[("<t color=""#ff8800"">" + ("Check Stats") +"</t>"),"DOD\stats.sqf",_myLevel,0,false,true,"", ""];
+Myaction2 = _name addaction[("<t color=""#ff8800"">" + ("Open Gun Shop") +"</t>"),"@DayZofDuty\dod\gunshop\gunshop.sqs",_myLevel,0,false,true,"", ""];
+Myaction3 = _name addaction[("<t color=""#ff8800"">" + ("Send Money") +"</t>"),"DOD\send.sqf",_myLevel,0,false,true,"", ""];
+Myaction4 = _name addaction[("<t color=""#ff8800"">" + ("Deposit Money") +"</t>"),"DOD\deposit.sqf",_myLevel,0,false,true,"", ""];
+Myaction5 = _name addaction[("<t color=""#ff8800"">" + ("Withdraw Money") +"</t>"),"DOD\withdraw.sqf",_myLevel,0,false,true,"", ""];
+
+
+exit
+
+
+
+

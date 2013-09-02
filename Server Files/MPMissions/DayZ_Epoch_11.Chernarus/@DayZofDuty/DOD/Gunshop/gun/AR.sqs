@@ -1,0 +1,79 @@
+
+
+(_this select 0) removeaction gExit
+(_this select 0) removeaction HGw000
+(_this select 0) removeaction SGw000
+(_this select 0) removeaction SMGw000
+(_this select 0) removeaction ARw000
+(_this select 0) removeaction MGw000
+(_this select 0) removeaction HRw000
+(_this select 0) removeaction RLw000
+
+
+ARgExit = (_this select 0) addaction ["EXIT","@DayZofDuty\dod\gunshop\gun\AR\exit.sqs"]
+ARw001 = (_this select 0) addaction ["Buy Lee Enfield (450$)","@DayZofDuty\dod\gunshop\gun\AR\lee.sqs"]
+ARw002 = (_this select 0) addaction ["Buy AK47 M (750$)","@DayZofDuty\dod\gunshop\gun\AR\ak47m.sqs"]
+ARw003 = (_this select 0) addaction ["Buy AK47 S (750$)","@DayZofDuty\dod\gunshop\gun\AR\ak47s.sqs"]
+ARw004 = (_this select 0) addaction ["Buy AK74 (900$)","@DayZofDuty\dod\gunshop\gun\AR\ak74.sqs"]
+ARw005 = (_this select 0) addaction ["Buy AK74 GL (1400$)","@DayZofDuty\dod\gunshop\gun\AR\ak74gl.sqs"]
+//ARw006 = (_this select 0) addaction ["Buy AK74 GL Kobra (1650$)","@DayZofDuty\dod\gunshop\gun\AR\ak74glk.sqs"]
+ARw007 = (_this select 0) addaction ["Buy AKS74 (900$)","@DayZofDuty\dod\gunshop\gun\AR\aks74.sqs"]
+//ARw008 = (_this select 0) addaction ["Buy AKS74 Kobra (1150$)","@DayZofDuty\dod\gunshop\gun\AR\aks74k.sqs"]
+ARw009 = (_this select 0) addaction ["Buy AKS74 PSO (1150$)","@DayZofDuty\dod\gunshop\gun\AR\aks74p.sqs"]
+//ARw010 = (_this select 0) addaction ["Buy AKS74 NSPU (1400$)","@DayZofDuty\dod\gunshop\gun\AR\aks74n.sqs"]
+//ARw011 = (_this select 0) addaction ["Buy AKS74 GOSHAWK (1400$)","@DayZofDuty\dod\gunshop\gun\AR\aks74go.sqs"]
+ARw012 = (_this select 0) addaction ["Buy Sa58P (1000$)","@DayZofDuty\dod\gunshop\gun\AR\sa58p.sqs"]
+ARw013 = (_this select 0) addaction ["Buy Sa58V (1000$)","@DayZofDuty\dod\gunshop\gun\AR\sa58v.sqs"]
+ARw014 = (_this select 0) addaction ["Buy Sa58V CCO (1250$)","@DayZofDuty\dod\gunshop\gun\AR\sa58vc.sqs"]
+ARw015 = (_this select 0) addaction ["Buy Sa58V RCO (1250$)","@DayZofDuty\dod\gunshop\gun\AR\sa58vr.sqs"]
+ARw016 = (_this select 0) addaction ["Buy AK107 Kobra (1200$)","@DayZofDuty\dod\gunshop\gun\AR\ak107k.sqs"]
+ARw017 = (_this select 0) addaction ["Buy AK107 PSO (1200$)","@DayZofDuty\dod\gunshop\gun\AR\ak107p.sqs"]
+ARw018 = (_this select 0) addaction ["Buy AK107 Kobra GL (1700$)","@DayZofDuty\dod\gunshop\gun\AR\ak107kgl.sqs"]
+//ARw019 = (_this select 0) addaction ["Buy AK107 PSO GL (1700$)","@DayZofDuty\dod\gunshop\gun\AR\ak107pgl.sqs"]
+ARw020 = (_this select 0) addaction ["Buy M16A2 (1000$)","@DayZofDuty\dod\gunshop\gun\AR\m16a2.sqs"]
+ARw021 = (_this select 0) addaction ["Buy M16A2 GL (1500$)","@DayZofDuty\dod\gunshop\gun\AR\m16a2gl.sqs"]
+ARw022 = (_this select 0) addaction ["Buy M16A4 (1200$)","@DayZofDuty\dod\gunshop\gun\AR\m16a4.sqs"]
+ARw023 = (_this select 0) addaction ["Buy M16A4 GL (1600$)","@DayZofDuty\dod\gunshop\gun\AR\m16a4gl.sqs"]
+ARw024 = (_this select 0) addaction ["Buy M16A4 ACOG (1300$)","@DayZofDuty\dod\gunshop\gun\AR\m16a4a.sqs"]
+ARw025 = (_this select 0) addaction ["Buy M16A4 ACOG GL (1700$)","@DayZofDuty\dod\gunshop\gun\AR\m16a4agl.sqs"]
+ARw026 = (_this select 0) addaction ["Buy FN-FAL (1250$)","@DayZofDuty\dod\gunshop\gun\AR\fnFal.sqs"]
+//ARw027 = (_this select 0) addaction ["Buy FN-FAL ANPVS4 (1750$)","@DayZofDuty\dod\gunshop\gun\AR\fnFals.sqs"]
+ARw028 = (_this select 0) addaction ["Buy M14 (1250$)","@DayZofDuty\dod\gunshop\gun\AR\m14.sqs"]
+ARw029 = (_this select 0) addaction ["Buy M4A1 (1250$)","@DayZofDuty\dod\gunshop\gun\AR\m4a1.sqs"]
+ARw030 = (_this select 0) addaction ["Buy M4A1 Aimpoint (1500$)","@DayZofDuty\dod\gunshop\gun\AR\m4a1a.sqs"]
+//ARw031 = (_this select 0) addaction ["Buy M4A1 Aimpoint Desert (1500$)","@DayZofDuty\dod\gunshop\gun\AR\m4a1ad.sqs"]
+ARw032 = (_this select 0) addaction ["Buy M4A1 Aimpoint Camo (1500$)","@DayZofDuty\dod\gunshop\gun\AR\m4a1ac.sqs"]
+ARw033 = (_this select 0) addaction ["Buy M4A1 Aimpoint Camo SD (1650$)","@DayZofDuty\dod\gunshop\gun\AR\m4a1acsd.sqs"]
+//ARw034 = (_this select 0) addaction ["Buy M4A1 RCO GL Desert (2000$)","@DayZofDuty\dod\gunshop\gun\AR\m4a1rgl.sqs"]
+ARw035 = (_this select 0) addaction ["Buy M4A1 Holo GL (2000$)","@DayZofDuty\dod\gunshop\gun\AR\m4a1hgl.sqs"]
+ARw036 = (_this select 0) addaction ["Buy M4A1 Holo GL Camo (2000$)","@DayZofDuty\dod\gunshop\gun\AR\m4a1hglc.sqs"]
+ARw037 = (_this select 0) addaction ["Buy M4A1 Holo GL Camo SD (2150$)","@DayZofDuty\dod\gunshop\gun\AR\m4a1hglcsd.sqs"]
+//ARw038 = (_this select 0) addaction ["Buy M8 Compact (2000$)","@DayZofDuty\dod\gunshop\gun\AR\m8com.sqs"]
+//ARw039 = (_this select 0) addaction ["Buy M8 Carbine (2000$)","@DayZofDuty\dod\gunshop\gun\AR\m8car.sqs"]
+//ARw040 = (_this select 0) addaction ["Buy M8 Carbine GL (2500$)","@DayZofDuty\dod\gunshop\gun\AR\m8cargl.sqs"]
+//ARw041 = (_this select 0) addaction ["Buy MK16 CQC (2500$)","@DayZofDuty\dod\gunshop\gun\AR\mk16c.sqs"]
+//ARw042 = (_this select 0) addaction ["Buy MK16 CQC Holo (2750$)","@DayZofDuty\dod\gunshop\gun\AR\mk16ch.sqs"]
+//ARw043 = (_this select 0) addaction ["Buy MK16 CQC CCO SD (2900$)","@DayZofDuty\dod\gunshop\gun\AR\mk16ccsd.sqs"]
+//ARw044 = (_this select 0) addaction ["Buy MK16 CQC Holo GL (3250$)","@DayZofDuty\dod\gunshop\gun\AR\mk16chgl.sqs"]
+//ARw045 = (_this select 0) addaction ["Buy MK16 STD Holo (2750$)","@DayZofDuty\dod\gunshop\gun\AR\mk16sh.sqs"]
+//ARw046 = (_this select 0) addaction ["Buy MK16 STD Mk4 (2750$)","@DayZofDuty\dod\gunshop\gun\AR\mk16sm.sqs"]
+//ARw047 = (_this select 0) addaction ["Buy MK16 STD RCO GL (3250$)","@DayZofDuty\dod\gunshop\gun\AR\mk16srgl.sqs"]
+//ARw048 = (_this select 0) addaction ["Buy MK16 STD TWS GL (3500$)","@DayZofDuty\dod\gunshop\gun\AR\mk16stgl.sqs"]
+//ARw049 = (_this select 0) addaction ["Buy MK17 CQC CCO (2750$)","@DayZofDuty\dod\gunshop\gun\AR\mk17cc.sqs"]
+//ARw050 = (_this select 0) addaction ["Buy MK17 CQC CCO SD (2900$)","@DayZofDuty\dod\gunshop\gun\AR\mk17ccsd.sqs"]
+//ARw051 = (_this select 0) addaction ["Buy MK17 CQC Spec GL (3250$)","@DayZofDuty\dod\gunshop\gun\AR\mk17csgl.sqs"]
+ARw052 = (_this select 0) addaction ["Buy HK G36A (3000$)","@DayZofDuty\dod\gunshop\gun\AR\g36a.sqs"]
+ARw053 = (_this select 0) addaction ["Buy HK G36A Camo (3000$)","@DayZofDuty\dod\gunshop\gun\AR\g36aC.sqs"]
+ARw054 = (_this select 0) addaction ["Buy HK G36K (3000$)","@DayZofDuty\dod\gunshop\gun\AR\g36k.sqs"]
+ARw055 = (_this select 0) addaction ["Buy HK G36K Camo (3000$)","@DayZofDuty\dod\gunshop\gun\AR\g36kC.sqs"]
+ARw056 = (_this select 0) addaction ["Buy HK G36C (3000$)","@DayZofDuty\dod\gunshop\gun\AR\g36c.sqs"]
+ARw057 = (_this select 0) addaction ["Buy HK G36C Camo (3000$)","@DayZofDuty\dod\gunshop\gun\AR\g36cC.sqs"]
+//ARw058 = (_this select 0) addaction ["Buy HK G36C Eotech SD (3500$)","@DayZofDuty\dod\gunshop\gun\AR\g36csd.sqs"]
+//ARw059 = (_this select 0) addaction ["Buy HK G36C Eotech SD Camo (3500$)","@DayZofDuty\dod\gunshop\gun\AR\g36csdC.sqs"]
+
+
+exit
+
+
+
+

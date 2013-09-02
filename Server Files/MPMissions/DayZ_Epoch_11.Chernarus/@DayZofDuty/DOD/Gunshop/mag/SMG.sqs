@@ -1,0 +1,30 @@
+
+
+(_this select 0) removeaction mExit
+(_this select 0) removeaction HGm000
+(_this select 0) removeaction SGm000
+(_this select 0) removeaction SMGm000
+(_this select 0) removeaction ARm000
+(_this select 0) removeaction MGm000
+(_this select 0) removeaction HRm000
+(_this select 0) removeaction RLm000
+
+
+SMGmExit = (_this select 0) addaction ["EXIT","@DayZofDuty\dod\gunshop\mag\smg\exit.sqs"]
+//SMGm001 = (_this select 0) addaction ["Buy VZ61 Skorpion ammo (15$)","@DayZofDuty\dod\gunshop\mag\smg\vz61.sqs"]
+//SMGm002 = (_this select 0) addaction ["Buy Mac 10 ammo (15$)","@DayZofDuty\dod\gunshop\mag\smg\mac10.sqs"]
+//SMGm003 = (_this select 0) addaction ["Buy Mac 10 SD ammo (15$)","@DayZofDuty\dod\gunshop\mag\smg\mac10sd.sqs"]
+SMGm004 = (_this select 0) addaction ["Buy AKS74U ammo (15$)","@DayZofDuty\dod\gunshop\mag\smg\aks74u.sqs"]
+SMGm005 = (_this select 0) addaction ["Buy AKS74U SD ammo (15$)","@DayZofDuty\dod\gunshop\mag\smg\aks74usd.sqs"]
+SMGm006 = (_this select 0) addaction ["Buy MP5 Series ammo (15$)","@DayZofDuty\dod\gunshop\mag\smg\mp5.sqs"]
+//SMGm007 = (_this select 0) addaction ["Buy MP5 Series SD ammo (15$)","@DayZofDuty\dod\gunshop\mag\smg\mp5sd.sqs"]
+//SMGm008 = (_this select 0) addaction ["Buy AKS Gold ammo (15$)","@DayZofDuty\dod\gunshop\mag\smg\aksg.sqs"]
+SMGm009 = (_this select 0) addaction ["Buy Bizon PP-19 ammo (15$)","@DayZofDuty\dod\gunshop\mag\smg\pp19.sqs"]
+SMGm010 = (_this select 0) addaction ["Buy Bizon PP-19 SD ammo (15$)","@DayZofDuty\dod\gunshop\mag\smg\pp19sd.sqs"]
+
+
+exit
+
+
+
+

@@ -1,0 +1,22 @@
+? myMoneyZ >= 500 : goto "next"
+~1
+goto "poor"
+
+#next
+player addMagazine "PG7V"
+
+myMoneyZ = myMoneyZ - 500
+~1
+hint format ["You have only %1 $ now", myMoneyZ]
+
+
+exit
+
+
+
+
+#poor
+Hint "Not enough money, comeback later"
+
+
+exit

@@ -1,0 +1,28 @@
+_mags = Magazines Player
+
+_checkMags = "FlareGreen_GP25"
+
+? (_checkMags in _mags) : goto "next"
+~1
+goto "close"
+
+
+
+#next
+player removeMagazine "FlareGreen_GP25"
+
+myMoneyZ = myMoneyZ + 25
+~1
+hint format ["You have %1 $ now", myMoneyZ]
+
+
+exit
+
+
+
+
+#close
+Hint "You don't have this item, comeback when you have it"
+
+
+exit

@@ -1,0 +1,28 @@
+
+
+(_this select 0) removeaction mExit
+(_this select 0) removeaction HGm000
+(_this select 0) removeaction SGm000
+(_this select 0) removeaction SMGm000
+(_this select 0) removeaction ARm000
+(_this select 0) removeaction MGm000
+(_this select 0) removeaction HRm000
+(_this select 0) removeaction RLm000
+
+
+HGmExit = (_this select 0) addaction ["EXIT","@DayZofDuty\dod\gunshop\mag\HG\exit.sqs"]
+HGm001 = (_this select 0) addaction ["Buy Makarov ammo (3$)","@DayZofDuty\dod\gunshop\mag\HG\makarov.sqs"]
+HGm002 = (_this select 0) addaction ["Buy Makarov SD ammo (3$)","@DayZofDuty\dod\gunshop\mag\HG\makarovsd.sqs"]
+HGm003 = (_this select 0) addaction ["Buy Colt 1911 ammo (3$)","@DayZofDuty\dod\gunshop\mag\HG\1911.sqs"]
+HGm004 = (_this select 0) addaction ["Buy Glock 17 ammo (3$)","@DayZofDuty\dod\gunshop\mag\HG\glock17.sqs"]
+HGm005 = (_this select 0) addaction ["Buy Beretta M9 ammo (3$)","@DayZofDuty\dod\gunshop\mag\HG\m9.sqs"]
+HGm006 = (_this select 0) addaction ["Buy Beretta M9 SD ammo (3$)","@DayZofDuty\dod\gunshop\mag\HG\m9sd.sqs"]
+HGm007 = (_this select 0) addaction ["Buy Revolver 45 ACP ammo (3$)","@DayZofDuty\dod\gunshop\mag\HG\revolver.sqs"]
+
+
+
+exit
+
+
+
+

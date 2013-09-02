@@ -1,0 +1,31 @@
+
+
+(_this select 0) removeaction sExit
+(_this select 0) removeaction HGs000
+(_this select 0) removeaction SMGs000
+(_this select 0) removeaction ARs000
+(_this select 0) removeaction HRs000
+(_this select 0) removeaction SGs000
+(_this select 0) removeaction MGs000
+(_this select 0) removeaction RLs000
+(_this select 0) removeaction OTs000
+
+
+SMGsExit = (_this select 0) addaction ["EXIT","@DayZofDuty\dod\gunshop\sel\SMG\exit.sqs"]
+SMGs001 = (_this select 0) addaction ["Sell VZ61 Skorpion (250$)","@DayZofDuty\dod\gunshop\sel\SMG\vz61.sqs"]
+SMGs002 = (_this select 0) addaction ["Sell Mac 10 (300$)","@DayZofDuty\dod\gunshop\sel\SMG\mac10.sqs"]
+SMGs003 = (_this select 0) addaction ["Sell Mac 10 SD (350$)","@DayZofDuty\dod\gunshop\sel\SMG\mac10sd.sqs"]
+SMGs004 = (_this select 0) addaction ["Sell AKS74U (333$)","@DayZofDuty\dod\gunshop\sel\SMG\aks74u.sqs"]
+SMGs005 = (_this select 0) addaction ["Sell AKS74U Kobra SD (467$)","@DayZofDuty\dod\gunshop\sel\SMG\aks74usd.sqs"]
+SMGs006 = (_this select 0) addaction ["Sell HK MP5A5 (433$)","@DayZofDuty\dod\gunshop\sel\SMG\mp5a5.sqs"]
+SMGs007 = (_this select 0) addaction ["Sell HK MP5A5 SD (483$)","@DayZofDuty\dod\gunshop\sel\SMG\mp5a5sd.sqs"]
+SMGs008 = (_this select 0) addaction ["Sell AKS Gold (500$)","@DayZofDuty\dod\gunshop\sel\SMG\aksg.sqs"]
+SMGs009 = (_this select 0) addaction ["Sell Bizon PP-19 (500$)","@DayZofDuty\dod\gunshop\sel\SMG\pp19.sqs"]
+SMGs010 = (_this select 0) addaction ["Sell Bizon PP-19 SD (550$)","@DayZofDuty\dod\gunshop\sel\SMG\pp19sd.sqs"]
+
+
+exit
+
+
+
+

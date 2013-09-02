@@ -150,12 +150,104 @@ class DayZ_loadingScreen
 };
 class CfgSounds
 {
-    sounds[] = {};
- 
+    sounds[] = 
+    {
+    playerSnoring, unstoppable, ultrakill, rampage, multikill, monsterkill, killingspree, headshot, godlike, firstblood, doublekill, dominating, 5min, 3min, 1min, Challenge_Completed
+    }; 
     class playerSnoring
     {
     name="playerSnoring";
     sound[]={\custom\sfx\snoring.ogg,0.9,1};
     titles[] = {};
     };
+    class unstoppable
+    {
+    name="unstoppable";
+    sound[]={SOUNDFILES\unstoppable.ogg,0.9,1};
+    titles[] = {};
+    };
+    class ultrakill
+    {
+    name="ultrakill";
+    sound[]={SOUNDFILES\ultrakill.ogg,0.9,1};
+    titles[] = {};
+    };
+    class rampage
+    {
+    name="rampage";
+    sound[]={SOUNDFILES\rampage.ogg,0.9,1};
+    titles[] = {};
+    };
+    class multikill
+    {
+    name="multikill";
+    sound[]={SOUNDFILES\multikill.ogg,0.9,1};
+    titles[] = {};
+    };
+    class monsterkill
+    {
+    name="monsterkill";
+    sound[]={SOUNDFILES\monsterkill.ogg,0.9,1};
+    titles[] = {};
+    };
+    class killingspree
+    {
+    name="killingspree";
+    sound[]={SOUNDFILES\killingspree.ogg,0.9,1};
+    titles[] = {};
+    };
+    class headshot
+    {
+    name="headshot";
+    sound[]={SOUNDFILES\headshot.ogg,0.9,1};
+    titles[] = {};
+    };
+    class godlike
+    {
+    name="godlike";
+    sound[]={SOUNDFILES\godlike.ogg,0.9,1};
+    titles[] = {};
+    };
+    class firstblood
+    {
+    name="firstblood";
+    sound[]={SOUNDFILES\firstblood.ogg,0.9,1};
+    titles[] = {};
+    };
+    class doublekill
+    {
+    name="doublekill";
+    sound[]={SOUNDFILES\doublekill.ogg,0.9,1};
+    titles[] = {};
+    };
+    class dominating
+    {
+    name="dominating";
+    sound[]={SOUNDFILES\dominating.ogg,0.9,1};
+    titles[] = {};
+    };
+    class 5min
+    {
+    name="5min";
+    sound[]={SOUNDFILES\5min.ogg,0.9,1};
+    titles[] = {};
+    };
+    class 3min
+    {
+    name="3min";
+    sound[]={SOUNDFILES\3min.ogg,0.9,1};
+    titles[] = {};
+    };
+    class 1min
+    {
+    name="1min";
+    sound[]={SOUNDFILES\1min.ogg,0.9,1};
+    titles[] = {};
+    };
+    class Challenge_Completed
+    {
+    name="Challenge_Completed";
+    sound[]={SOUNDFILES\Challenge_Completed.ogg,0.9,1};
+    titles[] = {};
+    };		
 };

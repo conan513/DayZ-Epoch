@@ -1,0 +1,23 @@
+? myMoneyZ >= 1200 : goto "next"
+~1
+goto "poor"
+
+#next
+player addMagazine "30Rnd_556x45_Stanag"
+player addWeapon "M16A4"
+
+myMoneyZ = myMoneyZ - 1200
+~1
+hint format ["You have only %1 $ now", myMoneyZ]
+
+
+exit
+
+
+
+
+#poor
+Hint "Not enough money, comeback later"
+
+
+exit
