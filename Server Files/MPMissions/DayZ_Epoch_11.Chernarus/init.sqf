@@ -108,4 +108,6 @@ if (!isDedicated) then {
 // CPC Nametags
 [] execVM "cpcnametags.sqf";
 
+[] ExecVM "buildings\devfish_camptents.sqf";
+
 #include "\z\addons\dayz_code\system\REsec.sqf"
