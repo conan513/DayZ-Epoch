@@ -7,13 +7,13 @@ cd SQF
 echo Build PBO files...
 echo.
 
-REM ..\Tools\cpbo.exe -y -p dayz_anim
+..\Tools\cpbo.exe -y -p dayz_anim
 ..\Tools\cpbo.exe -y -p dayz_code
-REM ..\Tools\cpbo.exe -y -p dayz_epoch
-REM ..\Tools\cpbo.exe -y -p dayz_epoch_b
+..\Tools\cpbo.exe -y -p dayz_epoch
+..\Tools\cpbo.exe -y -p dayz_epoch_b
 ..\Tools\cpbo.exe -y -p dayz_server
-REM ..\Tools\cpbo.exe -y -p dayz_sfx
-REM ..\Tools\cpbo.exe -y -p epoch_buildings
+..\Tools\cpbo.exe -y -p dayz_sfx
+..\Tools\cpbo.exe -y -p epoch_buildings
 
 echo.
 echo Move PBO files...
