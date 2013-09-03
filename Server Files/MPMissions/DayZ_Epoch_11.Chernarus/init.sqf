@@ -112,4 +112,6 @@ if (!isDedicated) then {
 
 [] ExecVM "scripts\mamu_poi3.sqf";
 
+[] execVM "scripts\recamp.sqf";
+
 #include "\z\addons\dayz_code\system\REsec.sqf"
