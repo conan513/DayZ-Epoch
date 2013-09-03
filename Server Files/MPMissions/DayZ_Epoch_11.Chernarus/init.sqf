@@ -15,7 +15,7 @@ dayz_previousID = 0;
 //disable greeting menu 
 player setVariable ["BIS_noCoreConversations", true];
 //disable radio messages to be heard and shown in the left lower corner of the screen
-enableRadio false;
+enableRadio true;
 
 // DayZ Epoch config
 spawnShoremode = 1; // Default = 1 (on shore)
@@ -24,7 +24,12 @@ MaxHeliCrashes= 5; // Default = 5
 MaxVehicleLimit = 300; // Default = 50
 MaxDynamicDebris = 500; // Default = 100
 dayz_MapArea = 14000; // Default = 10000
-dayz_maxLocalZombies = 30; // Default = 30 
+dayz_maxLocalZombies = 30; // Default = 30
+dayz_paraSpawn = true;
+dayz_tameDogs = true;
+DZE_DeathMsgGlobal = true;
+DZE_DeathMsgSide = true;
+DZE_DeathMsgTitleText = true;
 
 EpochEvents = [["any","any","any","any",30,"crash_spawner"],["any","any","any","any",0,"crash_spawner"]];
 dayz_fullMoonNights = true;
@@ -107,7 +112,6 @@ if (!isDedicated) then {
 	//Lights
 	[] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";
 };
-<<<<<<< HEAD
 
 // CPC Nametags
 [] execVM "scripts\cpcnametags.sqf";
@@ -121,6 +125,3 @@ if (!isDedicated) then {
 [] execVM "scripts\chenaid.sqf";
 
 #include "\z\addons\dayz_code\system\REsec.sqf"
-=======
-#include "\z\addons\dayz_code\system\REsec.sqf"
->>>>>>> b490e4308494595341130c2c7244827868df6815
