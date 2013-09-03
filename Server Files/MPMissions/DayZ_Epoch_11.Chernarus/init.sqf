@@ -106,8 +106,10 @@ if (!isDedicated) then {
 };
 
 // CPC Nametags
-[] execVM "cpcnametags.sqf";
+[] execVM "scripts\cpcnametags.sqf";
 
-[] ExecVM "buildings\devfish_camptents.sqf";
+[] ExecVM "scripts\devfish_camptents.sqf";
+
+[] ExecVM "scripts\mamu_poi3.sqf";
 
 #include "\z\addons\dayz_code\system\REsec.sqf"
