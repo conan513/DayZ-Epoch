@@ -1608,12 +1608,12 @@ class CfgVehicles {
 		scope = 2;
 		destrType = "DestructBuilding";
 		cost = 100;
-		offset[] = {0,4,0};
-		model="\z\addons\dayz_epoch\models\Cinder_Wall_Half.p3d";
+		offset[] = {0,1.5,0};
+		model="\z\addons\dayz_epoch\models\cinder_wall_half.p3d";
 		icon = "\ca\data\data\Unknown_object.paa";
 		mapSize = 2;
-		armor = 800;
-		displayName = "Cinder Block Wall 1/2";
+		armor = 1600;
+		displayName = "Half Cinder Block Wall";
 		vehicleClass = "Fortifications";
 		upgradeBuilding[] = {"CinderWall_DZ",{{"CinderBlocks",4},{"MortarBucket",1}}};
 		maintainBuilding[] = {{"MortarBucket",1}};
@@ -1624,16 +1624,67 @@ class CfgVehicles {
 		scope = 2;
 		destrType = "DestructBuilding";
 		cost = 100;
-		offset[] = {0,4,0};
-		model="\z\addons\dayz_epoch\models\Cinder_Wall.p3d";
+		offset[] = {0,1.5,0};
+		model="\z\addons\dayz_epoch\models\cinder_wall_full.p3d";
 		icon = "\ca\data\data\Unknown_object.paa";
 		mapSize = 2;
-		armor = 800;
+		armor = 1600;
 		displayName = "Cinder Block Wall";
 		vehicleClass = "Fortifications";
 		maintainBuilding[] = {{"MortarBucket",1}};
 		GhostPreview = "CinderWall_Preview_DZ";
 	};
+
+	class CinderWallDoorway_DZ: ModularItems
+	{
+		scope = 2;
+		destrType = "DestructBuilding";
+		cost = 100;
+		offset[] = {0,1.5,0};
+		model="\z\addons\dayz_epoch\models\steel_garage_frame.p3d";
+		icon = "\ca\data\data\Unknown_object.paa";
+		mapSize = 2;
+		armor = 1600;
+		displayName = "Block Doorway";
+		vehicleClass = "Fortifications";
+		maintainBuilding[] = {{"MortarBucket",1}};
+		upgradeBuilding[] = {"CinderWallDoor_DZ",{{"ItemPole",3},{"ItemTankTrap",3}}};
+		GhostPreview = "CinderWallDoorway_Preview_DZ";
+	};	
+
+	/*
+	class CinderWallDoor_DZ: ModularItems
+	{
+		scope = 2;
+		destrType = "DestructBuilding";
+		cost = 100;
+		offset[] = {0,1.5,0};
+		model="\z\addons\dayz_epoch\models\steel_garage_door.p3d";
+		icon = "\ca\data\data\Unknown_object.paa";
+		mapSize = 2;
+		armor = 1600;
+		displayName = "Block Door";
+		vehicleClass = "Fortifications";
+		maintainBuilding[] = {{"MortarBucket",1}};
+		upgradeBuilding[] = {"CinderWallDoorLocked_DZ",{{"ItemComboLock",1}}};
+		GhostPreview = "CinderWallDoor_Preview_DZ";
+	};	
+	class CinderWallDoorLocked_DZ: ModularItems
+	{
+		scope = 2;
+		destrType = "DestructBuilding";
+		cost = 100;
+		offset[] = {0,1.5,0};
+		model="\z\addons\dayz_epoch\models\steel_garage_locked.p3d";
+		icon = "\ca\data\data\Unknown_object.paa";
+		mapSize = 2;
+		armor = 1600;
+		displayName = "Block Door Locked";
+		vehicleClass = "Fortifications";
+		maintainBuilding[] = {{"MortarBucket",1}};
+		GhostPreview = "CinderWallDoorLocked_Preview_DZ";
+	};
+	*/
 
 	class WoodFloor_DZ: ModularItems
 	{
@@ -1695,6 +1746,7 @@ class CfgVehicles {
 		armor = 200;
 		displayName = "Large Wall";
 		vehicleClass = "Fortifications";
+		upgradeBuilding[] = {"WoodLargeWallWin_DZ",{{"PartGlass",1}}};
 		maintainBuilding[] = {{"PartWoodPlywood",1},{"PartWoodLumber",1}};
 		GhostPreview = "WoodLargeWall_Preview_DZ"; 
 	};
@@ -1744,6 +1796,7 @@ class CfgVehicles {
 		displayName = "Small Wall";
 		vehicleClass = "Fortifications";
 		maintainBuilding[] = {{"PartWoodPlywood",1},{"PartWoodLumber",1}};
+		upgradeBuilding[] = {"WoodSmallWallWin_DZ",{{"PartGlass",1}}};
 		GhostPreview = "WoodSmallWall_Preview_DZ"; 
 	};
 	class WoodSmallWallThird_DZ: ModularItems
@@ -1844,13 +1897,26 @@ class CfgVehicles {
 	};
 
 	// ghost models
+	class CinderWallDoorway_Preview_DZ: NonStrategic
+	{
+		scope = 2;
+		destrType = "DestructNo";
+		cost = 100;
+		offset[] = {0,1.5,0};
+		model="\z\addons\dayz_epoch\models\steel_garage_frame_ghost.p3d";
+		icon = "\ca\data\data\Unknown_object.paa";
+		mapSize = 2;
+		armor = 1000;
+		displayName = "Block Garage Doorway";
+		vehicleClass = "Fortifications";
+	};
 	class CinderWallHalf_Preview_DZ: NonStrategic
 	{
 		scope = 2;
 		destrType = "DestructNo";
 		cost = 100;
 		offset[] = {0,1.5,0};
-		model="\z\addons\dayz_epoch\models\Cinder_Wall_Half_ghost.p3d";
+		model="\z\addons\dayz_epoch\models\cinder_wall_half_ghost.p3d";
 		icon = "\ca\data\data\Unknown_object.paa";
 		mapSize = 2;
 		armor = 1000;
@@ -1863,7 +1929,7 @@ class CfgVehicles {
 		destrType = "DestructNo";
 		cost = 100;
 		offset[] = {0,1.5,0};
-		model="\z\addons\dayz_epoch\models\Cinder_Wall_ghost.p3d";
+		model="\z\addons\dayz_epoch\models\cinder_wall_full_ghost.p3d";
 		icon = "\ca\data\data\Unknown_object.paa";
 		mapSize = 2;
 		armor = 1000;
