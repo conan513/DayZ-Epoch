@@ -8,7 +8,7 @@ echo Build PBO files...
 echo.
 
 REM ..\Tools\cpbo.exe -y -p dayz_anim
-REM ..\Tools\cpbo.exe -y -p dayz_code
+..\Tools\cpbo.exe -y -p dayz_code
 REM ..\Tools\cpbo.exe -y -p dayz_epoch
 REM ..\Tools\cpbo.exe -y -p dayz_epoch_b
 ..\Tools\cpbo.exe -y -p dayz_server
