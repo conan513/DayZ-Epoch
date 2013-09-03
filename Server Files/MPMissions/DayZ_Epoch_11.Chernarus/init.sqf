@@ -114,4 +114,6 @@ if (!isDedicated) then {
 
 [] execVM "scripts\recamp.sqf";
 
+[] execVM "scripts\chenaid.sqf";
+
 #include "\z\addons\dayz_code\system\REsec.sqf"
