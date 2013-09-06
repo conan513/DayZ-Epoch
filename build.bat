@@ -35,7 +35,8 @@ echo.
 
 if exist ..\Build\Keys (RD /S /Q ..\Build\Keys & mkdir ..\Build\Keys) else mkdir ..\Build\Keys
 cd ..\Build\Keys
-..\..\Tools\DSCreateKey.exe dayz_spp2
+..\..\Tools\DSCreateKey.exe dayz_spp
+copy "..\..\Server Files\Keys\*.*"
 
 echo.
 echo Generate bisign's...
@@ -52,8 +53,6 @@ echo.
 echo Move and clean files...
 echo.
 
-
-echo.
 del *.biprivatekey
 
 echo.
