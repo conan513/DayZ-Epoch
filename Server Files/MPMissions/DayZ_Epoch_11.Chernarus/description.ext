@@ -1,11 +1,11 @@
 respawn = "BASE";
 respawndelay = 5;
-onLoadMission= "DayZ Epoch Chernarus";
-OnLoadIntro = "Welcome to DayZ Epoch Chernarus";
+onLoadMission= "DayZ Epoch Plus Chernarus";
+OnLoadIntro = "Welcome to DayZ Epoch Plus Chernarus";
 OnLoadIntroTime = False;
 OnLoadMissionTime = False;
 disabledAI = true;
-disableChannels[]={0,1,2,6};
+disableChannels[]={0,2,6};
 enableItemsDropping = 0;
 #include "R3F_Realism\R3F_Weight\R3F_CfgWeight.h"
 briefing = 0;

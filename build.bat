@@ -9,7 +9,7 @@ echo.
 
 ..\Tools\cpbo.exe -y -p dayz_anim
 ..\Tools\cpbo.exe -y -p dayz_code
-..\Tools\cpbo.exe -y -p dayz_epoch
+REM ..\Tools\cpbo.exe -y -p dayz_epoch
 ..\Tools\cpbo.exe -y -p dayz_epoch_b
 ..\Tools\cpbo.exe -y -p dayz_server
 ..\Tools\cpbo.exe -y -p dayz_sfx
@@ -42,12 +42,12 @@ echo.
 echo Generate bisign's...
 echo.
 
-..\..\Tools\DSSignFile.exe dayz_spp2.biprivatekey ..\@DayZ_Epoch\addons\dayz_anim.pbo
-..\..\Tools\DSSignFile.exe dayz_spp2.biprivatekey ..\@DayZ_Epoch\addons\dayz_code.pbo
-..\..\Tools\DSSignFile.exe dayz_spp2.biprivatekey ..\@DayZ_Epoch\addons\dayz_epoch.pbo
-..\..\Tools\DSSignFile.exe dayz_spp2.biprivatekey ..\@DayZ_Epoch\addons\dayz_epoch_b.pbo
-..\..\Tools\DSSignFile.exe dayz_spp2.biprivatekey ..\@DayZ_Epoch\addons\dayz_sfx.pbo
-..\..\Tools\DSSignFile.exe dayz_spp2.biprivatekey ..\@DayZ_Epoch\addons\epoch_buildings.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch\addons\dayz_anim.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch\addons\dayz_code.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch\addons\dayz_epoch.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch\addons\dayz_epoch_b.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch\addons\dayz_sfx.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch\addons\epoch_buildings.pbo
 
 echo.
 echo Move and clean files...
