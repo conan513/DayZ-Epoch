@@ -23,6 +23,23 @@ if (!isNull _nearLight) then {
 	};
 };
 
+// ---------------------------------------Krixes Self Bloodbag Start------------------------------------
+    _mags = magazines player;
+ 
+    // Krixes Self Bloodbag
+    if ("ItemBloodbag" in _mags) then {
+        hasBagItem = true;
+    } else { hasBagItem = false;};
+    if((speed player <= 1) && hasBagItem && _canDo) then {
+        if (s_player_selfBloodbag < 0) then {
+            s_player_selfBloodbag = player addaction[("<t color=""#c70000"">" + ("Self Bloodbag") +"</t>"),"z\addons\dayz_code\player_selfbloodbag.sqf","",5,false,true,"", ""];
+        };
+    } else {
+        player removeAction s_player_selfBloodbag;
+        s_player_selfBloodbag = -1;
+    };
+// ---------------------------------------Krixes Self Bloodbag End------------------------------------
+ 
 //Grab Flare
 if (_canPickLight and !dayz_hasLight and !_isPZombie) then {
 	if (s_player_grabflare < 0) then {
