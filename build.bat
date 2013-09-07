@@ -9,7 +9,7 @@ echo.
 
 ..\Tools\cpbo.exe -y -p dayz_anim
 ..\Tools\cpbo.exe -y -p dayz_code
-REM ..\Tools\cpbo.exe -y -p dayz_epoch
+..\Tools\cpbo.exe -y -p dayz_epoch
 ..\Tools\cpbo.exe -y -p dayz_epoch_b
 ..\Tools\cpbo.exe -y -p dayz_server
 ..\Tools\cpbo.exe -y -p dayz_sfx
