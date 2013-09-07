@@ -35,3 +35,6 @@ DZAI_weaponNoise = 1.00;
 DZAI_aiHeliPatrols = true;
 DZAI_maxHeliPatrols = 10;
 DZAI_heliTypes = ["UH1H_DZ","Mi17_DZ"];
+
+DZAI_dynTriggersMax = 20;
+DZAI_monitor = false;
