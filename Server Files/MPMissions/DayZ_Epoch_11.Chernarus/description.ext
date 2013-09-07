@@ -158,15 +158,4 @@ class CfgSounds
     sound[]={\custom\sfx\snoring.ogg,0.9,1};
     titles[] = {};
     };
-<<<<<<< HEAD
-	
-	class drink_water
-	{
-	name="drink_water";
-	sound[]={\script\drink_water\sound\drink_water.ogg,1,1};
-	titles[] = {};
-	};
 };
-=======
-};
->>>>>>> parent of eb0797b... Drink water from ponds
