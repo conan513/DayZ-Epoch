@@ -166,3 +166,5 @@ class CfgSounds
 	titles[] = {};
 	};
 };
+
+#include "addons\SARGE\SAR_define.hpp"
