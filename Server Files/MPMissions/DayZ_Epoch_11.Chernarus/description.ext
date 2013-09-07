@@ -158,6 +158,7 @@ class CfgSounds
     sound[]={\custom\sfx\snoring.ogg,0.9,1};
     titles[] = {};
     };
+<<<<<<< HEAD
 	
 	class drink_water
 	{
@@ -166,3 +167,6 @@ class CfgSounds
 	titles[] = {};
 	};
 };
+=======
+};
+>>>>>>> parent of eb0797b... Drink water from ponds
