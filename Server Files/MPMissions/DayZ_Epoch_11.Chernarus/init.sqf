@@ -125,4 +125,13 @@ if (!isDedicated) then {
 
 [] execVM "scripts\chenaid.sqf";
 
+// UPSMON
+call compile preprocessFileLineNumbers "addons\UPSMON\scripts\Init_UPSMON.sqf";
+
+// SHK 
+call compile preprocessfile "addons\SHK_pos\shk_pos_init.sqf";
+
+// run SAR_AI
+[] execVM "addons\SARGE\SAR_AI_init.sqf";
+
 #include "\z\addons\dayz_code\system\REsec.sqf"
