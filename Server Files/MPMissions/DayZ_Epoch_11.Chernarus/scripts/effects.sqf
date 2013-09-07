@@ -15,10 +15,10 @@
 //_hndl ppEffectCommit 0;
 
 //Dark draining 2
-_hndl = ppEffectCreate ["colorCorrections", 1501];
-_hndl ppEffectEnable true;
-_hndl ppEffectAdjust [ 1, 0.5, 0, [0.1, 0, 0, 0],[3.59, 3.49, 3.78, 0.83],[-0.31, 0.08, 3.79, 5]];
-_hndl ppEffectCommit 0;
+//_hndl = ppEffectCreate ["colorCorrections", 1501];
+//_hndl ppEffectEnable true;
+//_hndl ppEffectAdjust [ 1, 0.5, 0, [0.1, 0, 0, 0],[3.59, 3.49, 3.78, 0.83],[-0.31, 0.08, 3.79, 5]];
+//_hndl ppEffectCommit 0;
 
 //Dark draining
 //_hndl = ppEffectCreate ["colorCorrections", 1501];
@@ -45,10 +45,10 @@ _hndl ppEffectCommit 0;
 //_hndl ppEffectCommit 0;
 
 //Tropical
-//_hndl = ppEffectCreate ["colorCorrections", 1501];
-//_hndl ppEffectEnable true;
-//_hndl ppEffectAdjust [ 1, 1, 0.01, [-0.11, -0.65, -0.76, 0.015],[-5, 2.74, 0.09, 0.95],[-1.14, -0.73, 1.14, -0.09]];
-//_hndl ppEffectCommit 0;
+_hndl = ppEffectCreate ["colorCorrections", 1501];
+_hndl ppEffectEnable true;
+_hndl ppEffectAdjust [ 1, 1, 0.01, [-0.11, -0.65, -0.76, 0.015],[-5, 2.74, 0.09, 0.95],[-1.14, -0.73, 1.14, -0.09]];
+_hndl ppEffectCommit 0;
 
 //Photo
 //_hndl = ppEffectCreate ["colorCorrections", 1501];
