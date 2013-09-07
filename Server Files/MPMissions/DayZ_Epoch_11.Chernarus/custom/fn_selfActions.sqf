@@ -214,7 +214,7 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 	//Sleep
 	if(cursorTarget isKindOf "TentStorage" and _canDo and _ownerID == dayz_characterID) then {
 		if ((s_player_sleep < 0) and (player distance cursorTarget < 3)) then {
-			s_player_sleep = player addAction [localize "str_actions_self_sleep", "custom\player_sleep.sqf",cursorTarget, 0, false, true, "",""];
+			s_player_sleep = player addAction [localize "str_actions_self_sleep", "\z\addons\dayz_code\actions\player_sleep.sqf",cursorTarget, 0, false, true, "",""];
 		};
 	} else {
 		player removeAction s_player_sleep;
