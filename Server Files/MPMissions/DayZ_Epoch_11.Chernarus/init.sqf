@@ -21,8 +21,8 @@ enableRadio true;
 spawnShoremode = 1; // Default = 1 (on shore)
 spawnArea= 1500; // Default = 1500
 MaxHeliCrashes= 5; // Default = 5
-MaxVehicleLimit = 300; // Default = 50
-MaxDynamicDebris = 500; // Default = 100
+MaxVehicleLimit = 100; // Default = 50
+MaxDynamicDebris = 250; // Default = 100
 dayz_MapArea = 14000; // Default = 10000
 dayz_maxLocalZombies = 30; // Default = 30
 dayz_paraSpawn = false;
@@ -124,5 +124,7 @@ if (!isDedicated) then {
 [] execVM "scripts\recamp.sqf";
 
 [] execVM "scripts\chenaid.sqf";
+
+[] execVM "scripts\effects.sqf";
 
 #include "\z\addons\dayz_code\system\REsec.sqf"
