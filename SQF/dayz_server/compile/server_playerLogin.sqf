@@ -91,17 +91,10 @@ if (!_isNew) then {
 	};
 	
 } else {
-	_isInfected =	_primary select 3;
-	_model =		_primary select 4;
-	_hiveVer =		_primary select 5;
-	
-	if (isNil "_model") then {
-		_model = "Survivor2_DZ";
-	} else {
-		if (_model == "") then {
-			_model = "Survivor2_DZ";
-		};
-	};
+	_isInfected = 0;
+	_model = _primary select 4;
+	_hiveVer = _primary select 5;
+	_model = "Survivor2_DZ";
 
 	//Record initial inventory only if not player zombie 
 	if(_isInfected != 1) then {
