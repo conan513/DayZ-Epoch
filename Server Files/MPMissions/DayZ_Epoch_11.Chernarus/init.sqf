@@ -107,11 +107,38 @@ if (!isDedicated) then {
 	//Run the player monitor
 	_id = player addEventHandler ["Respawn", {_id = [] spawn player_death; _nul = [] execVM "scripts\playerspawn.sqf";}];
 	_playerMonitor = 	[] execVM "\z\addons\dayz_code\system\player_monitor.sqf";	
-	_nul = [] execVM "playerspawn.sqf";
+	_nul = [] execVM "scripts\playerspawn.sqf";
 	_void = [] execVM "R3F_Realism\R3F_Realism_Init.sqf";
 	
 	//Lights
 	[17,6,true,true,true,true,42,250,600,10,[0.698, 0.556, 0.419],"Generator_DZ"] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";
+};
+
+//HALO SPAWN SCRIPT
+ 
+MC_BIS_halo_spawn = compile preprocessFileLineNumbers "fixes\haloInit.sqf";
+private["_mkr"];
+_mkr = "spawn" + str(round(random 4));
+if (!isDedicated) then {
+    [] spawn {
+        waitUntil { !isNil ("dayz_Totalzedscheck") and
+!(player getVariable ["humanity",0] > 5000 and
+typeOf player == "Survivor2_DZ") and
+!(player getVariable ["humanity",0] < -2000 and
+(typeOf player == "Survivor2_DZ" or
+typeOf player == "SurvivorW2_DZ") ) and
+!(player getVariable ["humanity",0] > 0 and
+(typeOf player == "Bandit1_DZ" or
+typeOf player == "BanditW1_DZ") )
+};
+ 
+        if (dayzPlayerLogin2 select 2) then
+        {
+            _pos = position player;
+            _mkr setMarkerPos [_pos select 0, _pos select 1];
+            player spawn MC_BIS_halo_spawn;
+        };
+    };
 };
 
 // CPC Nametags
