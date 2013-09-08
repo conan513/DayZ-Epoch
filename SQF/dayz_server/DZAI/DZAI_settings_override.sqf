@@ -25,7 +25,7 @@
 */
 
 //Comment out the line below to have DZAI read from this file.
-//if (isNil "DZAI_Use_Default_Settings") exitWith {};
+if (isNil "DZAI_Use_Default_Settings") exitWith {};
 
 //Add your preferred settings below this line.
 

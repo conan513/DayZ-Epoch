@@ -15,19 +15,25 @@ echo.
 ..\Tools\cpbo.exe -y -p dayz_sfx
 ..\Tools\cpbo.exe -y -p epoch_buildings
 
+..\Tools\cpbo.exe -y -p vilas_cpl
+
 echo.
 echo Move PBO files...
 echo.
 
-mkdir ..\Build\@DayZ_Epoch\addons\
-mkdir ..\Build\ServerFiles\dayz_epoch\@DayZ_Epoch_Server\addons
-move dayz_anim.pbo ..\Build\@DayZ_Epoch\addons\
-move dayz_code.pbo ..\Build\@DayZ_Epoch\addons\
-move dayz_epoch.pbo ..\Build\@DayZ_Epoch\addons\
-move dayz_epoch_b.pbo ..\Build\@DayZ_Epoch\addons\
-move dayz_server.pbo ..\Build\ServerFiles\dayz_epoch\@DayZ_Epoch_Server\addons
-move dayz_sfx.pbo ..\Build\@DayZ_Epoch\addons\
-move epoch_buildings.pbo ..\Build\@DayZ_Epoch\addons\
+mkdir ..\Build\@DayZ_Epoch_Plus\addons\
+mkdir ..\Build\ServerFiles\DayZ_Epoch_Plus\@DayZ_Epoch_Plus_Server\addons
+move dayz_anim.pbo ..\Build\@DayZ_Epoch_Plus\addons\
+move dayz_code.pbo ..\Build\@DayZ_Epoch_Plus\addons\
+move dayz_epoch.pbo ..\Build\@DayZ_Epoch_Plus\addons\
+move dayz_epoch_b.pbo ..\Build\@DayZ_Epoch_Plus\addons\
+move dayz_server.pbo ..\Build\ServerFiles\DayZ_Epoch_Plus\@DayZ_Epoch_Plus_Server\addons
+move dayz_sfx.pbo ..\Build\@DayZ_Epoch_Plus\addons\
+move epoch_buildings.pbo ..\Build\@DayZ_Epoch_Plus\addons\
+move vilas_cpl.pbo ..\Build\@DayZ_Epoch_Plus\addons\
+
+copy extras\*.* ..\Build\@DayZ_Epoch_Plus\
+copy extras\addons\*.* ..\Build\@DayZ_Epoch_Plus\addons\
 
 echo.
 echo Generate bikey...
@@ -36,18 +42,37 @@ echo.
 if exist ..\Build\Keys (RD /S /Q ..\Build\Keys & mkdir ..\Build\Keys) else mkdir ..\Build\Keys
 cd ..\Build\Keys
 ..\..\Tools\DSCreateKey.exe dayz_spp
-copy "..\..\Server Files\Keys\*.*"
+REM copy "..\..\Server Files\Keys\*.*"
 
 echo.
 echo Generate bisign's...
 echo.
 
-..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch\addons\dayz_anim.pbo
-..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch\addons\dayz_code.pbo
-..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch\addons\dayz_epoch.pbo
-..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch\addons\dayz_epoch_b.pbo
-..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch\addons\dayz_sfx.pbo
-..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch\addons\epoch_buildings.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\dayz_anim.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\dayz_code.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\dayz_epoch.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\dayz_epoch_b.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\dayz_sfx.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\epoch_buildings.pbo
+
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\ASC_EU_Lights.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\csj_gyroac.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\dayz.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\dayz_communityassets.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\dayz_equip.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\dayz_vehicles.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\dayz_weapons.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\glt_m300t.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\gnt_c185.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\jetskiyanahui.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\MAP_EU.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\sigisolda.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\st_collision.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\st_evasive.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\suv_colours.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\vilas_cpl.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\vilas_cpl_core.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\weapons_a2ru.pbo
 
 echo.
 echo Move and clean files...
@@ -74,11 +99,11 @@ copy "Server Files\Binaries\Database.dll" Build
 copy "Server Files\Binaries\tbb.dll" Build
 copy "Server Files\Binaries\tbbmalloc.dll" Build
 
-mkdir Build\ServerFiles\dayz_epoch\dayz_epoch_11_Chernarus\
-copy "Server Files\Binaries\HiveExt.dll" Build\ServerFiles\dayz_epoch\@DayZ_Epoch_Server\
-copy "Server Files\Binaries\HiveExt.ini" Build\ServerFiles\dayz_epoch\dayz_epoch_11_Chernarus\
-copy "Server Files\Binaries\basic.cfg" Build\ServerFiles\dayz_epoch\dayz_epoch_11_Chernarus\
-copy "Server Files\Binaries\config.cfg" Build\ServerFiles\dayz_epoch\dayz_epoch_11_Chernarus\
+mkdir Build\ServerFiles\DayZ_Epoch_Plus\DayZ_Epoch_Plus_11_Chernarus\
+copy "Server Files\Binaries\HiveExt.dll" Build\ServerFiles\DayZ_Epoch_Plus\@DayZ_Epoch_Plus_Server\
+copy "Server Files\Binaries\HiveExt.ini" Build\ServerFiles\DayZ_Epoch_Plus\DayZ_Epoch_Plus_11_Chernarus\
+copy "Server Files\Binaries\basic.cfg" Build\ServerFiles\DayZ_Epoch_Plus\DayZ_Epoch_Plus_11_Chernarus\
+copy "Server Files\Binaries\config.cfg" Build\ServerFiles\DayZ_Epoch_Plus\DayZ_Epoch_Plus_11_Chernarus\
 
 copy "Server Files\dayz_game.bat" Build
 copy "Server Files\dayz_server.bat" Build
@@ -87,8 +112,8 @@ echo.
 echo Copy tools and database...
 echo.
 
-mkdir Build\ServerFiles\dayz_epoch\dayz_epoch_11_Chernarus\BattlEye\
-copy "Server Files\Battleye\*.*" Build\ServerFiles\dayz_epoch\dayz_epoch_11_Chernarus\BattlEye\
+mkdir Build\ServerFiles\DayZ_Epoch_Plus\DayZ_Epoch_Plus_11_Chernarus\BattlEye\
+copy "Server Files\Battleye\*.*" Build\ServerFiles\DayZ_Epoch_Plus\DayZ_Epoch_Plus_11_Chernarus\BattlEye\
 
 mkdir Build\Tools
 copy Tools\*.* Build\Tools
