@@ -128,4 +128,4 @@ if (!isDedicated) then {
 
 [] execVM "scripts\faction.sqf";
 
-// #include "\z\addons\dayz_code\system\REsec.sqf"
+#include "\z\addons\dayz_code\system\REsec.sqf"
