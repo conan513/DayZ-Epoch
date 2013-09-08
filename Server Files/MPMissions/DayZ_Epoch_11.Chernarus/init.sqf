@@ -120,12 +120,12 @@ if (!isDedicated) then {
 
 // [] ExecVM "scripts\mamu_poi3.sqf";
 
-// [] execVM "scripts\recamp.sqf";
+[] execVM "scripts\recamp.sqf";
 
 [] execVM "scripts\chenaid.sqf";
 
-[] execVM "scripts\effects.sqf";
+// [] execVM "scripts\effects.sqf";
 
 [] execVM "scripts\faction.sqf";
 
-#include "\z\addons\dayz_code\system\REsec.sqf"
+// #include "\z\addons\dayz_code\system\REsec.sqf"
