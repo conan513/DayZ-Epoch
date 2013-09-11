@@ -123,14 +123,12 @@ if (!isDedicated) then {
 
 [] ExecVM "scripts\devfish_camptents.sqf";
 
-// [] ExecVM "scripts\mamu_poi3.sqf";
+[] ExecVM "scripts\mamu_poi3.sqf";
 
 [] execVM "scripts\recamp.sqf";
 
 [] execVM "scripts\chenaid.sqf";
 
-// [] execVM "scripts\effects.sqf";
-
-[] execVM "scripts\faction.sqf";
+[] execVM "scripts\effects.sqf";
 
 #include "\z\addons\dayz_code\system\REsec.sqf"
