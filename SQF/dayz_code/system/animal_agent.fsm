@@ -134,7 +134,11 @@ class FSM
           to="wait";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"!_isAlive"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/"_timeA = time;"/*%FSM</ACTION""">*/;
+          action=/*%FSM<ACTION""">*/"_timeA = time;" \n // Modified by ^bdc to spawn flies when critter dies
+          "" \n
+          "  _pos = (getPosATL _agent);" \n
+          "  _fl = [_pos,0.1,1.5] call bis_fnc_flies;"
+          /*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
         /*%FSM<LINK "tamed">*/
