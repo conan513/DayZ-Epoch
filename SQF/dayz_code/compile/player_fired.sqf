@@ -10,7 +10,24 @@ _audible = getNumber (configFile >> "CfgAmmo" >> _ammo >> "audibleFire");
 _caliber = getNumber (configFile >> "CfgAmmo" >> _ammo >> "caliber");
 _distance = round(_audible * 10 * _caliber);
 
-dayz_disAudial = _distance;
+// Modified for sound dampening if raining (based upon intensity) by ^bdc
+    _newDistance = _distance; // default in case of problem
+    _RainAmt = drn_var_DynamicWeather_Rain; // referenced from \z\addons\dayz_code\system\DynamicWeatherEffects.sqf
+    if ((_distance > 0) and (_RainAmt > 0)) then {
+        if (_RainAmt > 0.72) then { // very heavy rain
+            _CorrectionFactor = 0.40; };  // 40%
+        if (_RainAmt > 0.53) then { // heavy rain
+            _CorrectionFactor = 0.55; };  // 55%
+        if (_RainAmt > 0.25) then { // medium rain
+            _CorrectionFactor = 0.70; };  // 70%
+        if (_RainAmt < 0.25) then { // light rain
+            _CorrectionFactor = 0.85; };  // 85%
+        _newDistance = (_distance * _CorrectionFactor);
+    } else {
+        _newDistance = _distance;
+    };
+
+dayz_disAudial = _newDistance;
 dayz_firedCooldown = time;
 // Color in the combat icon
 dayz_combat = 1;
@@ -39,7 +56,7 @@ if (_ammo isKindOf "SmokeShell") then {
 		_i = _i + 1;
 	} forEach _listTalk;
 } else {
-	[_unit,_distance,true,(getPosATL player)] spawn player_alertZombies;
+	[_unit,_newDistance/2,true,(getPosATL player)] spawn player_alertZombies;
 	//Check if need to place arrow
 	if (_ammo isKindOf "Bolt") then {
 		_id = _this spawn player_crossbowBolt;
