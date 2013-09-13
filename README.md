@@ -12,14 +12,16 @@ Included many community addon and script from http://opendayz.net
 Included Custom Addons from community
 -------------------------------------
 
-* Bandit AI (DZAI)
+* Bandit AI with helicopter patrol (DZAI)
 * More debris and tents
 * Camp sites
-* More realistic weather system (really stormy weather)
+* More apocalyptics like weather
 * Self bloodbag
+* Flies around killed animals
 * Custom intro
 * New dead screen and song: http://www.youtube.com/watch?v=RFKcpbfAXMw
 * Realistic zombie aggro while raining 
+
 
 --------------------------
 Special thanks
