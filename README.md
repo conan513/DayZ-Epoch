@@ -15,13 +15,19 @@ Included Custom Addons from community
 * Bandit AI with helicopter patrol (DZAI)
 * More debris and tents
 * Camp sites
-* More apocalyptics like weather
 * Self bloodbag
 * Flies around killed animals
-* Custom intro
-* New dead screen and song: http://www.youtube.com/watch?v=RFKcpbfAXMw
-* Realistic zombie aggro while raining 
+* Smookie Animation Pack
+* ArmA 2: WarFX effects mod
+* New death screen
+* Death song: http://www.youtube.com/watch?v=RFKcpbfAXMw
 
+-------------------------------------
+Included Custom Addons from me
+-------------------------------------
+
+* More apocalyptics like weather
+* Custom intro
 
 --------------------------
 Special thanks

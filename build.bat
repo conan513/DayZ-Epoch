@@ -23,14 +23,8 @@ echo.
 
 mkdir ..\Build\@DayZ_Epoch_Plus\addons\
 mkdir ..\Build\ServerFiles\DayZ_Epoch_Plus\@DayZ_Epoch_Plus_Server\addons
-move dayz_anim.pbo ..\Build\@DayZ_Epoch_Plus\addons\
-move dayz_code.pbo ..\Build\@DayZ_Epoch_Plus\addons\
-move dayz_epoch.pbo ..\Build\@DayZ_Epoch_Plus\addons\
-move dayz_epoch_b.pbo ..\Build\@DayZ_Epoch_Plus\addons\
 move dayz_server.pbo ..\Build\ServerFiles\DayZ_Epoch_Plus\@DayZ_Epoch_Plus_Server\addons
-move dayz_sfx.pbo ..\Build\@DayZ_Epoch_Plus\addons\
-move epoch_buildings.pbo ..\Build\@DayZ_Epoch_Plus\addons\
-move vilas_cpl.pbo ..\Build\@DayZ_Epoch_Plus\addons\
+move *.pbo ..\Build\@DayZ_Epoch_Plus\addons\
 
 copy extras\*.* ..\Build\@DayZ_Epoch_Plus\
 copy extras\addons\*.* ..\Build\@DayZ_Epoch_Plus\addons\
@@ -73,6 +67,13 @@ echo.
 ..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\vilas_cpl.pbo
 ..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\vilas_cpl_core.pbo
 ..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\weapons_a2ru.pbo
+
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\smk_anims.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\smk_anims_manager.pbo
+
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\WarFXPE.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\WarFXVeh.pbo
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\WarFXWeps.pbo
 
 echo.
 echo Move and clean files...
