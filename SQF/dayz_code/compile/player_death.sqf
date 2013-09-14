@@ -127,10 +127,12 @@ _body setVariable["combattimeout", 0, true];
 //["dayzFlies",player] call broadcastRpcCallAll;
 sleep 2;
 
-1 cutRsc ["DeathScreen","BLACK OUT",3];
-
-
+//DayZ-CreditZ
+1 cutRsc ["DeathScreen","BLACK OUT",2];
+0.1 fadesound 1;
 playMusic "dayz_track_death_1";
+sleep 0.1;
+[] execVM "z\addons\dayz_code\roll.sqf";
 
 "dynamicBlur" ppEffectAdjust [0]; "dynamicBlur" ppEffectCommit 5;
 "colorCorrections" ppEffectAdjust [1, 1, 0, [1, 1, 1, 0.0], [1, 1, 1, 1],  [1, 1, 1, 1]];"colorCorrections" ppEffectCommit 5;
