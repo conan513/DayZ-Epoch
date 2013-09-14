@@ -418,6 +418,21 @@ if (!isDedicated) then {
 		if (_vdir < 0) then {_vdir = 360 + _vdir};
 		_vdir
 	};
+	
+	dayz_lowHumanity = {
+		private["_unit","_humanity","_delay"];
+		_unit = _this;
+		if ((_unit distance player) < 15) then {
+			_humanity = _unit getVariable["humanity",0];
+			dayz_heartBeat = true;
+			if (_humanity < -3000) then {
+				_delay = ((10000 + _humanity) / 5500) + 0.3;
+				playSound "heartbeat_1";
+				sleep _delay;
+			};
+			dayz_heartBeat = false;
+		};
+	};
 
 	DZE_getModelName = {
 		_objInfo = toArray(str(_this));
