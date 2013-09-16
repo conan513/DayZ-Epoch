@@ -41,7 +41,7 @@ class CfgMods
 		hidePicture = 0;
 		hideName = 0;
 		action = "http://www.dayzepoch.com";
-		version = "1.0.2.16";
+		version = "1.0.2.17";
 		hiveVersion = 0.96; //0.93
 	};
 };
@@ -856,7 +856,7 @@ class CfgBuildingLoot {
 			{ "Mk_48_DZ","weapon" },
 			{ "M249_DZ","weapon" },
 			{"BAF_L85A2_RIS_SUSAT","weapon"},
-			{ "DMR","weapon" },
+			{ "M4SPR","weapon" },
 			{ "","military" },
 			{ "","medical" },
 			{ "MedBox0","object" },
@@ -909,7 +909,7 @@ class HeliCrash_No50s: Default {
 			{"Mk_48_DZ","weapon"},
 			{"M249_DZ","weapon"},
 			{"BAF_L85A2_RIS_SUSAT","weapon"},
-			{"DMR","weapon"},
+			{"M4SPR","weapon"},
 			{"","military"},
 			{"","medical"},
 			{"MedBox0","object"},
@@ -984,7 +984,7 @@ class HeliCrash_No50s: Default {
 			{ "AK_47_M","weapon" },
 			{ "M24","weapon" },
 			{ "M1014","weapon" },
-			{ "DMR","weapon" },
+			{ "M4SPR","weapon" },
 			{ "M4A1","weapon" },
 			{ "M14_EP1","weapon" },
 			{ "UZI_EP1","weapon" },
@@ -1159,7 +1159,7 @@ class HeliCrash_No50s: Default {
 			{ "SVD_CAMO","weapon" },
 			{ "M1014","weapon" },
 			{ "BAF_LRR_scoped","weapon" },
-			{ "DMR","weapon" },
+			{ "M4SPR","weapon" },
 			{ "M4A1","weapon" },
 			{ "M14_EP1","weapon" },
 			{ "UZI_EP1","weapon" },
@@ -2005,7 +2005,7 @@ class HeliCrash_No50s: Default {
 			{ "SVD_CAMO","weapon" },
 			{ "M1014","weapon" },
 			{ "BAF_LRR_scoped","weapon" },
-			{ "DMR","weapon" },
+			{ "M4SPR","weapon" },
 			{ "M4A1","weapon" },
 			{ "M14_EP1","weapon" },
 			{ "UZI_EP1","weapon" },
