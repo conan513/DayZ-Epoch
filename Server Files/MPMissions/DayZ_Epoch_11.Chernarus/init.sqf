@@ -33,7 +33,7 @@ DZE_DeathMsgSide = true;
 DZE_DeathMsgTitleText = true;
 OldHeliCrash = false;
 
-EpochEvents = [["any","any","any","any",30,"crash_spawner"],["any","any","any","any",0,"crash_spawner"]];
+EpochEvents = [["any","any","any","any",30,"crash_spawner"],["any","any","any","any",0,"crash_spawner"],["any","any","any","any",15,"supply_drop"]];
 dayz_fullMoonNights = true;
 
 //Load in compiled functions

@@ -41,7 +41,7 @@ class CfgMods
 		hidePicture = 0;
 		hideName = 0;
 		action = "http://www.dayzepoch.com";
-		version = "1.0.2.17";
+		version = "1.0.2.2";
 		hiveVersion = 0.96; //0.93
 	};
 };
@@ -1983,7 +1983,33 @@ class HeliCrash_No50s: Default {
 			0.03
 		};
 	};
-	
+	class SupplyDrop: Default {
+		zombieChance = 1;
+		maxRoaming = 3;
+		zombieClass[] = {"zZombie_Base","z_hunter","z_hunter","z_hunter","z_villager1","z_villager2","z_villager3","z_doctor","z_soldier_pilot","z_soldier_heavy"};
+		lootChance = 1;
+		lootPos[] = {};
+		itemType[] = {
+			{ "PartPlywoodPack","magazine" },
+			{ "PartPlankPack","magazine" },
+			{ "CinderBlocks","magazine" },
+			{ "MortarBucket","magazine" },
+			{ "bulk_PartGeneric","magazine" },
+			{ "bulk_ItemSandbag","magazine"},
+			{ "bulk_ItemTankTrap","magazine"},
+			{ "ItemSledge","weapon" },
+		};
+		itemChance[] =	{
+			0.15,
+			0.2,
+			0.1,
+			0.1,
+			0.2,
+			0.1,
+			0.1,
+			0.05
+		};
+	};
 	class MassGrave: Default {
 		zombieChance = 1;
 		maxRoaming = 3;
