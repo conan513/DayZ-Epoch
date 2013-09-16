@@ -70,7 +70,7 @@ echo.
 ..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\cba_xeh.pbo
 
 ..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\smk_anims_lite.pbo
-
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\uifonts.pbo
 ..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\WarFXPE.pbo
 ..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\WarFXVeh.pbo
 ..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\WarFXWeps.pbo
