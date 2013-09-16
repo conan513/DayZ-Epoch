@@ -28,6 +28,16 @@ server_spawnEvents =			compile preprocessFileLineNumbers "\z\addons\dayz_server\
 fnc_plyrHit   = compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fnc_plyrHit.sqf";
 server_deaths = 			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerDeaths.sqf";
 
+// Custom scripts
+[] execVM "\z\addons\dayz_server\scripts\cpcnametags.sqf";
+[] ExecVM "\z\addons\dayz_server\scripts\devfish_camptents.sqf";
+[] ExecVM "\z\addons\dayz_server\scripts\mamu_poi3.sqf";
+[] execVM "\z\addons\dayz_server\scripts\recamp.sqf";
+// [] execVM "\z\addons\dayz_server\scripts\chenaid.sqf";
+// [] execVM "\z\addons\dayz_server\scripts\effects.sqf";
+[] execVM "\z\addons\dayz_server\scripts\villages.sqf";
+[] execVM "\z\addons\dayz_server\scripts\train_wreck.sqf";
+[] execVM "\z\addons\dayz_server\scripts\buildings.sqf";
 
 vehicle_handleInteract = {
 	private["_object"];
@@ -534,3 +544,4 @@ private ["_deletedLoot","_startTime","_looted","_objectPos","_noPlayerNear","_ne
 
 	diag_log (format["CLEANUP: DELETED %1 ITEMS, RUNTIME: %2",_deletedLoot,(_endTime - _startTime)]);
 };
+

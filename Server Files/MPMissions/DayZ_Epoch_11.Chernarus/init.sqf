@@ -115,17 +115,4 @@ if (!isDedicated) then {
 	[17,6,true,false,true,true,72,242,600,10,[0.698, 0.556, 0.419],"Generator_DZ",208,"",0.5] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";
 };
 
-// CPC Nametags
-[] execVM "scripts\cpcnametags.sqf";
-
-[] ExecVM "scripts\devfish_camptents.sqf";
-
-// [] ExecVM "scripts\mamu_poi3.sqf";
-
-[] execVM "scripts\recamp.sqf";
-
-// [] execVM "scripts\chenaid.sqf";
-
-// [] execVM "scripts\effects.sqf";
-
 #include "\z\addons\dayz_code\system\REsec.sqf"
