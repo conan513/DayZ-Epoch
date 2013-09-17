@@ -1,5 +1,173 @@
 
 class CfgSounds {
+	//----=Infected Hounds=-----
+	class hound_init
+	{
+		name="hound_init";
+		sound[]={"\dayz_sfx\hounds\Hound_Bark_1.ogg",0.4,1};
+		titles[] = {};
+	};
+	class hound_bark0
+	{
+		name="hound_bark0";
+		sound[]={"\dayz_sfx\hounds\Hound_Bark_1.ogg",0.4,1};
+		titles[] = {};
+	};
+	class hound_bark1
+	{
+		name="hound_bark1";
+		sound[]={"\dayz_sfx\hounds\Hound_Bark_2.ogg",0.4,1};
+		titles[] = {};
+	};
+ 	class hound_bark2
+	{
+		name="hound_bark2";
+		sound[]={"\dayz_sfx\hounds\Hound_Bark_3.ogg",0.4,1};
+		titles[] = {};
+	};
+ 	class hound_bark3
+	{
+		name="hound_bark3";
+		sound[]={"\dayz_sfx\hounds\Hound_Bark_4.ogg",0.4,1};
+		titles[] = {};
+	};
+ 	class hound_bark4
+	{
+		name="hound_bark4";
+		sound[]={"\dayz_sfx\hounds\Hound_Bark_5.ogg",0.4,1};
+		titles[] = {};
+	};
+ 	class hound_bark5
+	{
+		name="hound_bark5";
+		sound[]={"\dayz_sfx\hounds\Hound_Bark_6.ogg",0.4,1};
+		titles[] = {};
+	};
+ 	class hound_growl0
+	{
+		name="hound_growl0";
+		sound[]={"\dayz_sfx\hounds\Hound_Growl_1.ogg",0.5,1};
+		titles[] = {};
+	};
+ 	class hound_growl1
+	{
+		name="hound_growl1";
+		sound[]={"\dayz_sfx\hounds\Hound_Growl_2.ogg",0.5,1};
+		titles[] = {};
+	};
+ 	class hound_pain
+	{
+		name="hound_pain";
+		sound[]={"\dayz_sfx\dogs\pain.ogg",0.5,1};
+		titles[] = {};
+	};
+ 	class hound_bite
+	{
+		name="dog_bite";
+		sound[]={"\dayz_sfx\dogs\bite.ogg",0.5,1};
+		titles[] = {};
+	};
+ 	class hound_damage
+	{
+		name="hound_damage";
+		sound[]={"\dayz_sfx\dogs\dogs\damage.ogg",0.5,1};
+		titles[] = {};
+	};
+	//----=Bloodsuckers=-----
+	class blood_scream {
+		name = "NS BL SCREAM";
+		sound[] = {"\dayz_sfx\bloodsucker\scream.ogg", 0.251189, 1.0};
+		titles[] = {};
+	};
+	class blood_distant_growl_0 {
+		name = "NS BL GROW";
+		sound[] = {"\dayz_sfx\bloodsucker\distant_growl_0.ogg", 0.251189, 1.0};
+		titles[] = {};
+	};
+	
+	class blood_distant_growl_1 {
+		name = "NS BL GROW1";
+		sound[] = {"\dayz_sfx\bloodsucker\distant_growl_1.ogg", 0.251189, 1.0};
+		titles[] = {};
+	};
+	
+	class blood_distant_growl_2 {
+		name = "NS BL GROW2";
+		sound[] = {"\dayz_sfx\bloodsucker\distant_growl_2.ogg", 0.251189, 1.0};
+		titles[] = {};
+	};
+	
+	class blood_distant_growl_3 {
+		name = "NS BL GROW3";
+		sound[] = {"\dayz_sfx\bloodsucker\distant_growl_3.ogg", 0.251189, 1.0};
+		titles[] = {};
+	};
+	
+	class blood_distant_growl_4 {
+		name = "NS BL GROW4";
+		sound[] = {"\dayz_sfx\bloodsucker\distant_growl_4.ogg", 0.251189, 1.0};
+		titles[] = {};
+	};
+	
+	class blood_forest_hidden_1 {
+		name = "NS BL HIDDEN1";
+		sound[] = {"\dayz_sfx\bloodsucker\forest_hidden_1.ogg", 0.251189, 1.0};
+		titles[] = {};
+	};
+	
+	class blood_forest_hidden_2 {
+		name = "NS BL HIDDEN2";
+		sound[] = {"\dayz_sfx\bloodsucker\forest_hidden_2.ogg", 0.251189, 1.0};
+		titles[] = {};
+	};
+	
+	class blood_forest_hidden_3 {
+		name = "NS BL HIDDEN3";
+		sound[] = {"\dayz_sfx\bloodsucker\forest_hidden_3.ogg", 0.251189, 1.0};
+		titles[] = {};
+	};
+	
+	class blood_forest_hidden_4 {
+		name = "NS BL HIDDEN4";
+		sound[] = {"\dayz_sfx\bloodsucker\forest_hidden_4.ogg", 0.251189, 1.0};
+		titles[] = {};
+	};
+	
+	class blood_invisible_go {
+		name = "NS BL invis go";
+		sound[] = {"\dayz_sfx\bloodsucker\invisible.ogg", 0.251189, 1.0};
+		titles[] = {};
+	};
+	
+	class blood_invisible_left {
+		name = "NS BL invis left";
+		sound[] = {"\dayz_sfx\bloodsucker\invisible_2.ogg", 0.251189, 1.0};
+		titles[] = {};
+	};
+	
+	class blood_att_1 {
+		name = "NS BL att1";
+		sound[] = {"\dayz_sfx\bloodsucker\attack_0.ogg", 0.177828, 1.0};
+		titles[] = {};
+	};
+	
+	class blood_att_2 {
+		name = "NS BL att2";
+		sound[] = {"\dayz_sfx\bloodsucker\attack_1.ogg", 0.177828, 1.0};
+		titles[] = {};
+	};
+	
+	class blood_att_3 {
+		name = "NS BL att3";
+		sound[] = {"\dayz_sfx\bloodsucker\attack_2.ogg", 0.177828, 1.0};
+		titles[] = {};
+	};
+	
+	class blood_att_4 {
+		name = "NS BL att4";
+		sound[] = {"\dayz_sfx\bloodsucker\attack_3.ogg", 0.177828, 1.0};
+		titles[] = {};
+	};
 	class breath_1 {
 		name = "";
 		sound[] = {"\dayz_sfx\effects\breath_1",0.1,1,30};
