@@ -240,8 +240,8 @@ class CfgSurvival {
 	class Inventory {
 		class Default {
 			//weapons[] = {"Makarov"};
-			magazines[] = {"ItemBandage","ItemPainkiller"};
-			weapons[] = {"ItemFlashlight"};
+			magazines[] = {"ItemBandage","ItemPainkiller","HandRoadFlare"};
+			weapons[] = {"MeleeCrowbar"};
 			backpackWeapon = "";
 			backpack = "DZ_Patrol_Pack_EP1";
 		};
