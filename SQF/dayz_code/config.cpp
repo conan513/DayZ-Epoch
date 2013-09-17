@@ -74,7 +74,7 @@ class CfgAddons
 	{
 		class dayz
 		{
-			list[] = {"dayz_code","dayz","dayz_equip","dayz_weapons","dayz_sfx","ns_mutants","skins","MAP_EU","MBG_Buildings_3","MBG_Killhouses"};
+			list[] = {"dayz_code","dayz","dayz_equip","dayz_weapons","dayz_sfx","ns_mutants","skins","MAP_EU""};
 		};
 	};
 };

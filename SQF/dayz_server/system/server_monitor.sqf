@@ -21,10 +21,8 @@ call compile preProcessFileLineNumbers "\z\addons\dayz_server\scripts\objects\Gr
 call compile preProcessFileLineNumbers "\z\addons\dayz_server\scripts\objects\Prison.sqf";
 call compile preProcessFileLineNumbers "\z\addons\dayz_server\scripts\objects\Scrapyard.sqf";
 call compile preProcessFileLineNumbers "\z\addons\dayz_server\scripts\objects\PeodbaDam.sqf";
-call compile preProcessFileLineNumbers "\z\addons\dayz_server\scripts\objects\Nohrt_Cherno.sqf";
 call compile preProcessFileLineNumbers "\z\addons\dayz_server\scripts\objects\Nohrt_Dubrocka.sqf";
 call compile preProcessFileLineNumbers "\z\addons\dayz_server\scripts\objects\Nohrt_Forrest.sqf";
-call compile preProcessFileLineNumbers "\z\addons\dayz_server\scripts\objects\ChernExtra11.sqf";
 call compile preProcessFileLineNumbers "\z\addons\dayz_server\scripts\objects\FavoldCas.sqf";
 call compile preProcessFileLineNumbers "\z\addons\dayz_server\scripts\objects\SurvivorCamps.sqf";
 
