@@ -637,6 +637,30 @@ class CfgVehicles {
 		class VariablesString {};
 	};
 	
+	class DZ_Pastor_Infected : DZ_Pastor {
+		scope = 2;
+		side = 1;
+		//Special Thanks to http://www.armaholic.com/page.php?id=9207
+		//model = "\ca\animals2\Dogs\Pastor\Pastor";
+		model = "\CHN_UNDEAD_MISC\models\UNDEAD_Pastor";
+		displayName = "Infected Hound (Alsatian)";
+		moves = "CfgMovesDogDZ";
+		gestures = "CfgGesturesDogDZ";
+		fsmDanger = "";
+		fsmFormation = "";
+		agentTasks[] = {};
+		woman = 0;
+		hiddenSelectionsTextures[] = {"\z\addons\dayz_code\textures\pastor_infected.paa"};
+		class EventHandlers{};
+		class Wounds
+		{
+			tex[] = {};
+			mat[] = {};
+		};
+		class VariablesScalar {};
+		class VariablesString {};
+	};	
+
 	class DZ_Fin : Fin {
 		scope = 2;
 		model = "\ca\animals2\Dogs\Fin\Fin";

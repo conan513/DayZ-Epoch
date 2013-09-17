@@ -1237,6 +1237,15 @@ class FSM
        "	};" \n
        "};" \n
        "" \n
+       "BP_spawnCheck = [] spawn {" \n
+       "	sleep 240;" \n
+       "	while {true} do {" \n
+       "		[""both""] call player_bloodsuckCheck;" \n
+       "		sleep 120;" \n
+       "	};" \n
+       "};" \n
+       "" \n
+       "" \n
        "dayz_friendliesCheck = [] spawn {" \n
        "	while {true} do {" \n
        "		call player_friendliesCheck;" \n

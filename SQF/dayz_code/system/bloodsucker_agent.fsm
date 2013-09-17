@@ -1,0 +1,464 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, Bloodsucker Agent">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"init",0,250,-1000.000000,-75.000000,-900.000000,-25.000000,0.000000,"init"};
+item1[] = {"End",1,250,-675.000000,175.000000,-575.000000,225.000000,0.000000,"End"};
+item2[] = {"Not_Alive",4,218,-875.000000,175.000000,-775.000000,225.000000,5.000000,"Not" \n "Alive"};
+item3[] = {"true",8,218,-1000.000000,0.000000,-900.000000,50.000000,0.000000,"true"};
+item4[] = {"Begin",2,250,-1000.000000,75.000000,-900.000000,125.000000,0.000000,"Begin"};
+item5[] = {"is_Dedicated",4,218,-675.000000,-75.000000,-575.000000,-25.000000,5.000000,"is" \n "Dedicated"};
+item6[] = {"Chase_Distance",4,218,-1000.000000,300.000000,-900.000000,350.000000,1.000000,"Chase" \n "Distance"};
+item7[] = {"Attack_Distance",4,218,-875.000000,325.000000,-775.000000,375.000000,1.000000,"Attack" \n "Distance"};
+item8[] = {"Chase",2,250,-1000.000000,375.000000,-900.000000,425.000000,0.000000,"Chase"};
+item9[] = {"Attack",2,250,-750.000000,325.000000,-650.000000,375.000000,0.000000,"Attack"};
+item10[] = {"Waiting",2,250,-1000.000000,225.000000,-900.000000,275.000000,0.000000,"Waiting"};
+item11[] = {"Has_Target",4,218,-1000.000000,150.000000,-900.000000,200.000000,1.000000,"Has" \n "Target"};
+item12[] = {"",7,210,-1078.999634,546.000000,-1071.000366,554.000061,0.000000,""};
+item13[] = {"",7,210,-1078.999878,246.000015,-1071.000122,253.999969,0.000000,""};
+item14[] = {"reorientate",4,218,-1000.000000,450.000000,-900.000000,500.000000,1.000000,"reorientate"};
+item15[] = {"Target_Dead",4,218,-875.000000,225.000000,-775.000000,275.000000,5.000000,"Target" \n "Dead"};
+item16[] = {"Time_Check",4,218,-750.000000,525.000000,-650.000000,575.000000,5.000000,"Time" \n "Check"};
+item17[] = {"",7,210,-628.999756,245.999985,-621.000183,254.000031,0.000000,""};
+item18[] = {"Too_Far_Away",4,218,-875.000000,275.000000,-775.000000,325.000000,5.000000,"Too Far" \n "Away"};
+item19[] = {"Bloodsucker_Agen",-1,250,-1150.000000,-200.000000,-850.000000,-150.000000,0.000000,"Bloodsucker Agent"};
+item20[] = {"Created_By_Death",-1,250,-1150.000000,-150.000000,-850.000000,-100.000000,0.000000,"Created By Deathlyrage"};
+version=1;
+class LayoutItems
+{
+	class Item19
+	{
+		class ItemInfo
+		{
+			FontFace="Arial";
+			FontHeight=19;
+			FontWeight=700;
+			lStyle=1;
+			lColor=-1;
+		};
+	};
+	class Item20
+	{
+		class ItemInfo
+		{
+			FontFace="Arial";
+			FontHeight=19;
+			FontWeight=700;
+			lStyle=1;
+			lColor=-1;
+		};
+	};
+};
+link0[] = {0,3};
+link1[] = {0,5};
+link2[] = {2,17};
+link3[] = {3,4};
+link4[] = {4,11};
+link5[] = {5,1};
+link6[] = {6,8};
+link7[] = {7,9};
+link8[] = {8,2};
+link9[] = {8,7};
+link10[] = {8,14};
+link11[] = {8,15};
+link12[] = {8,18};
+link13[] = {9,16};
+link14[] = {10,2};
+link15[] = {10,6};
+link16[] = {10,7};
+link17[] = {10,15};
+link18[] = {10,18};
+link19[] = {11,10};
+link20[] = {12,13};
+link21[] = {13,10};
+link22[] = {14,8};
+link23[] = {15,17};
+link24[] = {16,12};
+link25[] = {17,1};
+link26[] = {18,17};
+globals[] = {25.000000,1,0,0,0,640,480,1,603,6316128,1,-1366.019043,-391.629150,607.296143,-227.307800,711,609,1};
+window[] = {2,-1,-1,-1,-1,930,150,1358,150,3,729};
+*//*%FSM</HEAD>*/
+class FSM
+{
+  fsmName = "Bloodsucker Agent";
+  class States
+  {
+    /*%FSM<STATE "init">*/
+    class init
+    {
+      name = "init";
+      init = /*%FSM<STATEINIT""">*/"_mutant = _this select 0;" \n
+       "_type = _this select 1;" \n
+       "_standing = true;" \n
+       "_command = ""none"";" \n
+       "_forceWalk = false;" \n
+       "_maxSpeed = 2;" \n
+       "_maxSpeedInit = _maxSpeed;" \n
+       "_forceChange = false;" \n
+       "" \n
+       "_target = objNull;" \n
+       "_attackTarget = objNull;" \n
+       "_target setVariable ['forceWalk',false];" \n
+       "_pos = position _mutant;" \n
+       "_lastPos = _pos;" \n
+       "_move = """";" \n
+       "_movePos = [];" \n
+       "" \n
+       "_idleTime = 5;" \n
+       "_coolDown = 0;" \n
+       "" \n
+       "" \n
+       "_character = player;" \n
+       "" \n
+       "_speedVal = [1,8,-1];" \n
+       "" \n
+       "_mutant setVariable [""state"", ""passive"", true];" \n
+       "_mutant setVariable [""currentSpeed"", _maxSpeed];"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "is_Dedicated">*/
+        class is_Dedicated
+        {
+          priority = 5.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"isDedicated"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "true">*/
+        class true
+        {
+          priority = 0.000000;
+          to="Begin";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"dayz_clientPreload and !(isNull _mutant)"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "End">*/
+    class End
+    {
+      name = "End";
+      init = /*%FSM<STATEINIT""">*/"if (!isDedicated) then" \n
+       "{" \n
+       "	if (!isNull _mutant) then {" \n
+       "		deleteVehicle _mutant;" \n
+       "		_mutant = nil;" \n
+       "	};" \n
+       "};"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Begin">*/
+    class Begin
+    {
+      name = "Begin";
+      init = /*%FSM<STATEINIT""">*/"_myDest = 	_pos;" \n
+       "_newDest = 	_pos;" \n
+       "_array = 		[];" \n
+       "" \n
+       "_bodyStay = 	60;" \n
+       "" \n
+       "_mutant disableAI ""FSM"";" \n
+       "_mutant setBehaviour ""CARELESS"";" \n
+       "_mutant setCombatMode ""RED"";" \n
+       "_mutant setSkill 0;" \n
+       "" \n
+       "_newDest = getPosATL _mutant;" \n
+       "_timeN = time;" \n
+       "//_mutant setVariable [""isTazed"",false,true];" \n
+       "// _id = _mutant addeventhandler [""HandleDamage"",{_this call local_zombieDamage;_this call DDOPP_taser_handleHit;}];" \n
+       "" \n
+       "_isAlive = alive _mutant;" \n
+       "_isSomeone = true;" \n
+       "" \n
+       "_target = objNull;" \n
+       "_targetPos = [];" \n
+       "_countr = 0;" \n
+       "" \n
+       "mut_target_search = {" \n
+       "  _mutant = _this select 0;" \n
+       "  _cover_area = _this select 1;" \n
+       "  _refresh = false;" \n
+       "  _i = 1;" \n
+       "  _targets = nearestObjects [_mutant, [""CAManBase""], _cover_area];" \n
+       "  while {!_refresh && (_i < (count _targets))} do {" \n
+       "  _mut_target = _targets select _i;" \n
+       "    if (alive _mut_target) then {" \n
+       "      if (!(_mut_target isKindOf ""zZombie_Base"")) then {" \n
+       "         _refresh = true;" \n
+       "         _i = 1;" \n
+       "      } else {" \n
+       "       _i = _i + 1;" \n
+       "       _mut_target = objNull;" \n
+       "      };" \n
+       "    } else {" \n
+       "      _i = _i + 1;" \n
+       "      _mut_target = objNull;" \n
+       "    };" \n
+       "  };" \n
+       "};" \n
+       "" \n
+       "_cover_area = 500;" \n
+       "_mut_target = objNull;" \n
+       "" \n
+       "nul = [objNull, _mutant, rSAY, ""blood_scream""] call RE;" \n
+       "" \n
+       "_bul = [_mutant, _cover_area] call mut_target_search;" \n
+       "" \n
+       "_mut_target = (vehicle player);" \n
+       "" \n
+       "_sounds = [_mutant] spawn" \n
+       "{" \n
+       "	_mutant = _this select 0;" \n
+       "	while {alive _mutant} do {" \n
+       "		sleep random 20;" \n
+       "		_blood_sound = round(random 7);" \n
+       "		switch (_blood_sound) do {" \n
+       "			case 0: {_sound = ""blood_distant_growl_0"";};" \n
+       "			case 1: {_sound = ""blood_distant_growl_1"";};" \n
+       "			case 2: {_sound = ""blood_distant_growl_2"";};" \n
+       "			case 3: {_sound = ""blood_distant_growl_3"";};" \n
+       "			case 4: {_sound = ""blood_forest_hidden_4"";};" \n
+       "			case 5: {_sound = ""blood_forest_hidden_3"";};" \n
+       "			case 6: {_sound = ""blood_forest_hidden_2"";};" \n
+       "			case 7: {_sound = ""blood_forest_hidden_1"";};" \n
+       "			default   {_sound = ""blood_forest_hidden_3"";};" \n
+       "		};" \n
+       "		_mutant say _sound;" \n
+       "		[nil, _mutant, rSAY, _sound] call RE;" \n
+       "		sleep random 25;" \n
+       "	};" \n
+       "}; "/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Has_Target">*/
+        class Has_Target
+        {
+          priority = 1.000000;
+          to="Waiting";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!(isNull _mut_target)"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Chase">*/
+    class Chase
+    {
+      name = "Chase";
+      init = /*%FSM<STATEINIT""">*/"_targetPos = getPosATL _mut_target;" \n
+       "_distance = (_mutant distance _mut_target);" \n
+       "" \n
+       "_mutant moveTo _targetPos;" \n
+       "_mutant forceSpeed 15;" \n
+       "" \n
+       "_waitTime = time;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Too_Far_Away">*/
+        class Too_Far_Away
+        {
+          priority = 5.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(_mutant distance _mut_target) > 800"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Target_Dead">*/
+        class Target_Dead
+        {
+          priority = 5.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!_targetAlive"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"terminate _sounds;"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Not_Alive">*/
+        class Not_Alive
+        {
+          priority = 5.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!_isAlive"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"terminate _sounds;"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "reorientate">*/
+        class reorientate
+        {
+          priority = 1.000000;
+          to="Chase";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"((time - _waitTime) > 1)"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"_distance = (_mutant distance _mut_target);" \n
+           "_targetPos = getPosATL _mut_target;"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Attack_Distance">*/
+        class Attack_Distance
+        {
+          priority = 1.000000;
+          to="Attack";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(_mutant distance _mut_target) < 3"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"_distance = (_mutant distance _mut_target);"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Attack">*/
+    class Attack
+    {
+      name = "Attack";
+      init = /*%FSM<STATEINIT""">*/"private [""_sound"",""_distance"",""_s"",""_cnt"",""_index"",""_wound"",""_damage"",""_cantSee""];" \n
+       "_mutant playMove ""AmelPercMstpSnonWnonDnon_amaterUder2""; " \n
+       "_s = round (random 3);" \n
+       "_sound = ""blood_att_1"";" \n
+       "switch (_s) do {" \n
+       "	case 0: {_sound = ""blood_att_1"";};" \n
+       "	case 1: {_sound = ""blood_att_2"";};" \n
+       "	case 2: {_sound = ""blood_att_3"";};" \n
+       "	case 3: {_sound = ""blood_att_4"";};" \n
+       "};" \n
+       "" \n
+       "_mutant say _sound;" \n
+       "[nil, _mutant, rSAY, _sound] call RE;" \n
+       "" \n
+       "" \n
+       "_cnt = count (DAYZ_woundHit_ok select 1);" \n
+       "_index = floor (random _cnt);" \n
+       "_index = (DAYZ_woundHit_ok select 1) select _index;" \n
+       "_wound = (DAYZ_woundHit_ok select 0) select _index; " \n
+       "_damage = 1.2 + random (1.4);" \n
+       "" \n
+       "_distance = (_mutant distance _mut_target);" \n
+       "" \n
+       "_tPos = (getPosASL _mut_target);" \n
+       "_zPos = (getPosASL _mutant);" \n
+       "_inAngle = [_zPos,(getdir _mutant),50,_tPos] call fnc_inAngleSector;" \n
+       "if (_inAngle) then {" \n
+       "	_cantSee = [_mutant,_mut_target] call dayz_losCheck;" \n
+       "	if (!_cantSee) then" \n
+       "	{" \n
+       "		if (local _mutant) then" \n
+       "		{ " \n
+       "			[player, _wound, _damage, _mutant,""bloodsucker""] call fnc_usec_damageHandler;	" \n
+       "		} else {" \n
+       "			dayzHit =	[_mut_target,_wound, _damage, _mutant,""bloodsucker""];" \n
+       "			publicVariable ""dayzHit"";" \n
+       "		};" \n
+       "	};" \n
+       "};" \n
+       "" \n
+       "_waitTime = time;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Time_Check">*/
+        class Time_Check
+        {
+          priority = 5.000000;
+          to="Waiting";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"((time - _waitTime) > 0.9)"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"_mutant switchMove """";" \n
+           "_distance = (_mutant distance _mut_target);" \n
+           "_targetPos = getPosATL _mut_target;"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Waiting">*/
+    class Waiting
+    {
+      name = "Waiting";
+      init = /*%FSM<STATEINIT""">*/"_bul = [_mutant, _cover_area] call mut_target_search;" \n
+       "_waitTime = time;" \n
+       "_lastpos = _pos;" \n
+       "_lostTarget = false;" \n
+       "_isAlive = alive _mutant;" \n
+       "_targetAlive = alive _mut_target;" \n
+       "_targetPos = getPosATL _mut_target;" \n
+       "_distance = (_mutant distance _mut_target);" \n
+       ""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Too_Far_Away">*/
+        class Too_Far_Away
+        {
+          priority = 5.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(_mutant distance _mut_target) > 800"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Target_Dead">*/
+        class Target_Dead
+        {
+          priority = 5.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!_targetAlive"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"terminate _sounds;"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Not_Alive">*/
+        class Not_Alive
+        {
+          priority = 5.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!_isAlive"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"terminate _sounds;"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Attack_Distance">*/
+        class Attack_Distance
+        {
+          priority = 1.000000;
+          to="Attack";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(_mutant distance _mut_target) < 3"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"_distance = (_mutant distance _mut_target);"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "Chase_Distance">*/
+        class Chase_Distance
+        {
+          priority = 1.000000;
+          to="Chase";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(_mut_target distance _mutant) > 3"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/"_distance = (_mutant distance _mut_target);"/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+  };
+  initState="init";
+  finalStates[] =
+  {
+    "End",
+  };
+};
+/*%FSM</COMPILE>*/

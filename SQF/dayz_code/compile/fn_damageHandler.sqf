@@ -73,6 +73,12 @@ if (_damage > 0.4) then {
 	if (_ammo != "zombie") then {
 		_scale = _scale + 50;
 	};
+	if (_ammo == "bloodsucker") then {
+		_scale = _scale + 25;
+	};
+	if (_ammo == "hound") then {
+		_scale = _scale + 25;
+	};
 	if (_isHeadHit) then {
 		_scale = _scale + 500;
 	};
@@ -91,9 +97,41 @@ if (_damage > 0.4) then {
 		//Log Damage
 		//diag_log ("DAMAGE: player hit by " + typeOf _source + " in " + _hit + " with " + _ammo + " for " + str(_damage) + " scaled " + str(_damage * _scale));
 		r_player_blood = r_player_blood - (_damage * _scale);
+		if (_ammo == "bloodsucker") then
+		{
+			_BloodHitFX = [] spawn
+			{
+				sleep 0.25;
+				"dynamicBlur" ppEffectAdjust [3];
+				"dynamicBlur" ppEffectCommit 0.01;
+				"dynamicBlur" ppEffectEnable true;
+				titleRsc ["DAP_BS_Slash_Hit","PLAIN",0];
+				sleep 0.15;
+				"dynamicBlur" ppEffectAdjust [0];
+				"dynamicBlur" ppEffectCommit 3;
+				sleep 3;
+				"dynamicBlur" ppEffectEnable true;
+			};
+		};
+		if (_ammo == "hound") then
+		{
+			_BloodHitFX = [] spawn
+			{
+				sleep 0.25;
+				"dynamicBlur" ppEffectAdjust [3];
+				"dynamicBlur" ppEffectCommit 0.01;
+				"dynamicBlur" ppEffectEnable true;
+				titleRsc ["DAP_ZD_Slash_Hit","PLAIN",0];
+				sleep 0.15;
+				"dynamicBlur" ppEffectAdjust [0];
+				"dynamicBlur" ppEffectCommit 3;
+				sleep 3;
+				"dynamicBlur" ppEffectEnable true;
+			};
+		};
 	};
 };
-
+ 
 //Record Damage to Minor parts (legs, arms)
 if (_hit in USEC_MinorWounds) then {
 	if (_ammo == "zombie") then {
