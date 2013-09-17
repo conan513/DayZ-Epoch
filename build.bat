@@ -16,7 +16,6 @@ echo.
 ..\Tools\cpbo.exe -y -p epoch_buildings
 
 ..\Tools\cpbo.exe -y -p vilas_cpl
-..\Tools\cpbo.exe -y -p chernarus_texture_layers
 ..\Tools\cpbo.exe -y -p SOW_sounds
 
 echo.
@@ -75,8 +74,6 @@ echo.
 ..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\chernarus_texture_layers.pbo
 ..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\SOW_sounds.pbo
 ..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\ns_mutants.pbo
-..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\chernarus_texture_layers.pbo
-..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\chernarus_texture_data.pbo
 ..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\gsc_stalker.pbo
 ..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\mbg_killhouses.pbo
 ..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\mbg_buildings_3.pbo
