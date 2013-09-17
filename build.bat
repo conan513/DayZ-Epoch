@@ -76,6 +76,8 @@ echo.
 ..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\WarFXVeh.pbo
 ..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\WarFXWeps.pbo
 
+..\..\Tools\DSSignFile.exe dayz_spp.biprivatekey ..\@DayZ_Epoch_Plus\addons\ns_mutants.pbo
+
 echo.
 echo Move and clean files...
 echo.
