@@ -9,6 +9,25 @@ if ((count playableUnits == 0) and !isDedicated) then {
 	isSinglePlayer = true;
 };
 
+//Spawn Bases
+call compile preProcessFileLineNumbers "\z\addons\dayz_server\scripts\objects\ChernoChurch.sqf";
+call compile preProcessFileLineNumbers "\z\addons\dayz_server\scripts\objects\DevilsCastle.sqf";
+call compile preProcessFileLineNumbers "\z\addons\dayz_server\scripts\objects\Khelm.sqf";
+call compile preProcessFileLineNumbers "\z\addons\dayz_server\scripts\objects\Polana.sqf";
+call compile preProcessFileLineNumbers "\z\addons\dayz_server\scripts\objects\Bambi.sqf";
+call compile preProcessFileLineNumbers "\z\addons\dayz_server\scripts\objects\ChernoRoadblock.sqf";
+call compile preProcessFileLineNumbers "\z\addons\dayz_server\scripts\objects\Graveyard_1.sqf";
+call compile preProcessFileLineNumbers "\z\addons\dayz_server\scripts\objects\Graveyard_2.sqf";
+call compile preProcessFileLineNumbers "\z\addons\dayz_server\scripts\objects\Prison.sqf";
+call compile preProcessFileLineNumbers "\z\addons\dayz_server\scripts\objects\Scrapyard.sqf";
+call compile preProcessFileLineNumbers "\z\addons\dayz_server\scripts\objects\PeodbaDam.sqf";
+call compile preProcessFileLineNumbers "\z\addons\dayz_server\scripts\objects\Nohrt_Cherno.sqf";
+call compile preProcessFileLineNumbers "\z\addons\dayz_server\scripts\objects\Nohrt_Dubrocka.sqf";
+call compile preProcessFileLineNumbers "\z\addons\dayz_server\scripts\objects\Nohrt_Forrest.sqf";
+call compile preProcessFileLineNumbers "\z\addons\dayz_server\scripts\objects\ChernExtra11.sqf";
+call compile preProcessFileLineNumbers "\z\addons\dayz_server\scripts\objects\FavoldCas.sqf";
+call compile preProcessFileLineNumbers "\z\addons\dayz_server\scripts\objects\SurvivorCamps.sqf";
+
 waitUntil{initialized}; //means all the functions are now defined
 
 diag_log "HIVE: Starting";
