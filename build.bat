@@ -89,10 +89,10 @@ echo Build missions...
 echo.
 
 cd ..\.. & cd Server Files\MPMissions\
-..\..\Tools\cpbo.exe -y -p DayZ_Splights_11.Chernarus
+..\..\Tools\cpbo.exe -y -p DayZ_Epoch_11.Chernarus
 echo.
 mkdir ..\..\Build\MPMissions\
-move DayZ_Splights_11.Chernarus.pbo ..\..\Build\MPMissions\
+move DayZ_Epoch_11.Chernarus.pbo ..\..\Build\MPMissions\DayZ_Splights_11.Chernarus.pbo
 
 echo.
 echo Copy binaries and configs...
