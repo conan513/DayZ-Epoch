@@ -695,6 +695,7 @@ class FSM
        "			_countr = 0;" \n
        "			{" \n
        "				if (_x == ""Crossbow"") then { _x = ""Crossbow_DZ"" };" \n
+	   "				if (_x == ""ItemMatchbox"") then { _x = ""ItemMatchbox_DZE"" };" \n
        "				dayz_myBackpack addWeaponCargoGlobal [_x,(_backpackWpnQtys select _countr)];" \n
        "				_countr = _countr + 1;" \n
        "			} forEach _backpackWpnTypes;" \n
@@ -1242,14 +1243,6 @@ class FSM
        "	while {true} do {" \n
        "		[""both""] call player_bloodsuckCheck;" \n
        "		sleep 120;" \n
-       "	};" \n
-       "};" \n
-       "" \n
-       "" \n
-       "dayz_friendliesCheck = [] spawn {" \n
-       "	while {true} do {" \n
-       "		call player_friendliesCheck;" \n
-       "		sleep 5;" \n
        "	};" \n
        "};" \n
        "" \n

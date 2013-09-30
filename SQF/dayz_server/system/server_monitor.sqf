@@ -181,6 +181,7 @@ if (isServer and isNil "sm_done") then {
 			
 			clearWeaponCargoGlobal  _object;
 			clearMagazineCargoGlobal  _object;
+			_object setVehicleAmmo DZE_vehicleAmmo;
 			
 			if ((typeOf _object) in dayz_allowedObjects) then {
 				_object addMPEventHandler ["MPKilled",{_this call object_handleServerKilled;}];
@@ -191,7 +192,7 @@ if (isServer and isNil "sm_done") then {
 			};
 			
 			_object setdir _dir;
-			_object setpos _pos;
+			_object setposATL _pos;
 			_object setDamage _damage;
 
 			if (count _intentory > 0) then {
@@ -208,6 +209,7 @@ if (isServer and isNil "sm_done") then {
 					_countr = 0;					
 					{
 						if (_x == "Crossbow") then { _x = "Crossbow_DZ" }; // Convert Crossbow to Crossbow_DZ
+						if (_x == "ItemMatchbox") then { _x = "ItemMatchbox_DZE" }; // Convert Crossbow to Crossbow_DZ
 						_isOK = 	isClass(configFile >> "CfgWeapons" >> _x);
 						if (_isOK) then {
 							_block = 	getNumber(configFile >> "CfgWeapons" >> _x >> "stopThis") == 1;

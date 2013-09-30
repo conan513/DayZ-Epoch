@@ -2,7 +2,7 @@
 	DayZ Base Building
 	Made for DayZ Epoch please ask permission to use/edit/distrubute email vbawol@veteranbastards.com.
 */
-private ["_location","_dir","_classname","_item","_hasrequireditem","_missing","_hastoolweapon","_cancel","_reason","_started","_finished","_animState","_isMedic","_dis","_sfx","_hasbuilditem","_tmpbuilt","_onLadder","_isWater","_require","_text","_offset","_IsNearPlot","_isOk","_location1","_location2","_counter","_limit","_proceed","_num_removed","_position","_object","_canBuildOnPlot","_friendlies","_nearestPole","_ownerID","_findNearestPoles","_findNearestPole","_distance","_classnametmp","_ghost","_isPole","_needText","_lockable","_zheightchanged","_rotate","_combination_1","_combination_2","_combination_3","_combination_4","_combination","_combination_1_Display","_combinationDisplay"];
+private ["_location","_dir","_classname","_item","_hasrequireditem","_missing","_hastoolweapon","_cancel","_reason","_started","_finished","_animState","_isMedic","_dis","_sfx","_hasbuilditem","_tmpbuilt","_onLadder","_isWater","_require","_text","_offset","_IsNearPlot","_isOk","_location1","_location2","_counter","_limit","_proceed","_num_removed","_position","_object","_canBuildOnPlot","_friendlies","_nearestPole","_ownerID","_findNearestPoles","_findNearestPole","_distance","_classnametmp","_ghost","_isPole","_needText","_lockable","_zheightchanged","_rotate","_combination_1","_combination_2","_combination_3","_combination_4","_combination","_combination_1_Display","_combinationDisplay","_zheightdirection","_tick"];
 
 if(TradeInprogress) exitWith { cutText ["\n\nBuilding already in progress." , "PLAIN DOWN"]; };
 TradeInprogress = true;
@@ -11,15 +11,25 @@ TradeInprogress = true;
 if((count ((position player) nearObjects ["All",30])) >= DZE_BuildingLimit) exitWith {TradeInprogress = false; cutText ["\n\nCannot build, too many objects witin 30m.", "PLAIN DOWN"];};
 
 _onLadder =		(getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animationState player) >> "onLadder")) == 1;
-_isWater = 		(surfaceIsWater (getPosATL player)) or dayz_isSwimming;
+_isWater = 		dayz_isSwimming;
 _cancel = false;
 _reason = "";
 _canBuildOnPlot = false;
-DZE_BuildingZ = 0;
 
-DZE_cancelBuilding = false;
+DZE_Q = false;
+DZE_Z = false;
+
+DZE_Q_alt = false;
+DZE_Z_alt = false;
+
+DZE_Q_ctrl = false;
+DZE_Z_ctrl = false;
 
 DZE_5 = false;
+DZE_4 = false;
+DZE_6 = false;
+
+DZE_cancelBuilding = false;
 
 call gear_ui_init;
 closeDialog 1;
@@ -41,6 +51,10 @@ if(isNumber (configFile >> "CfgVehicles" >> _classname >> "lockable")) then {
 };
 
 _offset = 	getArray (configFile >> "CfgVehicles" >> _classname >> "offset");
+
+if((count _offset) <= 0) then {
+	_offset = [0,1.5,0];
+};
 
 _isPole = (_classname == "Plastic_Pole_EP1_DZ");
 
@@ -111,13 +125,9 @@ if (_hasrequireditem) then {
 	_counter = 0;
 	_isOk = true;
 
-	
 	// get inital players position
 	_location1 = getPosATL player;
 	_dir = getDir player;
-	_position = player modeltoworld _offset;
-	_position = [(_position select 0),(_position select 1), (_position select 2)];
-	// hintSilent str (_position);
 
 	// if ghost preview available use that instead
 	if (_ghost == "") then {
@@ -127,27 +137,57 @@ if (_hasrequireditem) then {
 		_object = createVehicle [_classname, _location, [], 0, "CAN_COLLIDE"];
 	};
 	
-	_object setDir _dir;
-	_object setPos _position;
-	_object attachTo [player];
+	_object attachTo [player,_offset];
 	
+	_position = getPosATL _object;
+
+	cutText ["Planning construction: PgUp = raise, PgDn = lower, Q or E = flip 180, and Space-Bar to build.", "PLAIN DOWN"];
 
 	while {_isOk} do {
 		
 		_zheightchanged = false;
-
+		_zheightdirection = "";
+		_rotate = false;
+		_tick = 1;
+	
 		if (DZE_Q) then {
 			DZE_Q = false;
-			DZE_BuildingZ = DZE_BuildingZ + 0.1;
+			_zheightdirection = "up";
 			_zheightchanged = true;
+			_tick = 10;
 		};
 		if (DZE_Z) then {
 			DZE_Z = false;
-			DZE_BuildingZ = DZE_BuildingZ - 0.1;
-			_zheightchanged = true;
+			_zheightdirection = "down";
+			_zheightchanged = true;	
+			_tick = 10;
 		};
 
-		_rotate = false;
+
+		if (DZE_Q_alt) then {
+			DZE_Q_alt = false;
+			_zheightdirection = "up_alt";
+			_zheightchanged = true;
+			_tick = 100;
+		};
+		if (DZE_Z_alt) then {
+			DZE_Z_alt = false;
+			_zheightdirection = "down_alt";
+			_zheightchanged = true;
+			_tick = 100;
+		};
+
+
+		if (DZE_Q_ctrl) then {
+			DZE_Q_ctrl = false;
+			_zheightdirection = "up_ctrl";
+			_zheightchanged = true;
+		};
+		if (DZE_Z_ctrl) then {
+			DZE_Z_ctrl = false;
+			_zheightdirection = "down_ctrl";
+			_zheightchanged = true;
+		};
 
 		if (DZE_4) then {
 			_rotate = true;
@@ -161,24 +201,51 @@ if (_hasrequireditem) then {
 		};
 		
 		if(_rotate) then {
-			_position = player modeltoworld _offset;
-			_position = [(_position select 0),(_position select 1), (_position select 2)+DZE_BuildingZ];
-
 			_object setDir _dir;
-			_object setPos _position;
+			_object setPosATL _position;
+			diag_log format["DEBUG Rotate BUILDING POS: %1", _position];
 		};
 
 		if(_zheightchanged) then {
 			detach _object;
-			_position = player modeltoworld _offset;
-			_position = [(_position select 0),(_position select 1), (_position select 2)+DZE_BuildingZ];
 
+			_position = getPosATL _object;
+
+			// make z height stick to ticks
+			// _ztick = (round((_position select 2)*100)/100);
+
+			if(_zheightdirection == "up") then {
+				_position = [(_position select 0),(_position select 1), ((_position select 2)+0.1)];
+			};
+			if(_zheightdirection == "down") then {
+				_position = [(_position select 0),(_position select 1), ((_position select 2)-0.1)];
+			};
+
+			if(_zheightdirection == "up_alt") then {
+				_position = [(_position select 0),(_position select 1), ((_position select 2)+1)];
+			};
+			if(_zheightdirection == "down_alt") then {
+				_position = [(_position select 0),(_position select 1), ((_position select 2)-1)];
+			};
+
+			if(_zheightdirection == "up_ctrl") then {
+				_position = [(_position select 0),(_position select 1), ((_position select 2)+0.01)];
+			};
+			if(_zheightdirection == "down_ctrl") then {
+				_position = [(_position select 0),(_position select 1), ((_position select 2)-0.01)];
+			};
+			
 			_object setDir (getDir _object);
-			_object setPos _position;
+
+			_object setPosATL _position;
+			
+			diag_log format["DEBUG Change BUILDING POS: %1", _position];
+			
 			_object attachTo [player];
+			
 		};
 
-		cutText ["Planning construction: PgUp = raise, PgDn = lower, Q or E = flip 180, and Space-Bar to build.", "PLAIN DOWN"];
+		
 		
 		sleep 1;
 
@@ -188,6 +255,8 @@ if (_hasrequireditem) then {
 			_isOk = false;
 			detach _object;
 			_dir = getDir _object;
+			_position = getPosATL _object;
+			diag_log format["DEBUG BUILDING POS: %1", _position];
 			deleteVehicle _object;
 		};
 
@@ -199,14 +268,17 @@ if (_hasrequireditem) then {
 			deleteVehicle _object;
 		};
 		
-		if(_counter >= 50) exitWith {
+		if(_counter >= 500) exitWith {
 			_isOk = false;
 			_cancel = true;
 			_reason = "Ran out of time to find position."; 
 			detach _object;
 			deleteVehicle _object;
 		};
-		_counter = _counter + 1;
+
+		cutText [format["%1",(500-_counter)], "PLAIN DOWN"];
+
+		_counter = _counter + _tick;
 
 		if (player getVariable["combattimeout", 0] >= time) exitWith {
 			_isOk = false;
@@ -223,26 +295,9 @@ if (_hasrequireditem) then {
 			detach _object;
 			deleteVehicle _object;
 		};
+
+		
 	};
-
-
-	_classname = _classnametmp;
-
-	// Start Build 
-	_tmpbuilt = createVehicle [_classname, _location, [], 0, "CAN_COLLIDE"];
-
-	
-
-	_tmpbuilt setdir _dir;
-	
-	// Get position based on player
-	_location = player modeltoworld _offset;
-	
-	_location = [(_location select 0),(_location select 1),(_position select 2)];
-
-	//hintSilent str (_location);
-	
-	_tmpbuilt setpos _location;
 
 	// No building on roads
 	if (isOnRoad _location) then { _cancel = true; _reason = "Cannot build on a road."; };
@@ -253,6 +308,19 @@ if (_hasrequireditem) then {
 
 	if(!_cancel) then {
 
+		_classname = _classnametmp;
+
+		// Start Build 
+		_tmpbuilt = createVehicle [_classname, _location, [], 0, "CAN_COLLIDE"];
+
+		_tmpbuilt setdir _dir;
+	
+		// Get position based on object
+		_location = _position;
+	
+		_tmpbuilt setPosATL _location;
+
+		
 		cutText [format["Placing %1, move to cancel.",_text], "PLAIN DOWN"];
 		
 		_limit = 3;
@@ -382,8 +450,13 @@ if (_hasrequireditem) then {
 				} else {
 					_tmpbuilt setVariable ["CharacterID",dayz_characterID,true];
 					
-					dayzPublishObj = [dayz_characterID,_tmpbuilt,[_dir,_location],_classname];
-					publicVariableServer "dayzPublishObj";
+					// fire?
+					if(_tmpbuilt isKindOf "Land_Fire") then {
+						_tmpbuilt spawn player_fireMonitor;
+					} else {
+						dayzPublishObj = [dayz_characterID,_tmpbuilt,[_dir,_location],_classname];
+						publicVariableServer "dayzPublishObj";
+					};
 				};
 
 

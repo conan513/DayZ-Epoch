@@ -54,6 +54,11 @@ if (_canPickLight and !dayz_hasLight and !_isPZombie) then {
 	s_player_removeflare = -1;
 };
 
+if (s_player_showname < 0) then {
+	s_player_showname = player addAction ["Display Name (Yes)", "\z\addons\dayz_code\actions\display_name.sqf",true, 5, true, false, "",""];
+	s_player_showname1 = player addAction ["Display Name (No)", "\z\addons\dayz_code\actions\display_name.sqf",false, 5, true, false, "",""];
+};
+
 if(_isPZombie) then {
 	if (s_player_callzombies < 0) then {
 		s_player_callzombies = player addAction ["Raise Horde", "\z\addons\dayz_code\actions\call_zombies.sqf",player, 5, true, false, "",""];
@@ -119,6 +124,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	} forEach boil_tin_cans;
 	_hasFuelE = 	"ItemJerrycanEmpty" in _magazinesPlayer;
 	_hasFuelBarrelE = 	"ItemFuelBarrelEmpty" in _magazinesPlayer;
+	_hasHotwireKit = 	"ItemHotwireKit" in _magazinesPlayer;
 
 	_itemsPlayer = items player;
 	
@@ -227,7 +233,11 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 					s_player_lockunlock set [count s_player_lockunlock,_Unlock];
 					s_player_lockUnlock_crtl = 1;
 				} else {
-					_Unlock = player addAction ["<t color='#ff0000'>Vehicle Locked</t>", "",_cursorTarget, 2, true, true, "", ""];
+					if(_hasHotwireKit) then {
+						_Unlock = player addAction [format["Hotwire %1",_text], "\z\addons\dayz_code\actions\hotwire_veh.sqf",_cursorTarget, 2, true, true, "", ""];
+					} else {
+						_Unlock = player addAction ["<t color='#ff0000'>Vehicle Locked</t>", "",_cursorTarget, 2, true, true, "", ""];
+					};
 					s_player_lockunlock set [count s_player_lockunlock,_Unlock];
 					s_player_lockUnlock_crtl = 1;
 				};
@@ -305,7 +315,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 		};
 
 		// Study body
-		if (_isMan and !_isZombie) then {
+		if (_isMan and !_isZombie and !_isAnimal) then {
 			_player_studybody = true;
 		}
 	};
@@ -507,13 +517,13 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	
 
 	// inplace maintenance tool
-	if((_isDestructable or _cursorTarget isKindOf "ModularItems" or _cursorTarget isKindOf "DZE_Housebase")) then {
+	if((_isDestructable or _cursorTarget isKindOf "ModularItems" or _cursorTarget isKindOf "DZE_Housebase") and (damage _cursorTarget > 0.5)) then {
 		if ((s_player_lastTarget select 1) != _cursorTarget) then {
 			if (s_player_maint_build > 0) then {	
 				player removeAction s_player_maint_build;
 				s_player_maint_build = -1;
 			};
-		}; 
+		};
 
 		if (s_player_maint_build < 0) then {
 			s_player_lastTarget set [1,_cursorTarget];

@@ -152,6 +152,7 @@ boil_tin_cans = [
 ];
 
 dayz_combination = "";
+dayz_humanitytarget = "";
 dayz_combatLog = "";
 canRoll = true;
 
@@ -204,6 +205,7 @@ dayz_resetSelfActions = {
 	s_player_fillfuel = 	-1;
 	s_player_grabflare = 	-1;
 	s_player_callzombies = 	-1;
+	s_player_showname = 	-1;
 	s_player_debuglootpos = 	-1;
 	s_player_pzombiesattack = 	-1;
 	s_player_pzombiesvision =	-1;
@@ -432,6 +434,9 @@ if(isNil "DZE_teleport") then {
 if(isNil "DZE_BuildingLimit") then {
 	DZE_BuildingLimit = 150;
 };
+if(isNil "DZE_HumanityTargetDistance") then {
+	DZE_HumanityTargetDistance = 25;
+};
 
 
 /*
@@ -452,8 +457,8 @@ if(isNil "dayz_zedsAttackVehicles") then {
 
 // update objects
 dayz_updateObjects = ["Car", "Helicopter", "Motorcycle", "Ship", "TentStorage", "VaultStorage","LockboxStorage","OutHouse_DZ","Wooden_shed_DZ","WoodShack_DZ","StorageShed_DZ"];
-dayz_disallowedVault = ["TentStorage", "BuiltItems"];
-dayz_reveal = ["AllVehicles","WeaponHolder","Land_A_tent","BuiltItems","ModularItems"];
+dayz_disallowedVault = ["TentStorage", "BuiltItems","ModularItems","DZE_Base_Object"];
+dayz_reveal = ["AllVehicles","WeaponHolder","Land_A_tent","BuiltItems","ModularItems","DZE_Base_Object"];
 dayz_allowedObjects = ["TentStorage","TentStorageDomed","TentStorageDomed2", "VaultStorageLocked", "Hedgehog_DZ", "Sandbag1_DZ","TrapBear","Fort_RazorWire","WoodGate_DZ","Land_HBarrier1_DZ","Land_HBarrier3_DZ","Fence_corrugated_DZ","M240Nest_DZ","CanvasHut_DZ","ParkBench_DZ","MetalGate_DZ","OutHouse_DZ","Wooden_shed_DZ","WoodShack_DZ","StorageShed_DZ","Plastic_Pole_EP1_DZ","Generator_DZ","StickFence_DZ","LightPole_DZ","FuelPump_DZ","DesertCamoNet_DZ","ForestCamoNet_DZ","DesertLargeCamoNet_DZ","ForestLargeCamoNet_DZ","SandNest_DZ","DeerStand_DZ","MetalPanel_DZ","WorkBench_DZ","WoodFloor_DZ","WoodLargeWall_DZ","WoodLargeWallDoor_DZ","WoodLargeWallWin_DZ","WoodSmallWall_DZ","WoodSmallWallWin_DZ","WoodSmallWallDoor_DZ","LockboxStorageLocked","WoodFloorHalf_DZ","WoodFloorQuarter_DZ","WoodStairs_DZ","WoodStairsSans_DZ","WoodSmallWallThird_DZ","WoodLadder_DZ","Land_DZE_GarageWoodDoor","Land_DZE_LargeWoodDoor","Land_DZE_WoodDoor","Land_DZE_GarageWoodDoorLocked","Land_DZE_LargeWoodDoorLocked","Land_DZE_WoodDoorLocked","CinderWallHalf_DZ","CinderWall_DZ","CinderWallDoorway_DZ","CinderWallDoor_DZ","CinderWallDoorLocked_DZ","CinderWallSmallDoorway_DZ","CinderWallDoorSmall_DZ","CinderWallDoorSmallLocked_DZ","MetalFloor_DZ"];
 
 DZE_LockableStorage = ["VaultStorage","VaultStorageLocked","LockboxStorageLocked","LockboxStorage"];
@@ -490,6 +495,9 @@ if(isServer) then {
 	};
 	if(isNil "EpochEvents") then {
 		EpochEvents = [];
+	};
+	if(isNil "DZE_vehicleAmmo") then {
+		DZE_vehicleAmmo = 0;
 	};
 	
 	dayz_flyMonitor = [];		//used for monitor flies
@@ -604,6 +612,13 @@ if(!isDedicated) then {
 	DZE_CanPickup = true;
 	DZE_Q = false;
 	DZE_Z = false;
+
+	DZE_Q_alt = false;
+	DZE_Z_alt = false;
+
+	DZE_Q_ctrl = false;
+	DZE_Z_ctrl = false;
+
 	DZE_5 = false;
 	DZE_4 = false;
 	DZE_6 = false;

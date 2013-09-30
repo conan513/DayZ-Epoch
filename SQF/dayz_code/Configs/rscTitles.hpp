@@ -9,7 +9,7 @@ class RscIGUIShortcutButton;
 class RscGearShortcutButton;
 class RscIGUIListNBox;
 class RscActiveText;
-// class RscStructuredText;
+
 // class RscPictureGUI;
 // class RscStructuredTextGUI;
 
@@ -149,7 +149,7 @@ class RscDisplayMain : RscStandardDisplay
 		class DAYZ_Version : CA_Version
 		{
 			idc = -1;
-			text = "DayZ Splights 1.0.2.2";
+			text = "DayZ Splights 1.0.2.38";
 			y = "(SafeZoneH + SafeZoneY) - (1 - 0.95)";
 		};
 		delete CA_TitleMainMenu;
@@ -875,7 +875,10 @@ class RscDisplayGear
 {
 	idd = 106;
 	enableDisplay = 1;
+	// 177 based
+	//onLoad = "_this call fn_gearMenuChecks;[] spawn object_monitorGear; {player removeMagazines _x} forEach MeleeMagazines; call gear_ui_init; if (isNil('IGUI_GEAR_activeFilter')) then { IGUI_GEAR_activeFilter = 0;}; private ['_dummy']; _dummy = [_this,'initDialog'] call compile preprocessFile	'\ca\ui\scripts\handleGear.sqf'; _dummy = [_this,'onLoad'] execVM	'\ca\ui\scripts\handleGear.sqf'; _dummy;";
 	onUnload = "call player_gearSync; call dayz_forceSave;";
+	
 	class controls
 	{
 		class CA_Filter_Icon: RscPicture
@@ -1599,7 +1602,7 @@ class RscDisplayGear
 	emptyMag2 = "\ca\ui\data\ui_gear_mag2_gs.paa";
 	emptyHGun = "\ca\ui\data\ui_gear_hgun_gs.paa";
 	emptyHGunMag = "\ca\ui\data\ui_gear_hgunmag_gs.paa";
-	onLoad = "[] spawn object_monitorGear; call gear_ui_init;if (isNil('IGUI_GEAR_activeFilter')) then { IGUI_GEAR_activeFilter = 0;}; private ['_dummy']; _dummy = [_this,'initDialog'] call compile preprocessFile	'\ca\ui\scripts\handleGear.sqf'; _dummy = [_this,'onLoad'] execVM	'\ca\ui\scripts\handleGear.sqf'; _dummy;";
+	onLoad = "_this call fn_gearMenuChecks;[] spawn object_monitorGear; call gear_ui_init;if (isNil('IGUI_GEAR_activeFilter')) then { IGUI_GEAR_activeFilter = 0;}; private ['_dummy']; _dummy = [_this,'initDialog'] call compile preprocessFile	'\ca\ui\scripts\handleGear.sqf'; _dummy = [_this,'onLoad'] execVM	'\ca\ui\scripts\handleGear.sqf'; _dummy;";
 	class ControlsBackground
 	{
 		class Mainback: RscPicture
@@ -1772,6 +1775,14 @@ class RscTitles
 		name = "statusBorder";
 		onLoad = "uiNamespace setVariable ['DAYZ_GUI_display', _this select 0];";
 		class ControlsBackground {
+			class RscStructuredText_1199: RscStructuredText
+			{
+				idc = 1199;
+				x = 0.250001;
+				y = 0.350001;
+				w = 0.5;
+				h = 0.1;
+			};
 			class RscPicture_1201: RscPictureGUI
 			{
 				idc = 1201;

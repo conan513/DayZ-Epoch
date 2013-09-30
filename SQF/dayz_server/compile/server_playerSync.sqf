@@ -1,10 +1,19 @@
-private ["_character","_magazines","_force","_characterID","_charPos","_isInVehicle","_timeSince","_humanity","_debug","_distance","_isNewMed","_isNewPos","_isNewGear","_playerPos","_playerGear","_playerBackp","_medical","_distanceFoot","_lastPos","_backpack","_kills","_killsB","_killsH","_headShots","_lastTime","_timeGross","_timeLeft","_currentWpn","_currentAnim","_config","_onLadder","_isTerminal","_currentModel","_modelChk","_muzzles","_temp","_currentState","_array","_key","_pos","_forceGear"];
+private ["_empty","_playerwasNearby","_character","_magazines","_force","_characterID","_charPos","_isInVehicle","_timeSince","_humanity","_debug","_distance","_isNewMed","_isNewPos","_isNewGear","_playerPos","_playerGear","_playerBackp","_medical","_distanceFoot","_lastPos","_backpack","_kills","_killsB","_killsH","_headShots","_lastTime","_timeGross","_timeLeft","_currentWpn","_currentAnim","_config","_onLadder","_isTerminal","_currentModel","_modelChk","_muzzles","_temp","_currentState","_array","_key","_pos","_forceGear"];
 
 _character = 	_this select 0;
 _magazines =	_this select 1;
 //_force = 		_this select 2;
 _forceGear =	_this select 3;
 _force =	true;
+_playerwasNearby = false;
+
+if ((count _this) > 4) then {
+	_playerwasNearby =	_this select 4;
+};
+
+if (isNull _character) exitWith {
+	diag_log ("Player is Null FAILED: Exiting, player sync: " + str(_character));
+};
 
 _characterID =	_character getVariable ["CharacterID","0"];
 _charPos = 		getPosATL _character;
@@ -12,35 +21,25 @@ _isInVehicle = 	vehicle _character != _character;
 _timeSince = 	0;
 _humanity =		0;
 
-#ifdef DZE_SERVER_DEBUG_SYNC
 diag_log ("DW_DEBUG: (isnil _characterID): " + str(isnil "_characterID"));
-#endif
 
 if (_character isKindOf "Animal") exitWith {
-#ifdef DZE_SERVER_DEBUG_SYNC
 	diag_log ("ERROR: Cannot Sync Character " + (name _character) + " is an Animal class");
-#endif
 };
 
 if (isnil "_characterID") exitWith {
-#ifdef DZE_SERVER_DEBUG_SYNC
 	diag_log ("ERROR: Cannot Sync Character " + (name _character) + " has nil characterID");	
-#endif
 };
 
 if (_characterID == "0") exitWith {
-#ifdef DZE_SERVER_DEBUG_SYNC
 	diag_log ("ERROR: Cannot Sync Character " + (name _character) + " as no characterID");
-#endif
 };
 
 private["_debug","_distance"];
 _debug = getMarkerpos "respawn_west";
 _distance = _debug distance _charPos;
 if (_distance < 2000) exitWith { 
-	#ifdef DZE_SERVER_DEBUG_SYNC
 	diag_log format["ERROR: server_playerSync: Cannot Sync Player %1 [%2]. Position in debug! %3",name _character,_characterID,_charPos];
-	#endif
 };
 
 //Check for server initiated updates
@@ -85,7 +84,12 @@ if (_characterID != "0") then {
 		_playerGear = [weapons _character,_magazines];
 		//diag_log ("playerGear: " +str(_playerGear));
 		_backpack = unitBackpack _character;
-		_playerBackp = [typeOf _backpack,getWeaponCargo _backpack,getMagazineCargo _backpack];
+		if(_playerwasNearby) then {
+			_empty = [[],[]];
+			_playerBackp = [typeOf _backpack,_empty,_empty];
+		} else {
+			_playerBackp = [typeOf _backpack,getWeaponCargo _backpack,getMagazineCargo _backpack];
+		};
 	};
 	if (_isNewMed or _force) then {
 		//diag_log ("medical..."); sleep 0.05;
@@ -178,7 +182,7 @@ if (_characterID != "0") then {
 				//Wait for HIVE to be free
 				//Send request
 				_key = format["CHILD:201:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12:%13:%14:%15:%16:",_characterID,_playerPos,_playerGear,_playerBackp,_medical,false,false,_kills,_headShots,_distanceFoot,_timeSince,_currentState,_killsH,_killsB,_currentModel,_humanity];
-				//diag_log ("HIVE: WRITE: "+ str(_key) + " / " + _characterID);
+				diag_log ("HIVE: WRITE: "+ str(_key) + " / " + _characterID);
 				_key call server_hiveWrite;
 			};
 		};
@@ -187,7 +191,7 @@ if (_characterID != "0") then {
 		if (vehicle _character != _character) then {
 			//[vehicle _character, "position"] call server_updateObject;
 			if (!(vehicle _character in needUpdate_objects)) then {
-				//diag_log format["DEBUG: Added to NeedUpdate=%1",_object];
+				diag_log format["DEBUG: Added to NeedUpdate=%1",vehicle _character];
 				needUpdate_objects set [count needUpdate_objects, vehicle _character];
 			};
 		};
