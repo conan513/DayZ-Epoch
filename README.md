@@ -1,5 +1,5 @@
 
-**DayZ Epoch Plus**
+**DayZ Splights**
 ===================
 
 This DayZ mod based on DayZ Epoch latest DEV build from github.

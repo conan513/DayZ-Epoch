@@ -1,7 +1,7 @@
 respawn = "BASE";
 respawndelay = 5;
-onLoadMission= "DayZ Epoch Plus";
-OnLoadIntro = "Welcome to DayZ Epoch Plus";
+onLoadMission= "DayZ Splights";
+OnLoadIntro = "Welcome to DayZ Splights";
 OnLoadIntroTime = False;
 OnLoadMissionTime = False;
 disabledAI = true;

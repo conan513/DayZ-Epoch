@@ -1,5 +1,5 @@
 private [ "_camera", "_welcomeMessage", "_camDistance" ];
-_welcomeMessage = format["Welcome to an DayZ Epoch Plus server %1, Enjoy your stay!",format["%1", name player]];
+_welcomeMessage = format["Welcome to an DayZ Splights server %1, Enjoy your stay!",format["%1", name player]];
 _camDistance = 500;
  
 waitUntil {!isNil ("dayzLoginRecord")};
