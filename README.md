@@ -17,17 +17,21 @@ Included Custom Addons from community
 * Camp sites
 * Self bloodbag
 * Flies around killed animals
-* Smookie Animation Pack
-* ArmA 2: WarFX effects mod
+* Bloodsucker and hounds
+* Sound Of War
+* Basic stats window after death
+* Infected player mod(zombie mod) disabled
+* Nametag
 * New death screen
 * Death song: http://www.youtube.com/watch?v=RFKcpbfAXMw
 
--------------------------------------
-Included Custom Addons from me
--------------------------------------
+------------------------------------------
+Included Custom Addons from me and Whit33r
+------------------------------------------
 
 * More apocalyptics like weather
 * Custom intro
+* Custom anticheat
 
 --------------------------
 Special thanks
