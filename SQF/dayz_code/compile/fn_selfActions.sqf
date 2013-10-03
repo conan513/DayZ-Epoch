@@ -55,8 +55,8 @@ if (_canPickLight and !dayz_hasLight and !_isPZombie) then {
 };
 
 if (s_player_showname < 0) then {
-	s_player_showname = player addAction ["Display Name (Yes)", "\z\addons\dayz_code\actions\display_name.sqf",true, 5, true, false, "",""];
-	s_player_showname1 = player addAction ["Display Name (No)", "\z\addons\dayz_code\actions\display_name.sqf",false, 5, true, false, "",""];
+	s_player_showname = 1;
+	player setVariable["DZE_display_name",(_this select 3),true];
 };
 
 if(_isPZombie) then {

@@ -18,10 +18,10 @@ Included Custom Addons from community
 * Self bloodbag
 * Flies around killed animals
 * Bloodsucker and hounds
+* Smookie Animation Pack Lite
 * Sound Of War
 * Basic stats window after death
 * Infected player mod(zombie mod) disabled
-* Nametag
 * New death screen
 * Death song: http://www.youtube.com/watch?v=RFKcpbfAXMw
 

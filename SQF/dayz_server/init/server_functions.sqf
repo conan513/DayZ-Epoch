@@ -30,7 +30,6 @@ fnc_plyrHit   = compile preprocessFileLineNumbers "\z\addons\dayz_server\compile
 server_deaths = 			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerDeaths.sqf";
 
 // Custom scripts
-[] execVM "\z\addons\dayz_server\scripts\cpcnametags.sqf";
 [] ExecVM "\z\addons\dayz_server\scripts\devfish_camptents.sqf";
 [] ExecVM "\z\addons\dayz_server\scripts\mamu_poi3.sqf";
 [] execVM "\z\addons\dayz_server\scripts\recamp.sqf";
