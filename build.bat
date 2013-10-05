@@ -78,6 +78,13 @@ echo.
 ..\..\Tools\DSSignFile.exe dayz_splights.biprivatekey ..\@DayZ_Splights\addons\skins.pbo
 ..\..\Tools\DSSignFile.exe dayz_splights.biprivatekey ..\@DayZ_Splights\addons\SOW_sounds_c.pbo
 
+..\..\Tools\DSSignFile.exe dayz_splights.biprivatekey ..\@DayZ_Splights\addons\gdtmod_grass.pbo
+..\..\Tools\DSSignFile.exe dayz_splights.biprivatekey ..\@DayZ_Splights\addons\gdtmod_plants2_tree.pbo
+..\..\Tools\DSSignFile.exe dayz_splights.biprivatekey ..\@DayZ_Splights\addons\gdtmod_plants2_plant.pbo
+..\..\Tools\DSSignFile.exe dayz_splights.biprivatekey ..\@DayZ_Splights\addons\gdtmod_plants2_misc.pbo
+..\..\Tools\DSSignFile.exe dayz_splights.biprivatekey ..\@DayZ_Splights\addons\gdtmod_plants2_clutter.pbo
+..\..\Tools\DSSignFile.exe dayz_splights.biprivatekey ..\@DayZ_Splights\addons\gdtmod_plants2_bush.pbo
+
 echo.
 echo Move and clean files...
 echo.
