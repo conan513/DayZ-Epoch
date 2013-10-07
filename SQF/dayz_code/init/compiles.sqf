@@ -71,6 +71,9 @@ if (!isDedicated) then {
 	zombie_generate = 			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\zombie_generate.sqf";			//Server compile, used for loiter behaviour
 	wild_spawnZombies = 		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\wild_spawnZombies.sqf";			//Server compile, used for loiter behaviour
 	
+	pz_attack = 	compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\pzombie\pz_attack.sqf";
+	
+
 	//
 	dog_findTargetAgent = 	compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\dog_findTargetAgent.sqf";
 	
@@ -109,6 +112,7 @@ if (!isDedicated) then {
 	player_gearSync	=			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_gearSync.sqf";
 	player_gearSet	=			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_gearSet.sqf";
 	ui_changeDisplay = 			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\ui_changeDisplay.sqf";
+	ui_gear_sound =             compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\ui_gear_sound.sqf";
 	
 	//System
 	player_monitor =			compile preprocessFileLineNumbers "\z\addons\dayz_code\system\player_monitor.sqf";
@@ -264,6 +268,8 @@ if (!isDedicated) then {
 		private ["_dikCode", "_handled"];
 		_dikCode = 	_this select 1;
 		
+		_handled = false;
+
 		if (_dikCode in[0x58,0x57,0x44,0x43,0x42,0x41,0x40,0x3F,0x3E,0x3D,0x3C,0x3B,0x0B,0x0A,0x09,0x08,0x07,0x06,0x05]) then {
 					_handled = true;
 		};
@@ -283,17 +289,16 @@ if (!isDedicated) then {
 
 		//diag_log format["Keypress: %1", _this];
 
-		_handled = false;
+		
 		if (_dikCode in (actionKeys "GetOver")) then {
 			
 			if (player isKindOf  "PZombie_VB") then {
-				player switchAction "walkf";
+				_handled = true;
+				DZE_PZATTACK = true;
 			} else {
-				_inBuilding = [player] call fnc_isInsideBuilding;
 				_nearbyObjects = nearestObjects[getPosATL player, dayz_disallowedVault, 8];
-				if (!r_player_unconscious and (_inBuilding or (count _nearbyObjects > 0))) then {
-					[objNull, player, rSwitchMove,"GetOver"] call RE;
-					player playActionNow "GetOver";
+				if (count _nearbyObjects > 0) then {
+					_handled = true;
 				};
 			};
 		};
@@ -385,25 +390,6 @@ if (!isDedicated) then {
 		};
 		*/
 		_handled
-	};
-	
-	player_CombatRoll = {
-		DoRE = ({isPlayer _x} count (player nearEntities ["AllVehicles",100]) > 1);
-		if (canRoll && animationState player in ["amovpercmrunslowwrfldf","amovpercmrunsraswrfldf","amovpercmevaslowwrfldf","amovpercmevasraswrfldf"]) then {
-			canRoll = false;
-			null = [] spawn {
-				if (DoRE) then {
-					[nil, player, rSWITCHMOVE, "ActsPercMrunSlowWrflDf_FlipFlopPara"] call RE;
-				} else {
-					player switchMove "ActsPercMrunSlowWrflDf_FlipFlopPara";
-				};
-				sleep 0.3;
-				player setVelocity [(velocity player select 0) + 1.5 * sin direction player, (velocity player select 1) + 1.5 * cos direction player, (velocity player select 2) + 4];
-				sleep 1;
-				canRoll = true;
-			};
-			_handled = true;
-		};
 	};
 	
 	player_serverModelChange = {
@@ -531,12 +517,12 @@ if (!isDedicated) then {
 
 		lbAdd [TraderDialogItemList, "Loading items..."];
 
-		dayzTraderMenuResult = call compile format["tcacheBuy_%1;",_trader_id];
+		PVDZE_plr_TradeMenuResult = call compile format["tcacheBuy_%1;",_trader_id];
 
-		if(isNil "dayzTraderMenuResult") then {
-			dayzTraderMenu = [_activatingPlayer,_trader_id];
-			publicVariableServer  "dayzTraderMenu";
-			waitUntil {!isNil "dayzTraderMenuResult"};
+		if(isNil "PVDZE_plr_TradeMenuResult") then {
+			PVDZE_plr_TradeMenu = [_activatingPlayer,_trader_id];
+			publicVariableServer  "PVDZE_plr_TradeMenu";
+			waitUntil {!isNil "PVDZE_plr_TradeMenuResult"};
 		};
 
 		lbClear TraderDialogItemList;
@@ -651,7 +637,7 @@ if (!isDedicated) then {
 				_header,
 				_File
 			]];
-		} forEach dayzTraderMenuResult;
+		} forEach PVDZE_plr_TradeMenuResult;
 		TraderItemList = _item_list;
 	};
 
@@ -706,7 +692,7 @@ if (!isDedicated) then {
 
 	EpochDeathBoardLoad = {
 		createdialog "EpochDeathBoardDialog";
-		/*dayzPlayerDeathsResult = [
+		/*PVDZE_plr_DeathBResult = [
 			["maca134","Bob","AK_107_Kobra",100,[8,30]],
 			["Fred","Jonny","FN_FAL",42,[8,32]],
 			["maca134","Bob","M9SD",100,[5,30]],
@@ -714,7 +700,7 @@ if (!isDedicated) then {
 		];*/
 		{
 			lbAdd [EpochDeathBoardDialogList, (_x select 0)];
-		} forEach dayzPlayerDeathsResult;
+		} forEach PVDZE_plr_DeathBResult;
 	};
 
 
@@ -734,7 +720,7 @@ if (!isDedicated) then {
 		_i = _this select 0;
 		if (_i < 0) exitWith {};
 		_output = _this select 1;
-		_record = dayzPlayerDeathsResult select _i;
+		_record = PVDZE_plr_DeathBResult select _i;
 		_record_stxt = call compile format["epoch_death_board_record_%1;",_i];
 		if(isNil "_record_stxt") then {
 			_record_stxt = format["<t size='1.6' align='left'>%1</t><br /><br />", (_record select 0)];

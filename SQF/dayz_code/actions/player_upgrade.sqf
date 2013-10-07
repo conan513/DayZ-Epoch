@@ -96,6 +96,9 @@ if ((count _upgrade) > 0) then {
 	} forEach _requirements;
 	
 	if (_proceed) then {
+
+		player playActionNow "Medic";
+		[player,20,true,(getPosATL player)] spawn player_alertZombies;
 	
 		_temp_removed_array = [];
 		_removed_total = 0;
@@ -159,8 +162,8 @@ if ((count _upgrade) > 0) then {
 				cutText [format["You have upgraded %1.",_text], "PLAIN DOWN", 5];
 			};
 
-			dayzSwapObj = [_objectCharacterID,_object,[_dir,_location],_classname,_obj,_objectID,_objectUID];
-			publicVariableServer "dayzSwapObj";
+			PVDZE_obj_Swap = [_objectCharacterID,_object,[_dir,_location],_classname,_obj,_objectID,_objectUID];
+			publicVariableServer "PVDZE_obj_Swap";
 
 			player reveal _object;
 			

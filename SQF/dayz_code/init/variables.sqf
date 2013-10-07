@@ -177,7 +177,7 @@ SleepTemperatur	= 		90 / 100;	//Firs Value = Minutes untill Player reaches the c
 //Server Variables
 allowConnection = 		false;
 isSinglePlayer =		false;
-dayz_serverObjectMonitor = [];
+PVDZE_serverObjectMonitor = [];
 PlayerDeaths = [];
 
 //Streaming Variables (player only)
@@ -241,6 +241,7 @@ dayz_resetSelfActions = {
 	s_player_fillgen	 =  -1;
 	s_player_upgrade_build	 =  -1;
 	s_player_maint_build	 =  -1;
+	s_player_downgrade_build	 =  -1;
 	s_player_towing		 =  -1;
 };
 call dayz_resetSelfActions;
@@ -374,16 +375,16 @@ dayz_zombieTargetList = [
 	["Air",500],
 	["LandVehicle",200]
 ];
-dayzHit = [];
-dayzPublishObj = [];		//used for eventhandler to spawn a mirror of players tent
-dayzHideBody = objNull;
+PVDZE_plr_Hit = [];
+PVDZE_obj_Publish = [];		//used for eventhandler to spawn a mirror of players tent
+PVDZE_plr_HideBody = objNull;
 dayz_selectedVault = objNull;
 dayz_selectedDoor = objNull;
 
-dayzPublishVeh = [];		// for vehicle traders
-dayzTradeObject = [];		// For all traders increment qty
-dayzTraderMenu = [];  		// For all traders	
-dayzPlayerDeaths = [];
+PVDZE_veh_Publish = [];		// for vehicle traders
+PVDZE_obj_Trade = [];		// For all traders increment qty
+PVDZE_plr_TradeMenu = [];  		// For all traders	
+PVDZE_plr_DeathB = [];
 
 //DayZ settings
 dayz_dawn = 6;
@@ -469,7 +470,7 @@ DZE_UnLockedStorage = ["VaultStorage","LockboxStorage"];
 // List of removable items that require crowbar
 DZE_isRemovable = ["Fence_corrugated_DZ","M240Nest_DZ","ParkBench_DZ","Plastic_Pole_EP1_DZ"];
 DZE_isWreck = ["SKODAWreck","HMMWVWreck","UralWreck","datsun01Wreck","hiluxWreck","datsun02Wreck","UAZWreck","Land_Misc_Garb_Heap_EP1","Fort_Barricade_EP1","Rubbish2"];
-DZE_isWreckBuilding = ["Land_wreck_cinder","Land_wood_wreck_quarter","Land_wood_wreck_floor","Land_wood_wreck_third","Land_wood_wreck_frame"];
+DZE_isWreckBuilding = ["Land_wreck_cinder","Land_wood_wreck_quarter","Land_wood_wreck_floor","Land_wood_wreck_third","Land_wood_wreck_frame","Land_iron_vein_wreck","Land_silver_vein_wreck","Land_gold_vein_wreck"];
 DZE_isNewStorage = ["VaultStorage","OutHouse_DZ","Wooden_shed_DZ","WoodShack_DZ","StorageShed_DZ"];
 
 // These work with just a running generator
@@ -629,5 +630,5 @@ if(!isDedicated) then {
 	DZE_6 = false;
 
 	DZE_cancelBuilding = false;
-
+	DZE_PZATTACK = false;
 };

@@ -21,7 +21,8 @@ class CfgMagazines {
 	class 29Rnd_30mm_AGS30 : CA_Magazine { 
 		scope = 2; 
 		displayName = "HE Rounds"; 
-		picture = "\CA\weapons\data\equip\m_m240_ca.paa"; 
+		model = "\z\addons\dayz_epoch\models\30mm_mag.p3d";
+		picture = "\z\addons\dayz_epoch\pictures\equip_30mm_mag_ca.paa";
 		ammo = "G_30mm_HE"; 
 		count = 29; 
 		type = "256";
@@ -34,7 +35,7 @@ class CfgMagazines {
 	class 50Rnd_127x107_DSHKM : CA_Magazine { 
 		scope = 2; 
 		displayName = "DShKM"; 
-		picture = "\CA\weapons\data\equip\m_m240_ca.paa"; 
+		picture = "\z\addons\dayz_epoch\pictures\equip_Dshkm_mag_ca.paa";
 		model = "\z\addons\dayz_epoch\models\dshkm_mag.p3d";
 		ammo = "B_127x107_Ball"; 
 		count = 50; 
@@ -49,7 +50,8 @@ class CfgMagazines {
 	class 100Rnd_127x99_M2 : CA_Magazine { 
 		scope = 2; 
 		displayName = "M2 Machine Gun"; 
-		picture = "\CA\weapons\data\equip\m_m240_ca.paa"; 
+		model = "\z\addons\dayz_epoch\models\50cal_mag.p3d";
+		picture = "\z\addons\dayz_epoch\pictures\equip_50cal_mag_ca.paa";
 		ammo = "B_127x99_Ball"; 
 		count = 100; 
 		type = "256";
@@ -64,7 +66,7 @@ class CfgMagazines {
 		count = 2000; 
 		scope = 2; 
 		displayName = "M134 7.62 Nato"; 
-		picture = "\CA\weapons\data\equip\m_m240_ca.paa"; 
+		picture = "\z\addons\dayz_epoch\pictures\equip_m136_mag_ca.paa";
 		model = "\z\addons\dayz_epoch\models\m136_mag.p3d";
 		ammo = "B_762x51_3RndBurst"; 
 		type = "256";
@@ -76,7 +78,8 @@ class CfgMagazines {
 	class 48Rnd_40mm_MK19 : CA_Magazine { 
 		scope = 2; 
 		displayName = "Mk. 19 40mm"; 
-		picture = "\CA\weapons\data\equip\m_m240_ca.paa"; 
+		model = "\z\addons\dayz_epoch\models\40mm_mag.p3d";
+		picture = "\z\addons\dayz_epoch\pictures\equip_40mm_mag_ca.paa";
 		ammo = "G_40mm_HE"; 
 		count = 48; 
 		type = "256";
@@ -129,7 +132,7 @@ class CfgMagazines {
 	};
 
 
-  // Items
+	 // Items
 	class ItemHotwireKit: CA_Magazine
 	{
 		scope = 2;
@@ -140,6 +143,40 @@ class CfgMagazines {
 		picture = "\z\addons\dayz_epoch\pictures\equip_hotwire_ca.paa";
 		descriptionShort = "Used to temporarily unlock and start a vehicle has a chance of failure and is consumed on use.";
 		weight = 2;
+	};
+
+	class ItemDocument: CA_Magazine
+	{
+		scope = 2;
+		count = 1;
+		type = 256;
+		displayName = "Document";
+		model = "\z\addons\dayz_epoch\models\doc_generic.p3d";
+		picture = "\z\addons\dayz_epoch\pictures\equip_doc_generic_ca.paa";
+		descriptionShort = "Unknown document";
+		weight = 0.1;
+	};
+	class ItemLetter: CA_Magazine
+	{
+		scope = 2;
+		count = 1;
+		type = 256;
+		displayName = "Letter";
+		model = "\z\addons\dayz_epoch\models\doc_letter.p3d";
+		picture = "\z\addons\dayz_epoch\pictures\equip_doc_letter_ca.paa";
+		descriptionShort = "Unknown document";
+		weight = 0.1;
+	};
+	class ItemDocumentRamp: CA_Magazine
+	{
+		scope = 2;
+		count = 1;
+		type = 256;
+		displayName = "HowTo: Ramp";
+		model = "\z\addons\dayz_epoch\models\doc_ramp.p3d";
+		picture = "\z\addons\dayz_epoch\pictures\equip_doc_ramp_ca.paa";
+		descriptionShort = "Document used in building a wooden ramp.";
+		weight = 0.1;
 	};
 
 	class ItemCanvas: CA_Magazine
@@ -1226,6 +1263,34 @@ class CfgMagazines {
 				output[] = {{"bulk_ItemSodaPepsi",1}};
 				input[] = {{"bulk_empty",1},{"ItemSodaPepsi",6}};
 			};
+
+			class Crafting2
+			{
+				text = "Pack Scrap Metal";
+				script = ";['Crafting2','CfgMagazines', _id] spawn player_craftItem;";
+				neednearby[] = {};
+				requiretools[] = {"ItemToolbox"};
+				output[] = {{"bulk_PartGenericHalf",1}};
+				input[] = {{"bulk_empty",1},{"PartGeneric",6}};
+			};
+			class Crafting3
+			{
+				text = "Pack Tank Traps";
+				script = ";['Crafting3','CfgMagazines', _id] spawn player_craftItem;";
+				neednearby[] = {};
+				requiretools[] = {"ItemToolbox"};
+				output[] = {{"bulk_ItemTankTrapHalf",1}};
+				input[] = {{"bulk_empty",1},{"ItemTankTrap",6}};
+			};
+			class Crafting4
+			{
+				text = "Pack Wire Kits";
+				script = ";['Crafting4','CfgMagazines', _id] spawn player_craftItem;";
+				neednearby[] = {};
+				requiretools[] = {"ItemToolbox"};
+				output[] = {{"bulk_ItemWireHalf",1}};
+				input[] = {{"bulk_empty",1},{"ItemWire",6}};
+			};
 		};
 	};
 	class bulk_ItemSodaCoke: bulk
@@ -1239,6 +1304,28 @@ class CfgMagazines {
 				script = "spawn player_loadCrate;";
 				output[] = {"ItemSodaCoke",6,"magazine"};
 			};
+			class Crafting
+			{
+				text = "Pack 6 Coke";
+				script = ";['Crafting','CfgMagazines', _id] spawn player_craftItem;";
+				neednearby[] = {};
+				requiretools[] = {"ItemToolbox"};
+				output[] = {{"bulk_ItemSodaCokeFull",1}};
+				input[] = {{"bulk_ItemSodaCoke",1},{"ItemSodaCoke",6}};
+			};
+		};
+	};
+	class bulk_ItemSodaCokeFull: bulk
+	{
+		descriptionShort = "12 x ItemSodaCoke";
+		class ItemActions
+		{
+			class CreateMags
+			{
+				text = "Open %1";
+				script = "spawn player_loadCrate;";
+				output[] = {"ItemSodaCoke",12,"magazine"};
+			};
 		};
 	};
 	class bulk_ItemSodaPepsi: bulk
@@ -1251,6 +1338,28 @@ class CfgMagazines {
 				text = "Open %1";
 				script = "spawn player_loadCrate;";
 				output[] = {"ItemSodaPepsi",6,"magazine"};
+			};
+			class Crafting
+			{
+				text = "Pack 6 Pepsi";
+				script = ";['Crafting','CfgMagazines', _id] spawn player_craftItem;";
+				neednearby[] = {};
+				requiretools[] = {"ItemToolbox"};
+				output[] = {{"bulk_ItemSodaPepsiFull",1}};
+				input[] = {{"bulk_ItemSodaPepsi",1},{"ItemSodaPepsi",6}};
+			};
+		};
+	};
+	class bulk_ItemSodaPepsiFull: bulk
+	{
+		descriptionShort = "12 x ItemSodaPepsi";
+		class ItemActions
+		{
+			class CreateMags
+			{
+				text = "Open %1";
+				script = "spawn player_loadCrate;";
+				output[] = {"ItemSodaPepsi",12,"magazine"};
 			};
 		};
 	};
@@ -1322,6 +1431,29 @@ class CfgMagazines {
 			};
 		};
 	};
+	class bulk_ItemTankTrapHalf: bulk
+	{
+		descriptionShort = "6 x Tank Trap";
+		weight = 12.5;
+		class ItemActions
+		{
+			class CreateMags
+			{
+				text = "Open %1";
+				script = "spawn player_loadCrate;";
+				output[] = {"ItemTankTrap",6,"magazine"};
+			};
+			class Crafting
+			{
+				text = "Pack Scrap Metal";
+				script = ";['Crafting','CfgMagazines', _id] spawn player_craftItem;";
+				neednearby[] = {};
+				requiretools[] = {"ItemToolbox"};
+				output[] = {{"bulk_ItemTankTrap",1}};
+				input[] = {{"bulk_ItemTankTrapHalf",1},{"ItemTankTrap",6}};
+			};
+		};
+	};
 	
 	class bulk_ItemWire: bulk
 	{
@@ -1337,6 +1469,29 @@ class CfgMagazines {
 			};
 		};
 	};
+	class bulk_ItemWireHalf: bulk
+	{
+		descriptionShort = "6 x Wire Kit";
+		weight = 12.5;
+		class ItemActions
+		{
+			class CreateMags
+			{
+				text = "Open %1";
+				script = "spawn player_loadCrate;";
+				output[] = {"ItemWire",6,"magazine"};
+			};
+			class Crafting
+			{
+				text = "Pack Wire Kits";
+				script = ";['Crafting','CfgMagazines', _id] spawn player_craftItem;";
+				neednearby[] = {};
+				requiretools[] = {"ItemToolbox"};
+				output[] = {{"bulk_ItemWire",1}};
+				input[] = {{"bulk_ItemWireHalf",1},{"ItemWire",6}};
+			};
+		};
+	};
 	
 	class bulk_PartGeneric: bulk
 	{
@@ -1349,6 +1504,29 @@ class CfgMagazines {
 				text = "Open %1";
 				script = "spawn player_loadCrate;";
 				output[] = {"PartGeneric",12,"magazine"};
+			};
+		};
+	};
+	class bulk_PartGenericHalf: bulk
+	{
+		descriptionShort = "6 x Scrap Metal";
+		weight = 30;
+		class ItemActions
+		{
+			class CreateMags
+			{
+				text = "Open %1";
+				script = "spawn player_loadCrate;";
+				output[] = {"PartGeneric",6,"magazine"};
+			};
+			class Crafting
+			{
+				text = "Pack Scrap Metal";
+				script = ";['Crafting','CfgMagazines', _id] spawn player_craftItem;";
+				neednearby[] = {};
+				requiretools[] = {"ItemToolbox"};
+				output[] = {{"bulk_PartGeneric",1}};
+				input[] = {{"bulk_PartGenericHalf",1},{"PartGeneric",6}};
 			};
 		};
 	};
@@ -2784,7 +2962,15 @@ class CfgMagazines {
 				input[] = {{"PartWoodLumber",8}};
 				
 			};
-			
+			class Crafting5
+            {
+                text = "Craft Lumber Pack";
+                Script = ";['Crafting5','CfgMafazines', _id] spawn player_craftItem;";
+                neednearby[] = {"workshop"};
+                requiretools[] = {"ItemToolbox"};
+                output[] = {{"PartPlankPack",1}};
+                input[] = {{"PartWoodLumber",3}};
+            };
 		};
 	};
 	class PartWoodPlywood: CA_Magazine
@@ -2834,6 +3020,15 @@ class CfgMagazines {
 				output[] = {{"ItemWoodWallThird",1}};
 				input[] = {{"PartWoodPlywood",3},{"PartWoodLumber",3}};
 			};
+			class Crafting4
+            {
+                text = "Craft Plywood Pack";
+                Script = ";['Crafting4','CfgMafazines', _id] spawn player_craftItem;";
+                neednearby[] = {"workshop"};
+                requiretools[] = {"ItemToolbox"};
+                output[] = {{"PartPlywoodPack",1}};
+                input[] = {{"PartWoodPlywood",3}};
+            };
 			
 		};
 	};
@@ -2843,9 +3038,10 @@ class CfgMagazines {
 		count = 1;
 		type = 256;
 		displayName = "Iron Ore";
-		model = "\dayz_equip\models\trash_tincan.p3d";
-		picture = "\dayz_equip\textures\equip_tincan_ca.paa";
+		model = "\z\addons\dayz_epoch\models\iron_ore.p3d";
+		picture="\z\addons\dayz_epoch\pictures\equip_iron_ore_CA.paa";
 		descriptionShort = "Used for crafting scrap metal. Can be mined from rocks using a sledgehammer.";
+		weight = 1;
 		class ItemActions {
 			class Crafting
 			{
@@ -2855,6 +3051,50 @@ class CfgMagazines {
 				requiretools[] = {"ItemSledge"};
 				output[] = {{"PartGeneric",1},{"ItemWaterbottleUnfilled",1}};
 				input[] = {{"PartOre",4},{"ItemWaterbottle",1}};
+			};			
+		};
+	};
+	class PartOreSilver: CA_Magazine
+	{
+		scope = 2;
+		count = 1;
+		type = 256;
+		displayName = "Silver Ore";
+		model = "\z\addons\dayz_epoch\models\silver_ore.p3d";
+		picture="\z\addons\dayz_epoch\pictures\equip_silver_ore_CA.paa";
+		descriptionShort = "Can be mined from rocks using a sledgehammer.";
+		weight = 1;
+		class ItemActions {
+			class Crafting
+			{
+				text = "Smelt Silver Bar";
+				script = ";['Crafting','CfgMagazines', _id] spawn player_craftItem;";
+				neednearby[] = {"fire"};
+				requiretools[] = {"ItemSledge"};
+				output[] = {{"ItemSilverBar",1},{"ItemWaterbottleUnfilled",1}};
+				input[] = {{"PartOreSilver",1},{"ItemWaterbottle",1}};
+			};			
+		};
+	};
+	class PartOreGold: CA_Magazine
+	{
+		scope = 2;
+		count = 1;
+		type = 256;
+		displayName = "Gold Ore";
+		model = "\z\addons\dayz_epoch\models\gold_ore.p3d";
+		picture="\z\addons\dayz_epoch\pictures\equip_gold_ore_CA.paa";
+		descriptionShort = "Can be mined from rocks using a sledgehammer.";
+		weight = 1;
+		class ItemActions {
+			class Crafting
+			{
+				text = "Smelt Gold Bar";
+				script = ";['Crafting','CfgMagazines', _id] spawn player_craftItem;";
+				neednearby[] = {"fire"};
+				requiretools[] = {"ItemSledge"};
+				output[] = {{"ItemGoldBar",1},{"ItemWaterbottleUnfilled",1}};
+				input[] = {{"PartOreGold",1},{"ItemWaterbottle",1}};
 			};			
 		};
 	};

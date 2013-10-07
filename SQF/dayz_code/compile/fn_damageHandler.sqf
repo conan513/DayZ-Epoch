@@ -10,6 +10,7 @@ _unit = _this select 0;
 _hit = _this select 1;
 _damage = _this select 2;
 _unconscious = _unit getVariable ["NORRN_unconscious", false];
+_isPZombie = player isKindOf "PZombie_VB";
 _source = _this select 3;
 _ammo = _this select 4;
 _type = [_damage,_ammo] call fnc_usec_damageType;
@@ -31,9 +32,9 @@ _unitIsPlayer = _unit == player;
 if (_isPlayer) then {
 	if (_damage > 0.1) then {
 		dayz_canDisconnect = false;
-		//["dayzDiscoAdd",getPlayerUID player] call callRpcProcedure;
-		dayzDiscoAdd = getPlayerUID player;
-		publicVariableServer "dayzDiscoAdd";
+		//["PVDZE_plr_DiscAdd",getPlayerUID player] call callRpcProcedure;
+		PVDZE_plr_DiscAdd = getPlayerUID player;
+		publicVariableServer "PVDZE_plr_DiscAdd";
 				
 		dayz_damageCounter = time;
 		
@@ -58,9 +59,9 @@ if (_unitIsPlayer) then {
 				_myKills = 		200 - (((player getVariable ["humanKills",0]) / 30) * 100);
 				//Process Morality Hit
 				_humanityHit = -(_myKills * _damage);
-				//["dayzHumanity",[_source,_humanityHit,30]] call broadcastRpcCallAll;
-				dayzHumanity = [_source,_humanityHit,30];
-				publicVariable "dayzHumanity";
+				//["PVDZE_plr_HumanityChange",[_source,_humanityHit,30]] call broadcastRpcCallAll;
+				PVDZE_plr_HumanityChange = [_source,_humanityHit,30];
+				publicVariable "PVDZE_plr_HumanityChange";
 			};
 		};
 	};
@@ -186,7 +187,7 @@ if (_damage > 0.4) then {	//0.25
 		};
 		if (_hitInfection) then {
 			//Set Infection if not already
-			if (_unitIsPlayer) then {
+			if (_unitIsPlayer and !_isPZombie) then {
 				r_player_infected = true;
 				player setVariable["USEC_infected",true,true];
 			};
@@ -204,7 +205,7 @@ if (_damage > 0.4) then {	//0.25
 		};
 	};
 	if(!_isHit) then {
-		_isPZombie = player isKindOf "PZombie_VB";
+		
 		if(!_isPZombie) then {
 			//Create Wound
 			_unit setVariable[_wound,true,true];
