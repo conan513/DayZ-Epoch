@@ -34,9 +34,9 @@ DZAI_modName = "epoch";
 DZAI_weaponNoise = 1.00;
 DZAI_aiHeliPatrols = true;
 DZAI_maxHeliPatrols = 5;
-DZAI_heliTypes = ["UH1H_DZ","Mi17_DZ"];
+DZAI_heliTypes = ["UH1H_DZ","Mi17_DZ","AN2_DZ","AH6X_DZ"];
 DZAI_respawnTime = 900;
-DZAI_humanityGain = 100;
+DZAI_humanityGain = 200;
 
 // DZAI_dynTriggersMax = 20;
 // DZAI_monitor = false;

@@ -22,8 +22,8 @@ enableRadio true;
 spawnShoremode = 1; // Default = 1 (on shore)
 spawnArea= 1500; // Default = 1500
 MaxHeliCrashes= 5; // Default = 5
-MaxVehicleLimit = 100; // Default = 50
-MaxDynamicDebris = 250; // Default = 100
+MaxVehicleLimit = 200; // Default = 50
+MaxDynamicDebris = 1000; // Default = 100
 dayz_MapArea = 14000; // Default = 10000
 dayz_maxLocalZombies = 30; // Default = 30
 dayz_paraSpawn = false;
