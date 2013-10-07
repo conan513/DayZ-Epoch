@@ -122,7 +122,7 @@ class CfgMusic
 	{
 		name = "";
 		sound[] = {"\dayz_sfx\samples\suspense_17.ogg", db+0, 1.0};
-		duration = 28;
+		duration = 207;
 	};
 	class z_suspense_18
 	{
@@ -140,79 +140,79 @@ class CfgMusic
 	{
 		name = "";
 		sound[] = {"\dayz_sfx\samples\suspense_20.ogg", db+0, 1.0};
-		duration = 65;
+		duration = 199;
 	};
 	class z_suspense_21
 	{
 		name = "";
 		sound[] = {"\dayz_sfx\samples\suspense_21.ogg", db+0, 1.0};
-		duration = 89;
+		duration = 358;
 	};
 	class z_suspense_22
 	{
 		name = "";
 		sound[] = {"\dayz_sfx\samples\suspense_22.ogg", db+0, 1.0};
-		duration = 44;
+		duration = 289;
 	};
 	class z_suspense_23
 	{
 		name = "";
 		sound[] = {"\dayz_sfx\samples\suspense_23.ogg", db+0, 1.0};
-		duration = 59;
+		duration = 283;
 	};
 	class z_suspense_24
 	{
 		name = "";
 		sound[] = {"\dayz_sfx\samples\suspense_24.ogg", db+0, 1.0};
-		duration = 52;
+		duration = 341;
 	};
 	class z_suspense_25
 	{
 		name = "";
 		sound[] = {"\dayz_sfx\samples\suspense_25.ogg", db+0, 1.0};
-		duration = 52;
+		duration = 184;
 	};
 	class z_suspense_26
 	{
 		name = "";
 		sound[] = {"\dayz_sfx\samples\suspense_26.ogg", db+0, 1.0};
-		duration = 158;
+		duration = 228;
 	};
 	class z_suspense_27
 	{
 		name = "";
 		sound[] = {"\dayz_sfx\samples\suspense_27.ogg", db+0, 1.0};
-		duration = 130;
+		duration = 302;
 	};
 	class z_suspense_28
 	{
 		name = "";
 		sound[] = {"\dayz_sfx\samples\suspense_28.ogg", db+0, 1.0};
-		duration = 116;
+		duration = 274;
 	};
 	class z_suspense_29
 	{
 		name = "";
 		sound[] = {"\dayz_sfx\samples\suspense_29.ogg", db+0, 1.0};
-		duration = 129;
+		duration = 286;
 	};
 	class z_suspense_30
 	{
 		name = "";
 		sound[] = {"\dayz_sfx\samples\suspense_30.ogg", db+0, 1.0};
-		duration = 33;
+		duration = 207;
 	};
 	class z_suspense_31
 	{
 		name = "";
 		sound[] = {"\dayz_sfx\samples\suspense_31.ogg", db+0, 1.0};
-		duration = 117;
+		duration = 295;
 	};
 	class z_suspense_32
 	{
 		name = "";
 		sound[] = {"\dayz_sfx\samples\suspense_32.ogg", db+0, 1.0};
-		duration = 29;
+		duration = 263;
 	};
 	class z_suspense_33
 	{
