@@ -35,11 +35,7 @@ if ((count _heliWeapons) > 0) then {
 			_helicopter setFuel 1;
 			if (DZAI_debugLevel > 1) then {diag_log "DZAI Extended Debug: Refueled AI patrol helicopter.";};
 		};
-		
-		//Update helicopter position and waypoint markers
-		_marker setMarkerPos (getposATL _helicopter);
-		_wpmarker setMarkerPos (getWPPos [_unitGroup,0]);
-		
+	
 		//Destroy helicopter if pilot is killed
 		if (!alive (driver _helicopter)) exitWith {
 			if (DZAI_debugLevel > 0) then {diag_log "DZAI Debug: Patrol helicopter pilot killed, helicopter is going down!";};
@@ -69,11 +65,7 @@ if ((count _heliWeapons) > 0) then {
 			_helicopter setFuel 1;
 			if (DZAI_debugLevel > 1) then {diag_log "DZAI Extended Debug: Refueled AI patrol helicopter.";};
 		};
-		
-		//Update helicopter position and waypoint markers
-		_marker setMarkerPos (getposATL _helicopter);
-		_wpmarker setMarkerPos (getWPPos [_unitGroup,0]);
-		
+	
 		//Destroy helicopter if pilot is killed
 		if (!alive (driver _helicopter)) exitWith {
 			if (DZAI_debugLevel > 0) then {diag_log "DZAI Debug: Patrol helicopter pilot killed, helicopter is going down!";};
