@@ -29,6 +29,7 @@
 
 //Add your preferred settings below this line.
 
+DZAI_staticAI = false;
 DZAI_modName = "epoch";
 // DZAI_objPatch = false;
 DZAI_weaponNoise = 1.00;
