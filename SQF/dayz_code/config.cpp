@@ -41,7 +41,7 @@ class CfgMods
 		hidePicture = 0;
 		hideName = 0;
 		action = "http://www.dayzepoch.com";
-		version = "1.0.2.396";
+		version = "1.0.2.399";
 		hiveVersion = 0.96; //0.93
 	};
 };
@@ -527,9 +527,6 @@ class CfgBuildingLoot {
 		lootChance = 0.4;
 		lootPos[] = {};
 		itemType[] = {
-				{ "ItemSodaMdew","magazine" },
-				{ "ItemSodaRbull","magazine" },
-				{ "ItemSodaOrangeSherbet","magazine" },
 				{ "ItemWatch","generic" },
 				{ "ItemCompass","generic" },
 				{ "ItemMap","weapon" },
@@ -556,9 +553,6 @@ class CfgBuildingLoot {
 				{"MR43","weapon"},
 		};
 		itemChance[] =	{
-			0.01,
-			0.01,
-			0.01,
 			0.04,
 			0.03,
 			0.02,
@@ -575,7 +569,7 @@ class CfgBuildingLoot {
 			0.01,
 			0.01,
 			0.02,
-			0.14,
+			0.17,
 			0.01,
 			0.02,
 			0.02,
@@ -588,19 +582,17 @@ class CfgBuildingLoot {
 			{ "ItemSodaMdew","magazine" },
 			{ "ItemSodaRbull","magazine" },
 			{ "ItemSodaOrangeSherbet","magazine" },
-			{ "ItemWatch","generic" },
-			{ "ItemCompass","generic" },
+			{ "ItemWatch","weapon" },
+			{ "ItemCompass","weapon" },
 			{ "ItemMap","weapon" },
 			{ "Makarov","weapon" },
 			{ "MakarovSD","weapon" },
 			{ "Colt1911","weapon" },
-			{ "ItemFlashlight","generic" },
-			{ "ItemKnife","generic" },
-			{ "ItemMatchbox","generic" },
+			{ "ItemFlashlight","weapon" },
+			{ "ItemKnife","weapon" },
+			{ "ItemMatchbox","weapon" },
 			{ "","generic" },
 			{ "revolver_EP1","weapon" },
-			{ "backpacks","backpack" },
-			{ "tents","single" },
 			{ "","military" },
 			{ "","trash" },
 			{ "Binocular","weapon" },
@@ -610,22 +602,20 @@ class CfgBuildingLoot {
 		itemChanceSmall[] =	{
 			0.01,
 			0.01,
-			0.01,
-			0.04,
-			0.03,
 			0.02,
 			0.05,
-			0.01,
-			0.02,
-			0.01,
 			0.04,
-			0.01,
-			0.36,
+			0.03,
+			0.05,
+			0.02,
+			0.03,
 			0.02,
 			0.04,
-			0.01,
+			0.03,
+			0.38,
 			0.02,
-			0.14,
+			0.04,
+			0.17,
 			0.02,
 			0.01,
 			0.01
@@ -638,9 +628,6 @@ class CfgBuildingLoot {
 		lootChance = 0.4;
 		lootPos[] = {};
 		itemType[] = {
-			{ "ItemSodaMdew","magazine" },
-			{ "ItemSodaRbull","magazine" },
-			{ "ItemSodaOrangeSherbet","magazine" },
 			{ "ItemWatch","generic" },
 			{ "ItemCompass","generic" },
 			{ "ItemMap","weapon" },
@@ -664,12 +651,9 @@ class CfgBuildingLoot {
 			{ "clothes","single" },
 			{ "specialclothes","single" },
 			{ "WeaponHolder_MeleeCrowbar","object" },
-			{ "ItemBriefcaseEmpty","magazine" },
+			{ "ItemBriefcaseEmpty","magazine" }			
 		};
 		itemChance[] =	{
-			0.01,
-			0.01,
-			0.01,
 			0.04,
 			0.03,
 			0.02,
@@ -686,7 +670,7 @@ class CfgBuildingLoot {
 			0.01,
 			0.01,
 			0.02,
-			0.18,
+			0.21,
 			0.01,
 			0.02,
 			0.02,
@@ -699,46 +683,44 @@ class CfgBuildingLoot {
 			{ "ItemSodaMdew","magazine" },
 			{ "ItemSodaRbull","magazine" },
 			{ "ItemSodaOrangeSherbet","magazine" },
-			{ "ItemWatch","generic" },
-			{ "ItemCompass","generic" },
+			{ "ItemWatch","weapon" },
+			{ "ItemCompass","weapon" },
 			{ "ItemMap","weapon" },
 			{ "Makarov","weapon" },
 			{ "MakarovSD","weapon" },
 			{ "Colt1911","weapon" },
-			{ "ItemFlashlight","generic" },
-			{ "ItemKnife","generic" },
-			{ "ItemMatchbox","generic" },
+			{ "ItemFlashlight","weapon" },
+			{ "ItemKnife","weapon" },
+			{ "ItemMatchbox","weapon" },
 			{ "","generic" },
 			{ "revolver_EP1","weapon" },
-			{ "backpacks","backpack" },
-			{ "tents","single" },
 			{ "","military" },
 			{ "","trash" },
 			{ "Binocular","weapon" },
 			{ "clothes","single" },
 			{ "specialclothes","single" },
+			{ "ItemDocument","magazine" }
 		};
 		itemChanceSmall[] =	{
 			0.01,
 			0.01,
-			0.01,
+			0.02,
+			0.05,
+			0.04,
+			0.03,
+			0.07,
+			0.02,
+			0.03,
+			0.02,
+			0.05,
+			0.03,
+			0.31,
+			0.03,
 			0.04,
 			0.03,
 			0.02,
-			0.06,
-			0.01,
+			0.16,
 			0.02,
-			0.01,
-			0.04,
-			0.01,
-			0.31,
-			0.02,
-			0.04,
-			0.01,
-			0.02,
-			0.18,
-			0.02,
-			0.01,
 			0.01
 		};	
 	};
@@ -750,7 +732,6 @@ class CfgBuildingLoot {
 		lootPos[] = {};
 		itemType[] = {
 			{ "ItemGenerator","magazine" },
-			{"ItemFuelPump","magazine"},
 			{"ItemFuelBarrel","magazine"},
 			{ "","generic" },
 			{ "","trash" },
@@ -774,8 +755,7 @@ class CfgBuildingLoot {
 		itemChance[] =	{
 			0.01,
 			0.01,
-			0.01,
-			0.16,
+			0.17,
 			0.25,
 			0.04,
 			0.04,
@@ -798,13 +778,13 @@ class CfgBuildingLoot {
 			{ "","generic" },
 			{ "","trash" },
 			{ "","military" },
-			{ "ItemKnife","military" },
+			{ "ItemKnife","weapon" },
 			{"ItemKeyKit","weapon"}
 		};
 		itemChanceSmall[] =	{
-			0.16,
-			0.25,
-			0.04,
+			0.5,
+			0.28,
+			0.14,
 			0.07,
 			0.01
 		};
@@ -859,13 +839,13 @@ class CfgBuildingLoot {
 			{ "","generic" },
 			{ "","trash" },
 			{ "","military" },
-			{ "ItemKnife","military" },
+			{ "ItemKnife","weapon" },
 			{"ItemKeyKit","weapon"}
 		};
 		itemChanceSmall[] =	{
-			0.18,
+			0.5,
 			0.28,
-			0.04,
+			0.14,
 			0.07,
 			0.01
 		};
@@ -913,11 +893,15 @@ class CfgBuildingLoot {
 		itemTypeSmall[] = {
 			{ "","generic" },
 			{ "","trash" },
-			{ "ItemSledgeHandle","magazine"}
+			{ "","military"},
+			{ "ItemLightBulb","magazine"},
+			{ "ItemSledgeHead","magazine"}
 		};
 		itemChanceSmall[] =	{
-			0.3,
-			0.26,
+			0.79,
+			0.14,
+			0.05,
+			0.01,
 			0.01
 		};
 	};
@@ -928,9 +912,6 @@ class CfgBuildingLoot {
 		zombieChance = 0.3;
 		zombieClass[] = {"zZombie_Base","zZombie_Base","z_teacher","z_suit1","z_suit2"};
 		itemType[] = {
-			{ "ItemSodaMdew","magazine" },
-			{ "ItemSodaRbull","magazine" },
-			{ "ItemSodaOrangeSherbet","magazine" },
 			{ "ItemWatch","generic" },
 			{ "ItemCompass","generic" },
 			{ "ItemMap","weapon" },
@@ -953,9 +934,6 @@ class CfgBuildingLoot {
 			{"MR43","weapon"}
 		};
 		itemChance[] =	{
-			0.01,
-			0.01,
-			0.01,
 			0.07,
 			0.02,
 			0.04,
@@ -971,7 +949,7 @@ class CfgBuildingLoot {
 			0.01,
 			0.01,
 			0.30,
-			0.20,
+			0.23,
 			0.01,
 			0.05,
 			0.02,
@@ -981,18 +959,16 @@ class CfgBuildingLoot {
 			{ "ItemSodaMdew","magazine" },
 			{ "ItemSodaRbull","magazine" },
 			{ "ItemSodaOrangeSherbet","magazine" },
-			{ "ItemWatch","generic" },
-			{ "ItemCompass","generic" },
+			{ "ItemWatch","weapon" },
+			{ "ItemCompass","weapon" },
 			{ "ItemMap","weapon" },
 			{ "Makarov","weapon" },
 			{ "Colt1911","weapon" },
-			{ "ItemFlashlight","generic" },
-			{ "ItemKnife","generic" },
-			{ "ItemMatchbox","generic" },
+			{ "ItemFlashlight","weapon" },
+			{ "ItemKnife","weapon" },
+			{ "ItemMatchbox","weapon" },
 			{ "","generic" },
 			{ "revolver_EP1","weapon" },
-			{ "backpacks","backpack" },
-			{ "tents","single" },
 			{ "","food" },
 			{ "","trash" },
 			{ "Binocular","weapon" },
@@ -1000,22 +976,20 @@ class CfgBuildingLoot {
 		itemChanceSmall[] =	{
 			0.01,
 			0.01,
-			0.01,
+			0.03,
 			0.07,
-			0.02,
+			0.03,
+			0.05,
 			0.04,
 			0.02,
 			0.01,
-			0.01,
 			0.02,
 			0.04,
-			0.04,
-			0.01,
-			0.07,
-			0.01,
-			0.30,
-			0.20,
-			0.05
+			0.21,
+			0.02,
+			0.24,
+			0.18,
+			0.02
 		};
 	};
 	class HeliCrash: Default {
@@ -1083,7 +1057,7 @@ class CfgBuildingLoot {
 			0.01
 		};
 	};
-class HeliCrash_No50s: Default {
+	class HeliCrash_No50s: Default {
 		zombieChance = 0.4;
 		maxRoaming = 2;
 		zombieClass[] = {"z_soldier_pilot"};
@@ -1259,11 +1233,10 @@ class HeliCrash_No50s: Default {
 			{ "M9SD","weapon" },
 			{ "glock17_EP1","weapon" },
 			{ "Binocular","weapon" },
-			{ "ItemFlashlightRed","military" },
-			{ "ItemKnife","military" },
+			{ "ItemFlashlightRed","weapon" },
+			{ "ItemKnife","weapon" },
 			{ "ItemGPS","weapon" },
-			{ "ItemMap","military" },
-			{ "militarybackpacks","backpack" },
+			{ "ItemMap","weapon" },
 			{ "","medical" },
 			{ "","generic" },
 			{ "","military" },
@@ -1271,20 +1244,19 @@ class HeliCrash_No50s: Default {
 			{ "ItemEtool","weapon" }
 		};
 		itemChanceSmall[] =	{
-			0.01,
-			0.01,
+			0.05,
+			0.05,
+			0.05,
 			0.02,
 			0.03,
 			0.04,
-			0.01,
-			0.01,
 			0.02,
-			0.05,
-			0.03,
-			0.1,
-			0.35,
-			0.01,
-			0.02
+			0.02,
+			0.09,
+			0.34,
+			0.26,
+			0.02,
+			0.01
 		};
 	};
 	class MilitaryIndustrial: Default {
@@ -1379,10 +1351,9 @@ class HeliCrash_No50s: Default {
 			{ "UZI_EP1","weapon" },
 			{ "glock17_EP1","weapon" },
 			{ "Binocular","weapon" },
-			{ "ItemFlashlightRed","military" },
-			{ "ItemKnife","military" },
+			{ "ItemFlashlightRed","weapon" },
+			{ "ItemKnife","weapon" },
 			{ "ItemGPS","weapon" },
-			{ "militarybackpacks","backpack" },
 			{ "","medical" },
 			{ "","generic" },
 			{ "","military" },
@@ -1390,20 +1361,19 @@ class HeliCrash_No50s: Default {
 			{ "ItemEtool","weapon" }
 		};
 		itemChanceSmall[] =	{
-			0.01,
-			0.01,
-			0.02,
+			0.05,
+			0.05,
+			0.05,
 			0.02,
 			0.03,
 			0.04,
-			0.01,
-			0.01,
-			0.05,
-			0.03,
-			0.06,
-			0.35,
-			0.01,
-			0.02
+			0.02,
+			0.02,
+			0.09,
+			0.34,
+			0.26,
+			0.02,
+			0.01
 		};
 	};
 	class MilitarySpecial: Default {
@@ -1526,16 +1496,14 @@ class HeliCrash_No50s: Default {
 			{ "ItemFlashlightRed","military" },
 			{ "ItemKnife","military" },
 			{ "ItemGPS","weapon" },
-			{ "ItemMap","military" },
-			{ "Binocular_Vector","military" },
-			{ "militarybackpacks","backpack" },
+			{ "ItemMap","weapon" },
+			{ "Binocular_Vector","weapon" },
 			{ "","medical" },
 			{ "","generic" },
 			{ "","military" },
 			{"100Rnd_762x54_PK","magazine"},
 			{ "militaryclothes","single" },
 			{"NVGoggles","weapon"},
-			{"2000Rnd_762x51_M134","magazine"},
 			{"29Rnd_30mm_AGS30","magazine"},
 			{"50Rnd_127x107_DSHKM","magazine"},
 			{"48Rnd_40mm_MK19","magazine"},
@@ -1552,18 +1520,16 @@ class HeliCrash_No50s: Default {
 			0.04,
 			0.03,
 			0.03,
-			0.05,
-			0.03,
-			0.09,
+			0.06,
+			0.13,
 			0.32,
-			0.03,
+			0.05,
 			0.03,
 			0.03,
 			0.02,
 			0.03,
 			0.03,
-			0.03,
-			0.03
+			0.02
 		};
 	};
 	class Hunting: Default {
@@ -1597,9 +1563,9 @@ class HeliCrash_No50s: Default {
 		};
 		itemTypeSmall[] =	{
 			{"ItemMap","weapon"},
-			{"ItemFlashlight","generic"},
-			{"ItemKnife","generic"},
-			{"ItemMatchbox","generic"},
+			{"ItemFlashlight","weapon"},
+			{"ItemKnife","weapon"},
+			{"ItemMatchbox","weapon"},
 			{"","military"},
 			{"","hunter"}
 		};

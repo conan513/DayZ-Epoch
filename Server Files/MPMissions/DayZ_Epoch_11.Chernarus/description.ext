@@ -5,7 +5,11 @@ OnLoadIntro = "Welcome to DayZ Splights";
 OnLoadIntroTime = False;
 OnLoadMissionTime = False;
 disabledAI = true;
+<<<<<<< HEAD
 disableChannels[]={2,6};
+=======
+disableChannels[]={0,2,6};
+>>>>>>> 2a38e3fdd03e5b183c3fb6a1512d2ac22cb9446c
 enableItemsDropping = 0;
 #include "R3F_Realism\R3F_Weight\R3F_CfgWeight.h"
 briefing = 0;

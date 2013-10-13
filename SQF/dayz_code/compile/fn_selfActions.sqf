@@ -23,7 +23,6 @@ if (!isNull _nearLight) then {
 	};
 };
 
-// ---------------------------------------Krixes Self Bloodbag Start------------------------------------
     _mags = magazines player;
  
     // Krixes Self Bloodbag
@@ -38,8 +37,7 @@ if (!isNull _nearLight) then {
         player removeAction s_player_selfBloodbag;
         s_player_selfBloodbag = -1;
     };
-// ---------------------------------------Krixes Self Bloodbag End------------------------------------
- 
+
 //Grab Flare
 if (_canPickLight and !dayz_hasLight and !_isPZombie) then {
 	if (s_player_grabflare < 0) then {
@@ -54,9 +52,9 @@ if (_canPickLight and !dayz_hasLight and !_isPZombie) then {
 	s_player_removeflare = -1;
 };
 
-if (s_player_showname < 0) then {
-	s_player_showname = 1;
-	player setVariable["DZE_display_name",(_this select 3),true];
+if (s_player_showname < 0 and !_isPZombie) then {
+	s_player_showname = player addAction ["Display Name (Yes)", "\z\addons\dayz_code\actions\display_name.sqf",true, 0, true, false, "",""];
+	s_player_showname1 = player addAction ["Display Name (No)", "\z\addons\dayz_code\actions\display_name.sqf",false, 0, true, false, "",""];
 };
 
 if(_isPZombie) then {
@@ -269,7 +267,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	};
 	
 	If(DZE_AllowCargoCheck) then {
-		if((_isVehicle or _isTent or _isnewstorage) and _isAlive and !_isMan) then {
+		if((_isVehicle or _isTent or _isnewstorage) and _isAlive and !_isMan and !locked _cursorTarget) then {
 			if (s_player_checkGear < 0) then {
 				s_player_checkGear = player addAction ["Cargo Check", "\z\addons\dayz_code\actions\cargocheck.sqf",_cursorTarget, 1, true, true, "", ""];
 			};
@@ -535,7 +533,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	};
 
 	// inplace maintenance tool
-	if((_cursorTarget isKindOf "ModularItems" or _cursorTarget isKindOf "DZE_Housebase") and (damage _cursorTarget > 0.5)) then {
+	if((_cursorTarget isKindOf "ModularItems" or _cursorTarget isKindOf "DZE_Housebase") and (damage _cursorTarget >= 0.1)) then {
 		if ((s_player_lastTarget select 2) != _cursorTarget) then {
 			if (s_player_maint_build > 0) then {	
 				player removeAction s_player_maint_build;

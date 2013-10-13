@@ -1,3 +1,8 @@
+class WeaponFireGun;    // External class reference
+class WeaponCloudsGun;  // External class reference
+class WeaponFireMGun;   // External class reference
+class WeaponCloudsMGun;
+
 class CfgVehicles {
 
 	#include "CfgVehicles\Zeds\Zeds.hpp"
@@ -6,12 +11,49 @@ class CfgVehicles {
 	#include "CfgVehicles\Females\females.hpp"
 
 	class All;
+	
 	class HouseBase;
 	class Ruins: HouseBase {};
 
 	#include "CfgVehicles\DZE\Doors.hpp"
 
 	class AllVehicles;
+	
+	class Land;	// External class reference
+	class LandVehicle : Land { class NewTurret; class Sounds; class ViewOptics; class ViewPilot; class AnimationSources; class EventHandlers; };
+	class car: landvehicle {
+		
+		class Turrets
+		{
+			class MainTurret: NewTurret
+			{
+				class Turrets;
+				class ViewOptics;
+			};
+		};
+		class HitPoints
+		{
+		  class HitEngine;
+		  class HitRGlass;
+		  class HitLGlass;
+		  class HitBody;
+		  class HitFuel;
+		  class HitLFWheel;
+		  class HitRFWheel;
+		  class HitLF2Wheel;
+		  class HitRF2Wheel;
+		  class HitLMWheel;
+		  class HitRMWheel;
+		  class HitLBWheel;
+		  class HitRBWheel;
+		  class HitGlass1;
+		  class HitGlass2;
+		  class HitGlass3;
+		  class HitGlass4;
+		};
+		class Sounds : Sounds {	class Engine; class Movement;};
+	};
+
 	class Air : AllVehicles 
 	{
 	class NewTurret;
@@ -20,7 +62,126 @@ class CfgVehicles {
 	};
 	class Helicopter : Air 
 	{
-		class HitPoints; 
+		
+		class HitPoints
+		{
+			class HitHull
+			{
+				armor = 1;
+				material = 51;
+				name = "NEtrup";
+				visual = "trup";
+				passThrough = 1;
+			};
+			class HitEngine
+			{
+				armor = 0.25;
+				material = 51;
+				name = "motor";
+				visual = "motor";
+				passThrough = 1;
+			};
+			class HitAvionics
+			{
+				armor = 0.15;
+				material = 51;
+				name = "elektronika";
+				visual = "elektronika";
+				passThrough = 1;
+			};
+			class HitVRotor
+			{
+				armor = 0.3;
+				material = 51;
+				name = "mala vrtule";
+				visual = "mala vrtule staticka";
+				passThrough = 0.3;
+			};
+			class HitHRotor
+			{
+				armor = 0.2;
+				material = 51;
+				name = "velka vrtule";
+				visual = "velka vrtule staticka";
+				passThrough = 0.1;
+			};
+			class HitMissiles
+			{
+				armor = 0.1;
+				material = 51;
+				name = "munice";
+				visual = "munice";
+				passThrough = 0.5;
+			};
+			class HitRGlass
+			{
+				convexComponent = "sklo predni P";
+				armor = 0.1;
+				material = 51;
+				name = "sklo predni P";
+				visual = "sklo predni P";
+				passThrough = 0;
+			};
+			class HitLGlass
+			{
+				convexComponent = "sklo predni L";
+				armor = 0.1;
+				material = 51;
+				name = "sklo predni L";
+				visual = "sklo predni L";
+				passThrough = 0;
+			};
+			class HitGlass1
+			{
+				armor = 2;
+				material = -1;
+				name = "glass1";
+				visual = "glass1";
+				passThrough = 0;
+			};
+			class HitGlass2
+			{
+				armor = 2;
+				material = -1;
+				name = "glass2";
+				visual = "glass2";
+				passThrough = 0;
+			};
+			class HitGlass3
+			{
+				armor = 2;
+				material = -1;
+				name = "glass3";
+				visual = "glass3";
+				passThrough = 0;
+			};
+			class HitGlass4
+			{
+				armor = 2;
+				material = -1;
+				name = "glass4";
+				visual = "glass4";
+				passThrough = 0;
+			};
+			class HitGlass5
+			{
+				armor = 2;
+				material = -1;
+				name = "glass5";
+				visual = "glass5";
+				passThrough = 0;
+			};
+			class HitGlass6
+			{
+				armor = 2;
+				material = -1;
+				name = "glass6";
+				visual = "glass6";
+				passThrough = 0;
+			};
+		};
+
+
 		class Turrets
         {
             class MainTurret: NewTurret
@@ -272,30 +433,21 @@ class CfgVehicles {
         transportmaxbackpacks = 2;
 		class Turrets {};
 	};
-	class CH_47F_EP1;
-	class CH_47F_EP1_DZ : CH_47F_EP1 { 
-		accuracy = 1000; 
-		model = "\ca\air_E\CH47\CH_47F"; 
-		scope = 2; 
-		displayName = "CH-47F"; 
-		crew = ""; 
-		typicalCargo[] = {}; 
-		commanderCanSee = 2+16+32;
-		gunnerCanSee = 2+16+32;
-		driverCanSee = 2+16+32;
-		transportMaxWeapons = 10;
-		transportMaxMagazines = 200;
-        transportmaxbackpacks = 5;
-	};
-	class UH60M_EP1;
-	class UH60M_EP1_DZ : UH60M_EP1
-	{
-		scope = 2; 
-		crew = ""; 
-		commanderCanSee = 2+16+32;
-		gunnerCanSee = 2+16+32;
-		driverCanSee = 2+16+32;
-	};
+	
+	#include "CfgVehicles\AIR\CH47.hpp"
+	#include "CfgVehicles\AIR\UH60.hpp"
+
+	// LAND
+	#include "CfgVehicles\LAND\HMMWV.hpp"
+	#include "CfgVehicles\LAND\LandRover.hpp"
+	#include "CfgVehicles\LAND\UAZ_MG.hpp"
+	#include "CfgVehicles\LAND\Gaz_Vodnik.hpp"
+	#include "CfgVehicles\LAND\ArmoredSUV.hpp"
+	#include "CfgVehicles\LAND\Pickup_PK.hpp"
+
+	// SEA
+	// #include "CfgVehicles\SEA\RHIB.hpp"
+	
 	class MV22;
 	class MV22_DZ : MV22 { 
 		accuracy = 1000; 
@@ -310,19 +462,6 @@ class CfgVehicles {
 		transportMaxMagazines = 400;
         transportmaxbackpacks = 10;
 	};
-
-	class ArmoredSUV_PMC;
-	class ArmoredSUV_PMC_DZ : ArmoredSUV_PMC { 
-		scope = 2; 
-		side = 2; 
-		faction = "PMC_BAF";
-		enableGPS = 1;
-		crew = ""; 
-		typicalCargo[] = {}; 
-		transportMaxWeapons = 20; 
-		transportMaxMagazines = 400; 
-		transportmaxbackpacks = 10;
-	};
 	class SUV_TK_CIV_EP1;
 	class SUV_Camo: SUV_TK_CIV_EP1
 	{
@@ -333,30 +472,7 @@ class CfgVehicles {
 		transportmaxbackpacks = 5;
 		armor = 50;
 	};
-	class HMMWV_Base;
-	class HMMWV_DZ: HMMWV_Base {
-		accuracy = 0.32;
-		displayname = "HMMWV_DZ";
-		hasgunner = 0;
-		hiddenselections[] = {"Camo1"};
-		hiddenselectionstextures[] = {"\ca\wheeled\hmmwv\data\hmmwv_body_co.paa"};
-		icon = "\Ca\wheeled\data\map_ico\icomap_hmwv_CA.paa";
-		mapsize = 5;
-		model = "ca\wheeled_E\HMMWV\HMMWV";
-		picture = "\Ca\wheeled\data\ico\HMMWV_CA.paa";
-		scope = 2;
-		side = 2;
-		crew = "";
-		typicalCargo[] = {};
-		transportMaxWeapons = 4;
-		transportMaxMagazines = 120;
-        transportmaxbackpacks = 4;
-		class Turrets {};
-		class Damage {
-			mat[] = {"ca\wheeled\hmmwv\data\hmmwv_details.rvmat", "Ca\wheeled\HMMWV\data\hmmwv_details_damage.rvmat", "Ca\wheeled\HMMWV\data\hmmwv_details_destruct.rvmat", "ca\wheeled\hmmwv\data\hmmwv_body.rvmat", "Ca\wheeled\HMMWV\data\hmmwv_body_damage.rvmat", "Ca\wheeled\HMMWV\data\hmmwv_body_destruct.rvmat", "ca\wheeled\hmmwv\data\hmmwv_clocks.rvmat", "ca\wheeled\hmmwv\data\hmmwv_clocks.rvmat", "ca\wheeled\data\hmmwv_clocks_destruct.rvmat", "ca\wheeled\HMMWV\data\hmmwv_glass.rvmat", "ca\wheeled\HMMWV\data\hmmwv_glass_Half_D.rvmat", "ca\wheeled\HMMWV\data\hmmwv_glass_Half_D.rvmat", "ca\wheeled\HMMWV\data\hmmwv_glass_in.rvmat", "ca\wheeled\HMMWV\data\hmmwv_glass_in_Half_D.rvmat", "ca\wheeled\HMMWV\data\hmmwv_glass_in_Half_D.rvmat"};
-			tex[] = {};
-		};
-	};
+	
 	class RubberBoat;
 	class PBX: RubberBoat {
 		cargoaction[] = {"PBX_Cargo01", "PBX_Cargo02", "PBX_Cargo03"};
@@ -1515,6 +1631,23 @@ class CfgVehicles {
 		displayName = "Debug Box";
 		vehicleClass = "Fortifications";		
 	};
+	class DebugBoxPlayer_DZ: NonStrategic
+	{
+		placement = "vertical";
+		scope = 2;
+		destrType = "DestructNo";
+		cost = 100;
+		model = "\z\addons\dayz_epoch\models\player_box.p3d";
+		icon = "\ca\data\data\Unknown_object.paa";
+		mapSize = 2;
+		armor = 2000;
+		displayName = "Player Debug Box";
+		vehicleClass = "Fortifications";		
+		class Eventhandlers
+		{
+			init = "_this call eh_localCleanup;";
+		};
+	};
 
 	class TrapItems: NonStrategic{};
 	// buildables
@@ -1869,7 +2002,7 @@ class CfgVehicles {
 		armor = 500;
 		displayName = "Wood Ramp";
 		vehicleClass = "Fortifications";
-		// GhostPreview = "MetalFloor_Preview_DZ";
+		GhostPreview = "WoodRamp_Preview_DZ";
 	};
 	class CinderWallHalf_DZ: ModularItems
 	{
@@ -2362,6 +2495,20 @@ class CfgVehicles {
 		armor = 1000;
 		displayName = "Metal Floor Preview";
 		vehicleClass = "Fortifications";
+	};
+	class WoodRamp_Preview_DZ: NonStrategic
+	{
+		scope = 2;
+		destrType = "DestructNo";
+		cost = 100;
+		offset[] = {0,1.5,0};
+		model="\z\addons\dayz_epoch\models\Wood_Ramp_ghost.p3d";
+		icon = "\ca\data\data\Unknown_object.paa";
+		mapSize = 2;
+		armor = 1000;
+		displayName = "Wood Ramp Preview";
+		vehicleClass = "Fortifications";
+		
 	};
 	class CinderWallHalf_Preview_DZ: NonStrategic
 	{
