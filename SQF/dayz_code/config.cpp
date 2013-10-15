@@ -41,7 +41,7 @@ class CfgMods
 		hidePicture = 0;
 		hideName = 0;
 		action = "http://www.dayzepoch.com";
-		version = "1.0.2.399";
+		version = "1.0.2.4";
 		hiveVersion = 0.96; //0.93
 	};
 };
@@ -728,7 +728,7 @@ class CfgBuildingLoot {
 		zombieChance = 0.4;
 		zombieClass[] = {"z_worker1","z_worker2","z_worker3"};
 		maxRoaming = 2;
-		lootChance = 0.3;
+		lootChance = 0.4;
 		lootPos[] = {};
 		itemType[] = {
 			{ "ItemGenerator","magazine" },
@@ -793,7 +793,7 @@ class CfgBuildingLoot {
 		zombieChance = 0.4;
 		zombieClass[] = {"z_worker1","z_worker2","z_worker3"};
 		maxRoaming = 2;
-		lootChance = 0.3;
+		lootChance = 0.4;
 		lootPos[] = {};
 		itemType[] = {
 			{ "ItemGenerator","magazine" },
