@@ -60,9 +60,7 @@ if (DZAI_modName == "") then {
 		case "DayZLingor":{
 			private["_modCheck"];
 			_modCheck = getText (configFile >> "CfgMods" >> "DayZ" >> "action");
-			if (_modCheck == "http://www.Skaronator.com") then {
-				DZAI_modName = "lingorskaro";
-			};
+			if (_modCheck == "http://www.Skaronator.com") then {DZAI_modName = "lingorskaro"};
 			if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Detected DayZ Lingor variant %1.",_modCheck];};
 		};
 	};
@@ -74,7 +72,7 @@ if (DZAI_objPatch) then {[] execVM '\z\addons\dayz_server\DZAI\scripts\buildingp
 //Build DZAI weapon classname tables from CfgBuildingLoot data if DZAI_dynamicWeapons = true;
 if (DZAI_dynamicWeaponList) then {[DZAI_banAIWeapons] execVM '\z\addons\dayz_server\DZAI\scripts\buildWeaponArrays.sqf';};
 
-//Create reference marker for dynamic triggers and set default values. These values are modified on a per-map basis in the switch-case block below.
+//Create reference marker for dynamic triggers and set default values. These values are modified on a per-map basis.
 if (DZAI_dynAISpawns) then {
 	DZAI_centerMarker = createMarker ["DZAI_centerMarker", (getMarkerPos 'center')];
 	DZAI_centerMarker setMarkerShape "ELLIPSE";
@@ -103,7 +101,7 @@ if (_worldname in ["chernarus","utes","zargabad","fallujah","takistan","tavi","l
 	diag_log "[DZAI] Unrecognized worldname found. Generating settings for new map...";
 };
 
-//Build map location list
+//Build map location list. If using an unknown map, DZAI will automatically generate basic static triggers at cities and towns.
 [] execVM '\z\addons\dayz_server\DZAI\scripts\setup_locations.sqf';
 
 //Initialize AI settings

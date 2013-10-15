@@ -48,14 +48,7 @@ if ((count _heliWeapons) > 0) then {
 		if ((random 1) < 0.3) then {
 			_helicopter flyInHeight (_baseHeight + (random 40));
 		};
-		
-		//Uncomment to test despawn/respawn process. Destroys helicopter after ~60 seconds of flight
-		/*
-		if ((time - _startTime) > 60) then {
-			_helicopter setDamage 1;
-		};
-		*/
-		
+	
 		sleep DZAI_refreshRate;
 	};
 } else {
@@ -78,14 +71,7 @@ if ((count _heliWeapons) > 0) then {
 		if ((random 1) < 0.3) then {
 			_helicopter flyInHeight (_baseHeight + (random 40));
 		};
-		
-		//Uncomment to test despawn/respawn process. Destroys helicopter after ~60 seconds of flight
-		/*
-		if ((time - _startTime) > 60) then {
-			_helicopter setDamage 1;
-		};
-		*/
-		
+
 		sleep DZAI_refreshRate;
 	};
 };
