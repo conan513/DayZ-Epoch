@@ -31,12 +31,12 @@
 
 DZAI_staticAI = false;
 DZAI_modName = "epoch";
-// DZAI_objPatch = false;
+DZAI_objPatch = true;
 DZAI_weaponNoise = 1.00;
 DZAI_aiHeliPatrols = true;
-DZAI_maxHeliPatrols = 5;
+DZAI_maxHeliPatrols = 10;
 DZAI_heliTypes = ["UH1H_DZ","Mi17_DZ","AN2_DZ","AH6X_DZ"];
-DZAI_respawnTime = 900;
+DZAI_respawnTime = 300;
 DZAI_humanityGain = 200;
 
 // DZAI_dynTriggersMax = 20;
