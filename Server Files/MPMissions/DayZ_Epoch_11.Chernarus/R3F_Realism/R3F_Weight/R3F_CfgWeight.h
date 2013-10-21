@@ -1232,6 +1232,10 @@ class CfgWeight
 		{
 			weight = 1;
 		};
+		class ItemSledge  
+		{
+			weight = 9.1;
+		};
 		class ItemMatchbox  
 		{
 			weight = 0.005;
