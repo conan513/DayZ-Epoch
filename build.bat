@@ -134,5 +134,29 @@ copy Tools\redist\*.* Build\Tools\redist
 
 REM tools\3rdparty\rar.exe x "Server Files\Database.rar" Build\Tools
 
+echo.
+echo Copy files into ArmA 2 folder...
+echo.
+setlocal ENABLEEXTENSIONS
+
+if exist "%commonprogramfiles(x86)%" (
+FOR /F "tokens=2*" %%A IN ('REG.exe query "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Bohemia Interactive\ArmA 2\BattlEye" /v "MAIN"') DO (set pInstallDir=%%B)
+) else (
+FOR /F "tokens=2*" %%A IN ('REG.exe query "HKEY_LOCAL_MACHINE\SOFTWARE\Bohemia Interactive\ArmA 2\BattlEye" /v "MAIN"') DO (set pInstallDir=%%B)
+)
+
+RD /S /Q "%pInstallDir%\@DayZ_Splights"
+RD /S /Q "%pInstallDir%\ServerFiles"
+del "%pInstallDir%\Keys\dayz_splights.bikey"
+del "%pInstallDir%\MPMissions\DayZ_Splights_11.Chernarus.pbo"
+
+del "%pInstallDir%\dayz_server.bat"
+del "%pInstallDir%\dayz_game.bat"
+del "%pInstallDir%\tbbmalloc.dll"
+del "%pInstallDir%\tbb.dll"
+del "%pInstallDir%\Database.dll"
+
+xcopy Build "%pInstallDir%" /y /E /H /R
+
 pause
 exit
