@@ -1,5 +1,5 @@
 // DayZ Epoch TRADERS for 17
-serverTraders = ["Tanny_PMC","BAF_Soldier_AAR_MTP","BAF_Soldier_AAT_W","Soldier_Bodyguard_M4_PMC","RU_Damsel1","GUE_Soldier_MG","GUE_Soldier_1","GUE_Villager3","Soldier_MG_PKM_PMC","GUE_Soldier_Pilot","GUE_Woodlander2","GUE_Soldier_Scout","GUE_Commander","UN_CDF_Soldier_Pilot_EP1","RU_Damsel2","Dr_Hladik_EP1","Soldier_MG_PKM_PMC","Soldier_MG_PMC","FR_Assault_R","UN_CDF_Soldier_Crew_EP1","Woodlander3","Dr_Annie_Baker_EP1"];
+serverTraders = ["Tanny_PMC","BAF_Soldier_AAR_MTP","BAF_Soldier_AAT_W","Soldier_Bodyguard_M4_PMC","RU_Damsel1","GUE_Soldier_MG","GUE_Soldier_1","GUE_Villager3","Soldier_MG_PKM_PMC","GUE_Soldier_Pilot","GUE_Woodlander2","GUE_Soldier_Scout","GUE_Commander","RU_Damsel2","Dr_Hladik_EP1","Soldier_MG_PKM_PMC","Soldier_MG_PMC","FR_Assault_R","UN_CDF_Soldier_Crew_EP1","Woodlander3","Dr_Annie_Baker_EP1"];
 // Hero Vendor
 menu_Tanny_PMC = [
 	[["Ammunition",478],["Clothes",476],["Helicopter Armed",493],["Military Armed",562],["Trucks Armed",479],["Weapons",477]],
@@ -31,7 +31,7 @@ menu_Soldier_Bodyguard_M4_PMC = [
 // General Store
 menu_RU_Damsel1 = [
 	[["Backpacks",496],["Clothes",497],["Cooked Meats",580],["Drinks",498],["Packaged Food",579]],
-	[["ItemCopperBar","TrashJackDaniels",1,1,"buy","Empty Wiskey Bottle","Copper Bar",101]],
+	[["ItemCopperBar","TrashJackDaniels",1,1,"buy","Empty Whiskey Bottle","Copper Bar",101]],
 	"neutral"
 ];
 
@@ -94,7 +94,7 @@ menu_GUE_Commander = [
 // General Store 2
 menu_RU_Damsel2 = [
 	[["Backpacks",538],["Clothes",628],["Cooked Meats",630],["Drinks",601],["Packaged Food",629]],
-	[["ItemCopperBar","TrashJackDaniels",1,1,"buy","Empty Wiskey Bottle","Copper Bar",101]],
+	[["ItemCopperBar","TrashJackDaniels",1,1,"buy","Empty Whiskey Bottle","Copper Bar",101]],
 	"neutral"
 ];
 

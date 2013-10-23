@@ -560,7 +560,7 @@ server_cleanDead = {
 };
 server_cleanLoot =
 {
-private ["_deletedLoot","_startTime","_looted","_objectPos","_noPlayerNear","_nearObj"];
+private ["_deletedLoot","_startTime","_looted","_objectPos","_noPlayerNear","_nearObj","_endTime"];
 
 	_deletedLoot = 0;
 	_startTime = diag_tickTime;

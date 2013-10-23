@@ -41,7 +41,7 @@ class CfgMods
 		hidePicture = 0;
 		hideName = 0;
 		action = "http://www.dayzepoch.com";
-		version = "1.0.2.4";
+		version = "1.0.2.41";
 		hiveVersion = 0.96; //0.93
 	};
 };
@@ -535,7 +535,7 @@ class CfgBuildingLoot {
 				{ "Colt1911","weapon" },
 				{ "ItemFlashlight","generic" },
 				{ "ItemKnife","generic" },
-				{ "ItemMatchbox","generic" },
+				{ "ItemMatchbox_DZE","generic" },
 				{ "","generic" },
 				{ "LeeEnfield","weapon" },
 				{ "revolver_EP1","weapon" },
@@ -590,7 +590,7 @@ class CfgBuildingLoot {
 			{ "Colt1911","weapon" },
 			{ "ItemFlashlight","weapon" },
 			{ "ItemKnife","weapon" },
-			{ "ItemMatchbox","weapon" },
+			{ "ItemMatchbox_DZE","weapon" },
 			{ "","generic" },
 			{ "revolver_EP1","weapon" },
 			{ "","military" },
@@ -636,7 +636,7 @@ class CfgBuildingLoot {
 			{ "Colt1911","weapon" },
 			{ "ItemFlashlight","generic" },
 			{ "ItemKnife","generic" },
-			{ "ItemMatchbox","generic" },
+			{ "ItemMatchbox_DZE","generic" },
 			{ "","generic" },
 			{ "LeeEnfield","weapon" },
 			{ "revolver_EP1","weapon" },
@@ -691,7 +691,7 @@ class CfgBuildingLoot {
 			{ "Colt1911","weapon" },
 			{ "ItemFlashlight","weapon" },
 			{ "ItemKnife","weapon" },
-			{ "ItemMatchbox","weapon" },
+			{ "ItemMatchbox_DZE","weapon" },
 			{ "","generic" },
 			{ "revolver_EP1","weapon" },
 			{ "","military" },
@@ -919,7 +919,7 @@ class CfgBuildingLoot {
 			{ "Colt1911","weapon" },
 			{ "ItemFlashlight","generic" },
 			{ "ItemKnife","generic" },
-			{ "ItemMatchbox","generic" },
+			{ "ItemMatchbox_DZE","generic" },
 			{ "","generic" },
 			{ "LeeEnfield","weapon" },
 			{ "revolver_EP1","weapon" },
@@ -966,7 +966,7 @@ class CfgBuildingLoot {
 			{ "Colt1911","weapon" },
 			{ "ItemFlashlight","weapon" },
 			{ "ItemKnife","weapon" },
-			{ "ItemMatchbox","weapon" },
+			{ "ItemMatchbox_DZE","weapon" },
 			{ "","generic" },
 			{ "revolver_EP1","weapon" },
 			{ "","food" },
@@ -1543,7 +1543,7 @@ class CfgBuildingLoot {
 			{"ItemMap","weapon"},
 			{"ItemFlashlight","generic"},
 			{"ItemKnife","generic"},
-			{"ItemMatchbox","generic"},
+			{"ItemMatchbox_DZE","generic"},
 			{"Crossbow_DZ","weapon"},
 			{"","military"},
 			{"WeaponHolder_ItemMachete", "object"},
@@ -1565,7 +1565,7 @@ class CfgBuildingLoot {
 			{"ItemMap","weapon"},
 			{"ItemFlashlight","weapon"},
 			{"ItemKnife","weapon"},
-			{"ItemMatchbox","weapon"},
+			{"ItemMatchbox_DZE","weapon"},
 			{"","military"},
 			{"","hunter"}
 		};
@@ -2331,7 +2331,7 @@ class CfgBuildingLoot {
 			{ "Colt1911","weapon" },
 			{ "ItemFlashlight","generic" },
 			{ "ItemKnife","generic" },
-			{ "ItemMatchbox","generic" },
+			{ "ItemMatchbox_DZE","generic" },
 			{ "ItemToolbox","weapon" },
 			{ "","generic" },
 			{ "","food" },
@@ -2381,7 +2381,7 @@ class CfgBuildingLoot {
 			{ "Colt1911","weapon" },
 			{ "ItemFlashlight","generic" },
 			{ "ItemKnife","generic" },
-			{ "ItemMatchbox","generic" },
+			{ "ItemMatchbox_DZE","generic" },
 			{ "ItemToolbox","weapon" },
 			{ "","generic" },
 			{ "","food" },
