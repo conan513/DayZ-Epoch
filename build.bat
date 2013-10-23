@@ -1,5 +1,12 @@
 @echo off
 COLOR 0B
+setlocal ENABLEEXTENSIONS
+
+if exist "%commonprogramfiles(x86)%" (
+FOR /F "tokens=2*" %%A IN ('REG.exe query "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Bohemia Interactive\ArmA 2\BattlEye" /v "MAIN"') DO (set pInstallDir=%%B)
+) else (
+FOR /F "tokens=2*" %%A IN ('REG.exe query "HKEY_LOCAL_MACHINE\SOFTWARE\Bohemia Interactive\ArmA 2\BattlEye" /v "MAIN"') DO (set pInstallDir=%%B)
+)
 
 if exist Build (RD /S /Q Build & mkdir Build) else mkdir Build
 
@@ -131,19 +138,11 @@ mkdir Build\Tools\3rdparty
 copy Tools\3rdparty\*.* Build\Tools\3rdparty
 mkdir Build\Tools\redist
 copy Tools\redist\*.* Build\Tools\redist
-
-REM tools\3rdparty\rar.exe x "Server Files\Database.rar" Build\Tools
+copy "Server Files\mysql\epoch.sql" Build\Tools
 
 echo.
 echo Copy files into ArmA 2 folder...
 echo.
-setlocal ENABLEEXTENSIONS
-
-if exist "%commonprogramfiles(x86)%" (
-FOR /F "tokens=2*" %%A IN ('REG.exe query "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Bohemia Interactive\ArmA 2\BattlEye" /v "MAIN"') DO (set pInstallDir=%%B)
-) else (
-FOR /F "tokens=2*" %%A IN ('REG.exe query "HKEY_LOCAL_MACHINE\SOFTWARE\Bohemia Interactive\ArmA 2\BattlEye" /v "MAIN"') DO (set pInstallDir=%%B)
-)
 
 RD /S /Q "%pInstallDir%\@DayZ_Splights"
 RD /S /Q "%pInstallDir%\ServerFiles"
@@ -157,6 +156,28 @@ del "%pInstallDir%\tbb.dll"
 del "%pInstallDir%\Database.dll"
 
 xcopy Build "%pInstallDir%" /y /E /H /R
+
+if exist "%pInstallDir%\Tools\Database\bin\mysql.exe" (
+tasklist /FI "IMAGENAME eq mysqld.exe" 2>NUL | find /I /N "mysqld">NUL
+if "%ERRORLEVEL%"=="0" "%pInstallDir%\tools\database\bin\mysqladmin" -u root -p123456 --port=3310 shutdown & goto start_mysql
+if "%ERRORLEVEL%"=="1" goto start_mysql
+) else (
+"tools\3rdparty\rar.exe" x "Server Files\Database.rar" "%pInstallDir%\Tools" & goto start_mysql
+)
+
+:start_mysql
+cd "%pInstallDir%"
+start tools\database\bin\mysqld --defaults-file=tools\database\bin\my.ini --standalone --console & echo Starting Database server...
+ping -n 30 127.0.0.1>nul
+echo.
+echo Update database...
+tools\database\bin\mysql -u root --password=123456 -h 127.0.0.1 --port=3310 --database=dayz_splights < Tools\epoch.sql
+
+
+echo.
+echo Shutdown MySQL server...
+tools\database\bin\mysqladmin -u root -p123456 --port=3310 shutdown
+echo.
 
 pause
 exit
