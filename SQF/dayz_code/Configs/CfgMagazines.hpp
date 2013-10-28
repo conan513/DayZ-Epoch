@@ -1373,6 +1373,15 @@ class CfgMagazines {
 				output[] = {{"bulk_ItemWireHalf",1}};
 				input[] = {{"bulk_empty",1},{"ItemWire",6}};
 			};
+			class Crafting5
+			{
+				text = "Pack Bacon";
+				script = ";['Crafting5','CfgMagazines', _id] spawn player_craftItem;";
+				neednearby[] = {};
+				requiretools[] = {"ItemToolbox"};
+				output[] = {{"bulk_FoodbaconCooked",1}};
+				input[] = {{"bulk_empty",1},{"FoodbaconCooked",6}};
+			};
 		};
 	};
 	class bulk_ItemSodaCoke: bulk
@@ -1442,6 +1451,41 @@ class CfgMagazines {
 				text = "Open %1";
 				script = "spawn player_loadCrate;";
 				output[] = {"ItemSodaPepsi",12,"magazine"};
+			};
+		};
+	};
+	class bulk_FoodbaconCooked: bulk
+	{
+		descriptionShort = "6 x FoodbaconCooked";
+		class ItemActions
+		{
+			class CreateMags
+			{
+				text = "Open %1";
+				script = "spawn player_loadCrate;";
+				output[] = {"FoodbaconCooked",6,"magazine"};
+			};
+			class Crafting
+			{
+				text = "Pack 6 Bacon";
+				script = ";['Crafting','CfgMagazines', _id] spawn player_craftItem;";
+				neednearby[] = {};
+				requiretools[] = {"ItemToolbox"};
+				output[] = {{"bulk_FoodbaconCookedFull",1}};
+				input[] = {{"bulk_FoodbaconCooked",1},{"FoodbaconCooked",6}};
+			};
+		};
+	};
+	class bulk_FoodbaconCookedFull: bulk
+	{
+		descriptionshort = "12 x FoodbaconCooked";
+		class ItemActions
+		{
+			class CreateMags
+			{
+				text = "Open %1";
+				script = "spawn player_loadCrate;";
+				output[] = {"FoodbaconCooked",12,"magazine"};
 			};
 		};
 	};
@@ -4556,7 +4600,8 @@ class CfgMagazines {
 		shortNameMagazine = "Dummy";
 		ammo = "Dummy_Swing_Ammo";
 	};
-	class ItemTrashToiletpaper : CA_Magazine {
+	// 	class HandGrenade;
+	class ItemTrashToiletpaper : HandGrenade {
 		scope = public;
 		count = 1;
 		displayName = $STR_JUNK_NAME_TOILETPAPER;
@@ -4564,6 +4609,7 @@ class CfgMagazines {
 		model = "z\addons\dayz_communityassets\models\toiletpaper.p3d";
 		picture = "\z\addons\dayz_communityassets\pictures\equip_toiletpaper_CA.paa";
 		type = 256;
+		ammo = "JackDaniels";
 	};
 	class ItemTrashRazor : CA_Magazine {
 		scope = public;
