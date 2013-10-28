@@ -2,7 +2,7 @@
 delete object from db with extra waiting by [VB]AWOL
 parameters: _obj
 */
-private ["_obj","_objectID","_objectUID","_started","_finished","_animState","_isMedic","_isOk","_proceed","_counter","_limit","_objType","_sfx","_dis","_itemOut","_countOut","_selectedRemoveOutput","_friendlies","_nearestPole","_ownerID","_refundpart","_isWreck","_findNearestPoles","_findNearestPole","_IsNearPlot","_brokenTool","_removeTool","_isDestructable","_isRemovable","_objOwnerID","_isOwnerOfObj","_preventRefund","_ipos","_item","_radius","_isWreckBuilding","_nameVehicle"];
+private ["_activatingPlayer","_obj","_objectID","_objectUID","_started","_finished","_animState","_isMedic","_isOk","_proceed","_counter","_limit","_objType","_sfx","_dis","_itemOut","_countOut","_selectedRemoveOutput","_friendlies","_nearestPole","_ownerID","_refundpart","_isWreck","_findNearestPoles","_findNearestPole","_IsNearPlot","_brokenTool","_removeTool","_isDestructable","_isRemovable","_objOwnerID","_isOwnerOfObj","_preventRefund","_ipos","_item","_radius","_isWreckBuilding","_nameVehicle"];
 
 if(TradeInprogress) exitWith { cutText ["Remove already in progress." , "PLAIN DOWN"]; };
 TradeInprogress = true;
@@ -11,6 +11,8 @@ player removeAction s_player_deleteBuild;
 s_player_deleteBuild = 1;
 
 _obj = _this select 3;
+
+_activatingPlayer = player;
 
 _objOwnerID = _obj getVariable["CharacterID","0"];
 _isOwnerOfObj = (_objOwnerID == dayz_characterID);
@@ -155,10 +157,12 @@ if (_proceed) then {
 	// Double check that object is not null
 	if(!isNull(_obj)) then {
 		
+		_ipos = getPosATL _obj;
+
 		deleteVehicle _obj;
 		
 		if(!_isWreck) then {
-			PVDZE_obj_Delete = [_objectID,_objectUID];
+			PVDZE_obj_Delete = [_objectID,_objectUID,_activatingPlayer];
 			publicVariableServer "PVDZE_obj_Delete";
 		};
 
@@ -185,10 +189,8 @@ if (_proceed) then {
 			cutText ["No parts found.", "PLAIN DOWN"];
 		};
 
-		_ipos = getPosATL player;
-
-		if (_ipos select 2 < 2) then {
-			_ipos = [_ipos select 0,_ipos select 1,0];
+		if (_ipos select 2 < 0) then {
+			_ipos set [2,0];
 		};
 
 		_radius = 1;
@@ -205,6 +207,8 @@ if (_proceed) then {
 				_item addMagazineCargoGlobal [_itemOut,_countOut];				
 			} forEach _selectedRemoveOutput;
 			player reveal _item;
+
+			player action ["Gear", _item];
 		};
 	} else {
 		cutText ["Failed object not longer exists.", "PLAIN DOWN"];
