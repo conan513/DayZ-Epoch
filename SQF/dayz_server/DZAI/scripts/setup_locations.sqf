@@ -7,6 +7,7 @@
 
 private ["_location","_cfgWorldName","_startTime","_locCount"];
 
+DZAI_locations = [];
 _startTime = diag_tickTime;
 _allPlaces = [];
 _locCount = 0;
@@ -55,13 +56,13 @@ if (isNil "DZAI_newMap") then {
 						switch (_placeType) do {
 							case "NameCityCapital":
 							{
-								_aiCount = [3,2];
-								_equipType = 1;
+								_aiCount = [2,1];
+								_equipType = 2;
 								_patrolRad = 200;
 							};
 							case "NameCity":
 							{
-								_aiCount = [2,1];
+								_aiCount = [1,2];
 								_equipType = 1;
 								_patrolRad = 175;
 							};
@@ -72,8 +73,8 @@ if (isNil "DZAI_newMap") then {
 								_patrolRad = 150;
 							};
 						};
-						_statements = format ["{isPlayer _x} count thisList > 0;", "0 = [%1,%2,%3,thisTrigger,[],%4] call fnc_spawnBandits;",_aiCount select 0,_aiCount select 1,_patrolRad,_equipType];
-						_trigger setTriggerStatements [_statements, "0 = [thisTrigger] spawn fnc_despawnBandits;"];
+						_statements = format ["0 = [%1,%2,%3,thisTrigger,[],%4] call fnc_spawnBandits;",_aiCount select 0,_aiCount select 1,_patrolRad,_equipType];
+						_trigger setTriggerStatements ["{isPlayer _x} count thisList > 0;", _statements, "0 = [thisTrigger] spawn fnc_despawnBandits;"];
 					};
 				};
 				DZAI_locations set [(count DZAI_locations),[_placeName,_placePos,_placeType]];	//Location Name, Position, Type

@@ -89,11 +89,11 @@ _distVariance = 50;
 
 //Spawn units
 _spawnPos = [_spawnPosition,(_baseDist + random (_distVariance)),random(360),false] call SHK_pos;
-_unitGroup = [_totalAI,grpNull,_spawnPos,_trigger] call fnc_createGroup;
+_weapongrade = [DZAI_weaponGrades,DZAI_gradeChancesDyn] call fnc_selectRandomWeighted;
+_unitGroup = [_totalAI,grpNull,_spawnPos,_trigger,_weapongrade] call fnc_createGroup;
 
 //Set group variables
-_unitGroup setVariable ["unitType",1];
-_unitGroup setVariable ["trigger",_trigger];
+_unitGroup setVariable ["unitType","dynamic"];
 _unitGroup allowFleeing 0;
 	
 //Reveal target player and nearby players to AI.
@@ -109,7 +109,7 @@ if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: Group %1 h
 
 if (_findPlayer) then {
 	//Travel to player's position, then begin patrol.
-	0 = [_unitGroup,_spawnPos,_patrolDist,_targetPlayer] spawn fnc_seekPlayer;
+	0 = [_unitGroup,_spawnPos,_patrolDist,_targetPlayer,getPosATL _trigger] spawn fnc_seekPlayer;
 	//diag_log "DEBUG :: Seeking target player.";
 } else {
 	//Begin patrol immediately. Use player's last known position as patrol center.

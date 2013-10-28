@@ -29,7 +29,7 @@
 
 //Add your preferred settings below this line.
 
-DZAI_staticAI = false;
+DZAI_staticAI = true;
 DZAI_modName = "epoch";
 DZAI_objPatch = true;
 DZAI_weaponNoise = 1.00;
@@ -38,6 +38,8 @@ DZAI_maxHeliPatrols = 10;
 DZAI_heliTypes = ["UH1H_DZ","Mi17_DZ","AN2_DZ","AH6X_DZ"];
 DZAI_respawnTime = 300;
 DZAI_humanityGain = 200;
-
+DZAI_freeForAll = true;
+DZAI_passiveAggro = true;
+DZAI_V2dynSpawns = true;
 // DZAI_dynTriggersMax = 20;
 // DZAI_monitor = false;

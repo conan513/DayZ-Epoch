@@ -12,7 +12,7 @@
 	_weapongrade = _this select 1;
 
 	if (_unit getVariable ["loadoutDone",false]) exitWith {diag_log "DZAI Error :: Unit already has loadout!";};
-	if (_weapongrade in DZAI_weaponGrades) then {
+	if ((typeName _weapongrade) == "SCALAR") then {
 		if ((count (weapons _unit)) > 0) then {
 			removeAllWeapons _unit;
 			_unit removeWeapon "ItemMap";
@@ -24,7 +24,7 @@
 		
 		switch (_weapongrade) do {
 			case 0: {
-				if ((random 1) < 0.55) then {
+				if ((random 1) < 0.45) then {
 					_weapons = DZAI_Pistols0;
 					_unit setVariable ["CanGivePistol",false];	//Prevent unit from being assigned a pistol after death.
 				} else {
@@ -47,6 +47,11 @@
 				_weapons = DZAI_rifles3;
 				_backpacks = DZAI_Backpacks3;
 				_gadgetsArray = DZAI_gadgets1;
+			};
+			case default {
+				_weapons = [DZAI_rifles0,DZAI_rifles1,DZAI_rifles2,DZAI_rifles3] call BIS_fnc_selectRandom2;
+				_backpacks = [DZAI_Backpacks0,DZAI_Backpacks1,DZAI_Backpacks2,DZAI_Backpacks3] call BIS_fnc_selectRandom2;
+				_gadgetsArray = [DZAI_gadgets0,DZAI_gadgets1] call BIS_fnc_selectRandom2;
 			};
 		};
 

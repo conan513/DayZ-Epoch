@@ -30,20 +30,26 @@ DZAI_numAIUnits = 0;										//Tracks current number of currently active AI uni
 DZAI_actDynTrigs = 0;										//Tracks current number of active dynamically-spawned triggers
 DZAI_curDynTrigs = 0;										//Tracks current number of inactive dynamically-spawned triggers.
 DZAI_actTrigs = 0;											//Tracks current number of active static triggers.	
+DZAI_curHeliPatrols = 0;
 DZAI_dynTriggerArray = [];									//List of all generated dynamic triggers.
 DZAI_respawnQueue = [];										//Queue of AI groups that require respawning. Group ID is removed from queue after it is respawned.
-DZAI_respawnActive = false;									//Tracks activity status of respawn queue. Prevents creation of multiple respawn queues.
-DZAI_dmgFactors = [0.3375,0.50625,0.3375,1,1];				//AI health settings.
-DZAI_curHeliPatrols = 0;									//Tracks current number of active AI heli patrols.
-DZAI_locations = [];										//List of positions for cities, towns, and other locations.
+DZAI_dmgFactors = [0.33,0.495,0.33,1,1];				//AI health settings.
 
 //Set side relations
 createcenter east;
 createcenter resistance;
-east setFriend [resistance, 1];
+if (DZAI_freeForAll) then {
+	//Free For All mode - All AI groups are hostile to each other.
+	east setFriend [resistance, 0];
+	resistance setFriend [east, 0];	
+	east setFriend [east, 0];	//East is hostile to self (static and dynamic AI)
+} else {
+	//Normal settings - All AI groups are friendly to each other.
+	east setFriend [resistance, 1];
+	resistance setFriend [east, 1];	
+};
 east setFriend [west, 0];	
 resistance setFriend [west, 0];
-resistance setFriend [east, 1];	
 west setFriend [resistance, 0];
 west setFriend [east, 0];
 
@@ -53,7 +59,10 @@ if (DZAI_modName == "") then {
 	_modVariant = getText (configFile >> "CfgMods" >> "DayZ" >> "dir");
 	if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Detected mod variant %1.",_modVariant];};
 	switch (_modVariant) do {
-		case "@DayZ_Epoch":{DZAI_modName = "epoch"};
+		case "@DayZ_Epoch":{
+			DZAI_modName = "epoch"; 
+			_nul = [] execVM '\z\addons\dayz_server\DZAI\scripts\setup_trader_areas.sqf';
+		};
 		case "DayzOverwatch":{DZAI_modName = "overwatch"};
 		case "@DayzOverwatch":{DZAI_modName = "overwatch"};
 		case "@DayZHuntingGrounds":{DZAI_modName = "huntinggrounds"};
@@ -96,6 +105,7 @@ if (_worldname in ["chernarus","utes","zargabad","fallujah","takistan","tavi","l
 	"DZAI_centerMarker" setMarkerSize [7000, 7000];
 	if (DZAI_modName == "epoch") then {
 		#include "world_classname_configs\epoch\dayz_epoch.sqf"
+		_nul = [] execVM '\z\addons\dayz_server\DZAI\scripts\setup_trader_areas.sqf';
 	};
 	DZAI_newMap = true;
 	diag_log "[DZAI] Unrecognized worldname found. Generating settings for new map...";

@@ -6,14 +6,14 @@
 		
 	The area covered by the marker will be used as the patrol and spawning area.
 	
-	Example Marker:
+	Example Marker (Note: the marker name must be unique! In this example, it's named "dzaicustomspawntest"):
 	
 	_this = createMarker ["dzaicustomspawntest", [6650.9883, 9411.541, -6.1035156e-005]];
 	_this setMarkerShape "ELLIPSE";
 	_this setMarkerType "Empty";
 	_this setMarkerBrush "Solid";
 	_this setMarkerSize [200, 200];
-	_marker_15 = _this;
+	_this setMarkerAlpha 0;
 	
 	Note: This marker will be used in the example further below.
 */

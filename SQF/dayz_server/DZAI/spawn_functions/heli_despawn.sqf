@@ -3,15 +3,16 @@
 	
 	Description:
 	
-	Last updated: 7:25 PM 7/9/2013
+	Last updated: 6:06 PM 10/12/2013
 	
 */
 
 if (!isServer) exitWith {};
 
-private ["_helicopter","_unitGroup","_deleteQueue","_cleanupTime","_crewCount"];
+private ["_helicopter","_unitGroup","_deleteQueue","_cleanupTime","_crewCount","_killer"];
 
 _helicopter = _this select 0;
+_killer = _this select 1;
 _unitGroup = _helicopter getVariable "unitGroup";
 _crewCount = _helicopter getVariable ["crewCount",1];
 
@@ -32,7 +33,7 @@ if (DZAI_heliLoot) then {
 		for "_i" from 1 to _crewCount do {
 			private ["_dropPos","_agentType","_weapongrade","_agent","_parachute"];
 			_agentType = (DZAI_BanditTypes call BIS_fnc_selectRandom2);
-			_weapongrade = [DZAI_weaponGrades,DZAI_gradeChances3] call fnc_selectRandomWeighted;
+			_weapongrade = [DZAI_weaponGrades,DZAI_gradeChancesHeli] call fnc_selectRandomWeighted;
 			_dropPos = [((_heliPos select 0) + (random 10) - (random 10)),((_heliPos select 1) + (random 10) - (random 10)),100];
 			_parachute = createVehicle ["ParachuteWest", _dropPos, [], 0, "FLY"];
 			_agent = createAgent [_agentType,[0,0,0],[],1,"NONE"];
@@ -50,6 +51,6 @@ if (DZAI_heliLoot) then {
 	};
 };
 
-_cleanupTime = 600;	//seconds to despawn helicopter and loot agents.
+_cleanupTime = 900;	//seconds to despawn helicopter and loot agents.
 if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Helicopter patrol destroyed. Cleanup in %1 seconds.",_cleanupTime];};
 [_deleteQueue,_cleanupTime] spawn DZAI_deleteObject;

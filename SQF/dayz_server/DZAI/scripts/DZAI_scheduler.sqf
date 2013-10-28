@@ -20,10 +20,14 @@ if (DZAI_verifyTables) then {
 if (DZAI_aiHeliPatrols) then {if ((count DZAI_heliTypes) < 1) then {DZAI_heliTypes = ["UH1H_DZ"]}; _nul = [] execVM '\z\addons\dayz_server\DZAI\scripts\setup_heli_patrol.sqf';};
 
 if (DZAI_dynAISpawns) then {
-	if (!(isNil "DZAI_newMap")) then {waitUntil {sleep 1; DZAI_locations_ready};};
-	_dynTriggers = [DZAI_dynTriggersMax] execVM '\z\addons\dayz_server\DZAI\scripts\spawnTriggers_random.sqf';
-	waitUntil {sleep 1; scriptDone _dynTriggers};
-	_randomizeCount = ceil(0.25*DZAI_dynTriggersMax);
+	if (!DZAI_V2dynSpawns) then {
+		if (!(isNil "DZAI_newMap")) then {waitUntil {sleep 1; DZAI_locations_ready};};
+		_dynTriggers = [DZAI_dynTriggersMax] execVM '\z\addons\dayz_server\DZAI\scripts\spawnTriggers_random.sqf';
+		waitUntil {sleep 1; scriptDone _dynTriggers};
+		_randomizeCount = ceil(0.25*DZAI_dynTriggersMax);
+	} else {
+		_dynManagerV2 = [] execVM '\z\addons\dayz_server\DZAI\scripts\dynamicSpawn_manager.sqf';
+	};
 };
 
 sleep 3;
@@ -35,21 +39,19 @@ while {true} do {
 	if (DZAI_debugLevel > 0) then {diag_log "DZAI Scheduler is now running.";};
 
 	//Randomize some dynamic triggers
-	if (DZAI_dynAISpawns) then {
+	if (DZAI_dynAISpawns && (!DZAI_V2dynSpawns)) then {
 		_dynTriggers = [_randomizeCount] spawn fnc_randomizeTriggers;
 		waitUntil {sleep 1; scriptDone _dynTriggers};
+		sleep 3;
 	};
-	
-	sleep 3;
 	
 	//Respawn any destroyed AI helicopters
 	if (DZAI_aiHeliPatrols) then {
 		_helipatrols = [] spawn fnc_spawnHeliPatrol;
 		waitUntil {sleep 1; scriptDone _helipatrols};
+		sleep 3;
 	};
-	
-	sleep 3;
-	
+
 	//Clean up dead units spawned by DZAI.
 	{
 		private ["_deathTime"];

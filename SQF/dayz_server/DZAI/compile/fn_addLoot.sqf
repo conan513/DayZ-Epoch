@@ -22,6 +22,7 @@
 			case 1: {DZAI_Pistols1};
 			case 2: {DZAI_Pistols2};
 			case 3: {DZAI_Pistols3};
+			case default {[DZAI_Pistols0,DZAI_Pistols1,DZAI_Pistols2,DZAI_Pistols3] call BIS_fnc_selectRandom2};
 		};
 
 		_pistol = _pistols call BIS_fnc_selectRandom2;

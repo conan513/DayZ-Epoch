@@ -40,7 +40,7 @@ _wpmarker setMarkerSize [100, 100];
 
 //Wait until helicopter has pilot and script has finished finding helicopter's weapons.
 waitUntil {sleep 0.1; (!isNil "_heliWeapons" && !isNull (driver _helicopter))};
-diag_log format ["Helicopter driver is %1.",(driver _helicopter)];
+diag_log format ["Helicopter driver is %1. Crew is %2.",(driver _helicopter),(crew _helicopter)];
 _startTime = time;
 
 if ((count _heliWeapons) > 0) then {
@@ -123,13 +123,15 @@ if ((count _heliWeapons) > 0) then {
 	};
 };
 
+//Report length of time helicopter patrol was active. Add a warning entry to RPT log if helicopter was destroyed unusually early (< 30 seconds), likely due to the server admin forgetting to edit the server_cleanup.fsm.
+_timePatrolled = time - _startTime;
+sleep 0.5;
+
 //Cleanup helicopter and waypoint markers
 deleteMarker _marker;
 deleteMarker _wpmarker;
 
-//Report length of time helicopter patrol was active. Add a warning entry to RPT log if helicopter was destroyed unusually early (< 30 seconds), likely due to the server admin forgetting to edit the server_cleanup.fsm.
-_timePatrolled = time - _startTime;
 if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: AI helicopter patrol crash-landed at %1 after %2 seconds of flight.",(getPosATL _helicopter),_timePatrolled];};
-if (_timePatrolled < 30) then {
-	diag_log "DZAI Warning: An AI helicopter was destroyed less than 30 seconds after being spawned. Please check if server_cleanup.fsm was edited properly.";
+if (_timePatrolled < 35) then {
+	diag_log "DZAI Warning: An AI helicopter was destroyed less than 35 seconds after being spawned. Please check if server_cleanup.fsm was edited properly.";
 };

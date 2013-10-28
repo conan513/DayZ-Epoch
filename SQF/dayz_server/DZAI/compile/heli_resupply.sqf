@@ -77,7 +77,9 @@ if ((count _heliWeapons) > 0) then {
 };
 
 _timePatrolled = time - _startTime;
+sleep 0.5;
+
 if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: AI helicopter patrol crash-landed at %1 after %2 seconds of flight.",(getPosATL _helicopter),_timePatrolled];};
-if (_timePatrolled < 30) then {
-	diag_log "DZAI Warning: An AI helicopter was destroyed less than 30 seconds after being spawned. Please check if server_cleanup.fsm was edited properly.";
+if (_timePatrolled < 35) then {
+	diag_log "DZAI Warning: An AI helicopter was destroyed less than 35 seconds after being spawned. Please check if server_cleanup.fsm was edited properly.";
 };

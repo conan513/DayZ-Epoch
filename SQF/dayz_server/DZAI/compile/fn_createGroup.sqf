@@ -6,19 +6,19 @@
 	_unitGroup: Group to spawn AI unit. (Building-spawned AI: side 'resistance', Random/Marker-spawned AI: side 'east')
 	_spawnPos: Position to create AI unit.
 	_trigger: The trigger object responsible for spawning the AI unit.
-	_gradeChances: weapongrade probabilities to be used for generating equipment
+	_weapongrade: weapongrade to be used for generating equipment
 	
 	Last updated: 2:22 AM 7/29/2013
 	
 */
-private ["_totalAI","_spawnPos","_unitGroup","_trigger","_gradeChances","_unitType","_attempts","_baseDist","_dummy"];
+private ["_totalAI","_spawnPos","_unitGroup","_trigger","_attempts","_baseDist","_dummy","_weapongrade"];
 if (!isServer) exitWith {};
 	
 _totalAI = _this select 0;
 _unitGroup = if (isNull (_this select 1)) then {createGroup (call DZAI_getFreeSide)} else {_this select 1};
 _spawnPos = _this select 2;
 _trigger = _this select 3;
-_gradeChances = if ((count _this) > 4) then {_this select 4} else {DZAI_gradeChancesDyn};
+_weapongrade = _this select 4;
 
 _pos = [];
 _attempts = 0;
@@ -43,7 +43,7 @@ _pos set [2,0];
 if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: Found spawn position at %3 meters away at position %1 after %2 attempts.",_pos,_attempts,(_pos distance _spawnPos)]};
 
 for "_i" from 1 to _totalAI do {
-	private ["_type","_unit","_weapongrade"];
+	private ["_type","_unit"];
 	_type = DZAI_BanditTypes call BIS_fnc_selectRandom2;								// Select skin of AI unit
 	_unit = _unitGroup createUnit [_type, _pos, [], 0, "FORM"];							// Spawn the AI unit
 	_unit setPosATL _pos;
@@ -61,7 +61,6 @@ for "_i" from 1 to _totalAI do {
 		_unit addEventHandler ["HandleDamage",{_this call fnc_damageAI;}];};
 	_unit addEventHandler ["Killed",{_this call DZAI_unitDeath;[_this,"banditKills"] call local_eventKill;(_this select 0) setDamage 1;}];
 
-	_weapongrade = [DZAI_weaponGrades,_gradeChances] call fnc_selectRandomWeighted;
 	[_unit, _weapongrade] call fnc_unitLoadout;											// Assign unit loadout
 	0 = [_unit, _weapongrade] spawn DZAI_setSkills;										// Set AI skill
 	if (DZAI_debugLevel > 1) then {diag_log format["DZAI Extended Debug: Spawned AI Type %1 with weapongrade %2 for group %3 (fnc_createGroup).",_type,_weapongrade,_unitGroup];};
@@ -77,6 +76,7 @@ if (!isNil "_dummy") then {
 };
 
 _unitGroup selectLeader ((units _unitGroup) select 0);
+_unitGroup setVariable ["trigger",_trigger];
 _unitGroup setVariable ["groupSize",_totalAI];
 
 {

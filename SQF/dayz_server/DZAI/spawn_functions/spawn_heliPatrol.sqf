@@ -18,7 +18,8 @@ for "_i" from 1 to (DZAI_maxHeliPatrols - DZAI_curHeliPatrols) do {
 	_startPos = [(getMarkerPos "DZAI_centerMarker"),(600 + random((getMarkerSize "DZAI_centerMarker") select 0)),random(360),false] call SHK_pos;
 
 	//Create the patrol group
-	_unitGroup = createGroup (call DZAI_getFreeSide);
+	//_unitGroup = createGroup (call DZAI_getFreeSide);
+	_unitGroup = createGroup resistance;
 	//diag_log format ["Created group %1",_unitGroup];
 	
 	//Create helicopter crew
@@ -46,7 +47,7 @@ for "_i" from 1 to (DZAI_maxHeliPatrols - DZAI_curHeliPatrols) do {
 	//Add helicopter pilot
 	_crewCount = 1;
 	_pilot assignAsDriver _helicopter;
-	_pilot action ["getInPilot",_helicopter];
+	_pilot moveInDriver _helicopter;
 	
 	//Fill all available helicopter gunner seats.
 	_heliTurrets = configFile >> "CfgVehicles" >> _heliType >> "turrets";
@@ -55,7 +56,7 @@ for "_i" from 1 to (DZAI_maxHeliPatrols - DZAI_curHeliPatrols) do {
 			private["_gunner"];
 			_gunner = _unitGroup createUnit [_banditType, [0,0,0], [], 1, "NONE"];
 			_gunner assignAsGunner _helicopter;
-			_gunner action ["getInTurret",_helicopter,[_i]];
+			_gunner moveInTurret [_helicopter,[_i]];
 			[_gunner] joinSilent _unitGroup;
 			_crewCount = _crewCount + 1;
 			//diag_log format ["DEBUG :: Assigned gunner %1 of %2 to AI %3.",(_i+1),(count _heliTurrets),_heliType];
@@ -105,8 +106,7 @@ for "_i" from 1 to (DZAI_maxHeliPatrols - DZAI_curHeliPatrols) do {
 	[_unitGroup,0] setWaypointStatements ["true","[(group this)] spawn DZAI_heliRandomPatrol;"];
 	[_unitGroup] spawn DZAI_heliRandomPatrol;
 
-	DZAI_curHeliPatrols = DZAI_curHeliPatrols + 1;
-	//DZAI_actHeliGroups set [(count DZAI_actHeliGroups),_unitGroup];
+	if (!isNull _helicopter) then {DZAI_curHeliPatrols = DZAI_curHeliPatrols + 1};
 	if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Created AI helicopter crew group %1 is now active and patrolling.",_unitGroup];};
 
 	if (_i <= (DZAI_maxHeliPatrols - DZAI_curHeliPatrols)) then {sleep 20};

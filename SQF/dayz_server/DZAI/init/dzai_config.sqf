@@ -3,7 +3,7 @@
 	
 	Description: Contains all configurable settings of DZAI. Contains settings for debugging, customization of AI units, spawning, and loot.
 	
-	Last updated: 6:57 PM 8/28/2013
+	Last updated: 6:06 PM 10/12/2013
 */
 private["_worldname"];
 
@@ -56,9 +56,12 @@ DZAI_modName = "";
 /*	AI Unit Variables
 --------------------------------------------------------------------------------------------------------------------*/		
 
-//AI weapon noise multiplier for zombie aggro purposes. No effect if DZAI_zombieEnemy is set to false. Enabling this option may impact server performance
+//AI weapon noise multiplier for zombie aggro purposes. No effect if DZAI_zombieEnemy is set to false. Enabling this option may impact server performance as a script is run for each AI bullet fired.
 //Note: AI cannot be attacked or damaged by zombies.(Default: 0.00. Player equivalent: 1.00)		
 DZAI_weaponNoise = 0.00;
+
+//Passive zombie-to-AI aggro. If enabled, zombies will tend to be attracted to a nearby AI group leader. Less impactful on server performance than setting a value to DZAI_weaponNoise (Default: false).
+DZAI_passiveAggro = false;
 
 //Amount of time in seconds between AI ammo refresh and zombie check. Decreasing this value may impact server performance. (Default: 15)											
 DZAI_refreshRate = 15;	
@@ -68,6 +71,11 @@ DZAI_zDetectRange = 200;
 
 //Enable or disable AI hostility to zombies. If enabled, AI will attack zombies. (default: true)
 DZAI_zombieEnemy = true;	
+
+//Enable or disable "Free For All" mode. If FFA mode is enabled, all AI groups will be hostile to each other. (default: false)
+//Exceptions: AI units of the same group, AI air patrols, and custom-spawn AI will not attack each other.
+//Warning: This option will affect ALL AI spawned, including those spawned from other addons that include AI.
+DZAI_freeForAll = false;
 
 
 /*	AI Spawning Variables (Static AI spawns)
@@ -83,14 +91,19 @@ DZAI_respawnTime = 600;
 DZAI_despawnWait = 120;										
 
 
-/*Dynamic Trigger Settings (Dynamic AI spawns)
+/*	Dynamic Trigger Settings (Dynamic AI spawns)
 --------------------------------------------------------------------------------------------------------------------*/		
-
-//(Optional) Leave as nil to have DZAI spawn a predetermined number of dynamic triggers. Can be edited to specify max number of dynamic triggers to spawn. (Default: nil)
-DZAI_dynTriggersMax = nil;
 
 //Enable or disable dynamic AI trigger spawns. If enabled, AI spawn locations will be randomly placed around the map. (Default: true)									
 DZAI_dynAISpawns = true;
+
+//Enable or disable V2 dynamic AI spawns. NOTE: V2 dynamic AI spawns are currently in testing and not guaranteed to be bug-free. USE FOR TESTING ONLY. (Default: false)
+//If false: Dynamic triggers are spawned randomly around the map and periodically relocated.
+//If true: With V2 dynamic AI spawns, dynamic triggers are not scattered around the map. Instead, a number of random players are chosen and dynamic triggers are placed directly on their positions.
+DZAI_V2dynSpawns = false;
+
+//(Optional) Leave as nil to have DZAI spawn a predetermined number of dynamic triggers. Can be edited to specify max number of dynamic triggers to spawn. (Default: nil)
+DZAI_dynTriggersMax = nil;
 
 //Time to wait before deleting bodies of AI units spawned from dynamic triggers. (Default: 300)									
 DZAI_dynRemoveDeadWait = 300;
@@ -101,6 +114,7 @@ DZAI_dynDespawnWait = 120;
 //List of marker-defined areas where dynamic AI spawns should NOT be created. These markers may be of any shape (rectangular or circular).
 //Markers can be defined in /world_map_configs/custom_markers/cust_markers_(mapname).sqf (Default: [])
 DZAI_dynBlacklist = [];									
+
 
 /*	AI Helicopter patrol settings
 IMPORTANT: Before enabling AI helicopter patrols, make sure you have properly edited your server_cleanup.fsm file. Otherwise, the helicopters will explode after spawning.
@@ -132,6 +146,9 @@ DZAI_tempNVGs = false;
 
 //Amount of humanity to reward player for killing an AI unit (Default: 0)									
 DZAI_humanityGain = 0;										
+
+//If enabled, players with radios will be given text warnings if they are being pursued by AI groups. Text warnings include direction and distance of pursuing AI group (Default: true)
+DZAI_radioMsgs = true;
 
 
 /*	Dynamic weapon list settings
@@ -194,14 +211,16 @@ DZAI_gradeChances0 = [0.90,0.10,0.00,0.00];
 DZAI_gradeChances1 = [0.60,0.35,0.04,0.01];	
 
 //equipType = 2 - most AI carry military weapons, and occasionally high-grade military weapons.				
-DZAI_gradeChances2 = [0.20,0.65,0.11,0.04];
+DZAI_gradeChances2 = [0.20,0.60,0.15,0.05];
 
 //equipType = 3 - All AI will carry at least a military-grade weapon. Many will be carrying high-grade military weapons.					
-DZAI_gradeChances3 = [0.00,0.60,0.33,0.07];	
+DZAI_gradeChances3 = [0.00,0.50,0.38,0.12];	
 
 //Weapongrade chances for AI spawned from dynamic triggers.				
 DZAI_gradeChancesDyn = [0.25,0.60,0.12,0.03];				
 
+//Weapongrade chances for dead AI ejected from destroyed helicopter patrols.					
+DZAI_gradeChancesHeli = [0.00,0.40,0.43,0.17];	
 
 /*
 	AI skill settings
@@ -217,7 +236,7 @@ DZAI_gradeChancesDyn = [0.25,0.60,0.12,0.03];
 DZAI_skill0 = [	
 	["aimingAccuracy",0.10,0.05],
 	["aimingShake",0.55,0.10],
-	["aimingSpeed",0.40,0.10],
+	["aimingSpeed",0.35,0.10],
 	["endurance",0.40,0.20],
 	["spotDistance",0.30,0.15],
 	["spotTime",0.35,0.20],
@@ -231,7 +250,7 @@ DZAI_skill0 = [
 DZAI_skill1 = [	
 	["aimingAccuracy",0.10,0.05],
 	["aimingShake",0.65,0.10],
-	["aimingSpeed",0.55,0.10],
+	["aimingSpeed",0.50,0.10],
 	["endurance",0.55,0.20],
 	["spotDistance",0.45,0.15],
 	["spotTime",0.50,0.20],
@@ -245,7 +264,7 @@ DZAI_skill1 = [
 DZAI_skill2 = [	
 	["aimingAccuracy",0.15,0.05],
 	["aimingShake",0.75,0.10],
-	["aimingSpeed",0.70,0.10],
+	["aimingSpeed",0.65,0.10],
 	["endurance",0.70,0.20],
 	["spotDistance",0.60,0.15],
 	["spotTime",0.65,0.20],
@@ -259,7 +278,7 @@ DZAI_skill2 = [
 DZAI_skill3 = [	
 	["aimingAccuracy",0.20,0.05],
 	["aimingShake",0.85,0.10],
-	["aimingSpeed",0.80,0.10],
+	["aimingSpeed",0.75,0.10],
 	["endurance",0.80,0.20],
 	["spotDistance",0.70,0.15],
 	["spotTime",0.75,0.20],

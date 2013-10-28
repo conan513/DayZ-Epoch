@@ -5,7 +5,7 @@
 		
         Usage: [_unit,_killer] spawn fnc_banditAIKilled;
 		
-		Last updated: 12:04 AM 8/22/2013
+		Last updated: 9:08 PM 10/25/2013
 */
 
 private["_victim","_killer","_unitGroup","_groupSize"];
@@ -18,7 +18,7 @@ if ((_victim getVariable["removeNVG",0]) == 1) then {_victim removeWeapon "NVGog
 
 //Set study_body variables.
 _victim setVariable ["bodyName",(_victim getVariable ["bodyName","Unknown"]),true];		//Broadcast the unit's name (was previously a private variable).
-_victim setVariable ["deathType","bled",true];
+_victim setVariable ["deathType",(["bled","shothead"] call BIS_fnc_selectRandom2),true];
 _victim setVariable ["DZAI_deathTime",time];
 
 //Update AI count
@@ -28,21 +28,28 @@ DZAI_numAIUnits = DZAI_numAIUnits - 1;
 _unitGroup setVariable ["groupSize",_groupSize];
 if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: Group %1 has group size: %2.",_unitGroup,_groupSize];};
 
-if (!isPlayer _killer) exitWith {};
-private ["_trigger","_gradeChances"];
+if (isPlayer _killer) then {
+	private ["_trigger","_gradeChances","_weapongrade"];
 
-_unitGroup setBehaviour "COMBAT";
-if (DZAI_findKiller) then {0 = [_victim,_killer,_unitGroup] spawn fnc_findKiller;};
+	_unitGroup setBehaviour "COMBAT";
+	if (DZAI_findKiller) then {0 = [_victim,_killer,_unitGroup] spawn fnc_findKiller;};
 
-_trigger = _unitGroup getVariable "trigger";
-_gradeChances = _trigger getVariable ["gradeChances",DZAI_gradeChances1];
-if (isNil "_gradeChances") then {_gradeChances = DZAI_gradeChances1};
+	_trigger = _unitGroup getVariable "trigger";
+	_gradeChances = _trigger getVariable ["gradeChances",DZAI_gradeChances1];
+	if (isNil "_gradeChances") then {_gradeChances = DZAI_gradeChances1};
 
-_weapongrade = [DZAI_weaponGrades,_gradeChances] call fnc_selectRandomWeighted;
-0 = [_victim,_weapongrade] spawn fnc_addLoot;
+	_weapongrade = [DZAI_weaponGrades,_gradeChances] call fnc_selectRandomWeighted;
+	0 = [_victim,_weapongrade] spawn fnc_addLoot;
 
-if (DZAI_humanityGain > 0) then {
-	private ["_humanity"];
-	_humanity = _killer getVariable["humanity",0];
-	_killer setVariable ["humanity",(_humanity + DZAI_humanityGain),true];
+	if (DZAI_humanityGain > 0) then {
+		private ["_humanity"];
+		_humanity = _killer getVariable["humanity",0];
+		_killer setVariable ["humanity",(_humanity + DZAI_humanityGain),true];
+	};
+} else {
+	if (_killer != _victim) then {
+		{
+			_victim removeMagazine _x;
+		} forEach (magazines _victim);
+	};
 };

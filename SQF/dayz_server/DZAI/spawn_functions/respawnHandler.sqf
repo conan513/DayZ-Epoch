@@ -19,7 +19,7 @@ _unitGroup = _this select 2;
 DZAI_respawnQueue set [(count DZAI_respawnQueue),[_respawnTime,_trigger,_unitGroup]];
 if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Added Group %1 to respawn queue. Queue position %2. (respawnHandler)",_unitGroup,(count DZAI_respawnQueue)];};
 
-if (DZAI_respawnActive) exitWith {};
+if (!isNil "DZAI_respawnActive") exitWith {};
 
 DZAI_respawnActive = true;
 sleep (DZAI_respawnTime);
@@ -70,5 +70,5 @@ while {(count DZAI_respawnQueue) > 0} do {
 	DZAI_respawnQueue = DZAI_respawnQueue - [objNull];
 	if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: %1 groups left in respawn queue.",(count DZAI_respawnQueue)];};
 };
-DZAI_respawnActive = false;
+DZAI_respawnActive = nil;
 if (DZAI_debugLevel > 0) then {diag_log "DZAI Debug: Respawn queue is empty. Exiting respawn handler. (respawnHandler)";};
