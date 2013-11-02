@@ -27,11 +27,10 @@ MaxDynamicDebris = 1000; // Default = 100
 dayz_MapArea = 14000; // Default = 10000
 dayz_maxLocalZombies = 30; // Default = 30
 dayz_paraSpawn = false;
-dayz_tameDogs = true;
 DZE_DeathMsgGlobal = true;
 DZE_DeathMsgSide = true;
 DZE_DeathMsgTitleText = true;
-OldHeliCrash = false;
+DZE_ForceNameTagsOff = true
 
 dayz_paraSpawn = false;
 
