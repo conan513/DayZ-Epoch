@@ -30,7 +30,7 @@ dayz_paraSpawn = false;
 DZE_DeathMsgGlobal = true;
 DZE_DeathMsgSide = true;
 DZE_DeathMsgTitleText = true;
-DZE_ForceNameTagsOff = true
+DZE_ForceNameTagsOff = true;
 
 dayz_paraSpawn = false;
 
