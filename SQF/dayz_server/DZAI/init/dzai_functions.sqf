@@ -1,7 +1,7 @@
 /*
 	DZAI Functions
 	
-	Last Updated: 7:43 PM 10/20/2013
+	Last Updated: 7:49 PM 10/30/2013
 */
 
 waituntil {!isnil "bis_fnc_init"};
@@ -65,8 +65,8 @@ DZAI_spawn = {
 	if ((typeName _spawnMarker) != "STRING") exitWith {diag_log "DZAI Error: Marker string not given!"};
 	_totalAI = if ((typeName (_this select 1)) == "SCALAR") then {_this select 1} else {1};
 	_weapongrade = if ((typeName (_this select 2)) == "SCALAR") then {_this select 2} else {1};
-	_respawn = if ((typeName (_this select 2)) == "BOOL") then {_this select 2} else {true};
-	_useUPS = if ((count _this) > 3) then {_this select 3} else {false};
+	_respawn = if ((typeName (_this select 3)) == "BOOL") then {_this select 3} else {true};
+	//_useUPS = if ((count _this) > 3) then {_this select 3} else {false};
 
 	_patrolRadius = ((((getMarkerSize _spawnMarker) select 0) min ((getMarkerSize _spawnMarker) select 1)) min 300);
 
